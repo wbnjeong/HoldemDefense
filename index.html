@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#0a0f17" name="theme-color"/><meta content="120스테이지, 40분의 포커 랜덤 디펜스. 오프라인 브라우저 게임." name="description"/>
+<title>RIVERBOUND VI — 홀덤 랜덤 디펜스</title>
+<style>:root{color-scheme:dark;--bg:#0a0f17;--panel:#111923;--panel2:#151f2b;--line:#26313f;--muted:#8997a8;--text:#edf3f9;--mint:#7de2ba;--gold:#eabe70;--violet:#b5a2f0;--red:#fa8195;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;--sans:Inter,"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 40% 0,#142431 0,transparent 42%),var(--bg);font-family:var(--sans);color:var(--text);font-size:13px;line-height:1.5}button,input{font:inherit}button{cursor:pointer;transition:background .16s,border-color .16s,transform .12s;color:inherit}button:disabled{opacity:.36;cursor:not-allowed}button:not(:disabled):active{transform:translateY(1px)}button:focus-visible,input:focus-visible{outline:2px solid var(--mint);outline-offset:3px}button:hover:not(:disabled){filter:brightness(1.12)}.app{max-width:1710px;margin:auto;padding:0 25px 20px}.topbar{height:77px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:37px;height:43px;display:grid;place-items:center;border:1px solid #597969;border-radius:9px;background:linear-gradient(135deg,#254a3e,#10291f);color:var(--mint);font-size:29px;transform:rotate(-8deg);box-shadow:0 0 25px #7de2ba12}.brand h1{font-size:21px;letter-spacing:3.5px;font-weight:750;margin:0;line-height:1.18}.brand small{color:var(--muted);font-size:10px;letter-spacing:1.4px}.version{align-self:flex-start;margin:4px 0 0 2px;color:#8fa7b8;font:9px var(--mono);letter-spacing:1px;border:1px solid var(--line);padding:3px 7px;border-radius:3px}.controls{display:flex;gap:7px;align-items:center}.ctrl,.small-btn{border:1px solid var(--line);border-radius:6px;background:#15202a;padding:8px 12px;font-size:11px;font-weight:600;white-space:nowrap}.ctrl.on{color:var(--mint);border-color:#417f68;background:#162f28}.ctrl.muted{color:var(--muted)}.dashboard{display:grid;grid-template-columns:1.05fr 1.45fr 1fr 1fr .8fr;gap:10px;margin-bottom:14px}.metric{height:66px;background:linear-gradient(120deg,#17212c,#111a24);border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:10px}.metric-label{font-size:10px;color:var(--muted);letter-spacing:.7px}.metric-value{font-size:24px;font-family:var(--mono);letter-spacing:-1px;font-weight:700;line-height:1.12}.metric-value small{font:11px var(--sans);color:var(--muted);margin-left:5px}.metric-right{text-align:right}.mini-label{font-size:10px;color:var(--muted);white-space:nowrap}.currency-icon{font-size:23px;margin-right:2px;width:29px;opacity:.9}.gold{color:var(--gold)}.mint{color:var(--mint)}.violet{color:var(--violet)}.red{color:var(--red)}.overflow-metric{display:block;padding:9px 14px}.overflow-top{display:flex;align-items:center;justify-content:space-between}.overflow-top strong{font-family:var(--mono);font-size:18px}.overflow-track,.wave-track{height:4px;border-radius:3px;background:#26333e;overflow:hidden;margin:7px 0 3px}.overflow-track>i,.wave-track>i{display:block;height:100%;background:var(--mint);width:0;transition:width .25s,background .25s}.overflow-metric.danger{border-color:#b15368;background:#2b1b27}.danger .overflow-track>i{background:var(--red)}.main{display:grid;grid-template-columns:minmax(0,1fr) 386px;gap:15px;height:calc(100vh - 178px);min-height:674px;max-height:970px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:11px;overflow:hidden;box-shadow:0 10px 40px #00000016}.battle{display:flex;flex-direction:column;min-width:0}.panel-head{height:45px;flex-shrink:0;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 17px;gap:10px}.eyebrow{font-size:10px;font-family:var(--mono);letter-spacing:1.6px;color:#8fa2b5}.panel-name{font-size:12px;font-weight:700;margin-left:9px;letter-spacing:0}.live{font-size:9px;color:var(--mint);letter-spacing:1.3px;display:flex;align-items:center;gap:5px}.live:before{content:"";display:block;width:5px;height:5px;border-radius:50%;background:currentColor;box-shadow:0 0 10px #8bd9b9}.arena-wrap{position:relative;flex:1;min-height:310px;background:radial-gradient(ellipse at center,#14232b,#0b121a 76%);isolation:isolate}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}.arena-top{pointer-events:none;position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:11px}.phase-pill{font-size:9px;letter-spacing:1.3px;padding:4px 9px;border:1px solid #375646;color:#b3d1c1;background:#11231dd9;border-radius:4px}.phase-time{font:11px var(--mono);color:#9badbf}.arena-hint{position:absolute;bottom:9px;left:17px;right:17px;display:flex;justify-content:space-between;color:#617789;font-size:9px;pointer-events:none;letter-spacing:.3px}.arena-toast{pointer-events:none;position:absolute;left:50%;top:20%;transform:translate(-50%,-12px);opacity:0;transition:.3s;background:#101b24eF;border:1px solid #496b62;border-radius:8px;text-align:center;padding:12px 25px;min-width:245px;box-shadow:0 15px 50px #0007}.arena-toast.visible{opacity:1;transform:translate(-50%,0)}.arena-toast strong{display:block;font-size:19px;margin:2px 0;letter-spacing:1px}.arena-toast small{color:#acb9c6;font-size:10px}.pause-layer{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:#08101bad;backdrop-filter:blur(3px);z-index:10}.pause-layer.show{display:flex}.pause-layer strong{letter-spacing:7px;font-size:23px}.pause-layer span{color:var(--muted);font-size:11px}.unit-inspector{height:72px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:10px 17px;background:#121e29}.inspect-left{display:flex;align-items:center;gap:11px;min-width:0}.unit-symbol{font-size:26px;background:#0b141e;border:1px solid #3a4957;border-radius:8px;width:42px;height:42px;display:grid;place-items:center;flex-shrink:0}.inspect-title{font-size:12px;font-weight:650;white-space:nowrap}.inspect-sub{font-size:10px;color:var(--muted);margin-top:3px}.inspect-stat{font:20px var(--mono);text-align:right;white-space:nowrap}.inspect-stat small{display:block;color:var(--muted);font:9px var(--sans);margin-top:2px}.target-row{display:flex;align-items:center;gap:7px;padding:9px 16px 0}.target-row>span{font-size:10px;color:var(--muted);margin-right:5px}.target-btn{background:#17222d;border:1px solid #2b3b49;color:#8298aa;border-radius:4px;font-size:9px;padding:3px 7px}.target-btn.active{color:#c8e3d7;background:#22362f;border-color:#416a58}.army-size{margin-left:auto!important;color:#a7bccd!important}.upgrades{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:10px 12px 12px}.upgrade{border:1px solid var(--line);border-radius:7px;background:#15212c;text-align:left;padding:10px;min-width:0;position:relative;overflow:hidden}.upgrade:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--suit)}.upgrade-head{display:flex;align-items:center;gap:7px;font-size:11px}.upgrade-head>i{font-style:normal;font-size:17px;color:var(--suit)}.upgrade-head small{font:9px var(--mono);color:var(--muted);margin-left:auto}.upgrade-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:6px}.upgrade-bottom span{color:var(--gold);font:11px var(--mono);font-weight:600}.upgrade-bottom small{font-size:9px;color:#8194a5}.poker{display:flex;flex-direction:column}.poker-scroll{overflow:auto;scrollbar-width:thin;scrollbar-color:#324254 transparent;padding:0 17px 16px}.streets{display:flex;align-items:center;justify-content:space-between;margin:17px 0 18px;position:relative}.street{font:9px var(--mono);color:#4f6577;background:var(--panel);z-index:1;padding:0 5px;text-align:center;letter-spacing:.8px}.street:before{content:"";display:block;width:6px;height:6px;border:1px solid #42606c;border-radius:50%;margin:0 auto 7px;background:#14212a}.street.active{color:var(--mint)}.street.active:before{background:var(--mint);border-color:var(--mint);box-shadow:0 0 12px #7de2ba66}.street.passed{color:#a9cabc}.street.passed:before{background:#3c8b70;border-color:#3c8b70}.streets:before{content:"";height:1px;background:#294237;position:absolute;left:20px;right:20px;top:3px}.section-label{display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:1px;color:var(--muted);margin:10px 0 9px}.lock-tag{font-size:9px;letter-spacing:0;color:#86bea5}.lock-tag.locked{color:var(--gold)}.hole-row{display:flex;align-items:center;justify-content:center;gap:9px;position:relative}.card{width:58px;height:79px;position:relative;border-radius:7px;border:1px solid #f0f0e7;background:linear-gradient(155deg,#fcfbf5,#dfe6e6);color:#132a3b;box-shadow:0 3px 7px #0004;flex-shrink:0;user-select:none;transition:opacity .2s,box-shadow .2s,transform .2s;animation:dealIn .25s ease-out}.hole-row .card{width:65px;height:91px}.card.red-suit{color:#bd3a50}.card .rank{position:absolute;left:8px;top:5px;font-size:19px;line-height:1;font-weight:800;font-family:Georgia,serif}.card .pip{position:absolute;left:9px;top:25px;font-size:12px;line-height:1}.card .big-pip{position:absolute;right:9px;bottom:4px;font-size:34px;line-height:1.2;opacity:.94}.card .corner{position:absolute;right:5px;top:5px;font-size:8px;opacity:.45}.card.best{border-color:#f2cc81;box-shadow:0 0 0 2px #e6bd6877,0 4px 16px #e6bd6817}.card.unused{opacity:.46}.card.back{border:1px solid #2a4553;background:repeating-linear-gradient(45deg,#182d37,#182d37 3px,#162831 3px,#162831 7px);box-shadow:none;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#385967;animation:none}.card.back>span{border:1px solid #355460;border-radius:4px;width:27px;height:34px;display:grid;place-items:center;font-size:23px}.card.back>small{font:7px var(--mono);position:absolute;bottom:7px;letter-spacing:1px;color:#547987}.card.pending{filter:saturate(.4)}.hole-info{position:absolute;right:0;top:11px;width:75px;font-size:9px;color:var(--muted);line-height:1.7}.hole-info strong{font-size:19px;font-weight:600;display:block;line-height:1.2}.board-row{display:flex;justify-content:center;gap:6px}.board-row .card{width:calc((100% - 24px)/5);max-width:60px;height:77px}.board-row .rank{font-size:18px;left:7px}.board-row .pip{left:8px}.board-row .big-pip{font-size:29px;right:7px}.hand-caption{font-size:9px;min-height:14px;color:#879dac;margin:6px 0 11px;text-align:center}.preview{display:flex;align-items:center;gap:11px;padding:11px 12px;background:linear-gradient(110deg,#1c2d31,#16222c);border:1px solid #354d4b;border-radius:7px;margin-top:9px;min-height:65px}.preview-icon{font-size:25px;width:28px;text-align:center}.preview-name{font-size:15px;font-weight:700;line-height:1.2}.preview-small{font-size:9px;color:var(--muted);margin-top:4px}.preview-power{margin-left:auto;text-align:right;font:18px var(--mono)}.preview-power small{display:block;font:8px var(--sans);color:var(--muted);margin-top:3px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.action{border-radius:7px;padding:11px 9px;border:1px solid transparent;text-align:center;line-height:1.2;min-height:51px;position:relative}.action strong{font-size:12px;display:block;letter-spacing:.1px}.action small{display:block;font-size:9px;margin-top:5px;opacity:.7}.action.take{background:var(--mint);color:#102c21;border-color:#a2f0d0}.action.next{background:#243c38;border-color:#4a7463;color:#cfebdf}.action.reroll{border-color:#66563b;background:#2b291f;color:#efd29a;min-height:39px;padding:9px}.action.reroll strong{font-size:10px}.action.joker{background:#262339;border-color:#4b4267;color:#d1bffa;min-height:39px;padding:9px}.action.joker strong{font-size:10px}.action kbd{position:absolute;top:5px;right:6px;font:8px var(--mono);opacity:.4}.invested{font-size:9px;color:#8aa1b0;margin:8px 0 13px;display:flex;justify-content:space-between}.odds-box{border-top:1px solid var(--line);padding-top:12px}.odds-head{display:flex;align-items:center;justify-content:space-between;font-size:10px}.odds-head strong{font-size:10px;font-weight:600}.odds-badge{font:8px var(--mono);color:#82bfa7;letter-spacing:1.2px}.odds-controls{display:flex;gap:5px;margin-top:9px}.odds-controls button{border:1px solid #2f4050;background:#14212b;border-radius:4px;padding:4px 8px;font-size:9px;color:#7894a7}.odds-controls button.active{color:#b5dccd;border-color:#48695e;background:#21352e}.odds-summary{display:flex;align-items:center;justify-content:space-between;padding:10px 0 8px;font-size:9px;color:var(--muted)}.odds-summary strong{color:var(--mint);font-size:23px;font-family:var(--mono);display:block;line-height:1.2}.odds-summary div:last-child{text-align:right}.odds-summary div:last-child strong{font-size:17px;color:#c7d5e0}.odds-row{display:grid;grid-template-columns:77px 1fr 40px;gap:8px;align-items:center;margin:5px 0;font-size:9px;color:#aebdca}.odds-row .bar{height:4px;background:#1c2b38;border-radius:3px;overflow:hidden}.odds-row .bar i{display:block;height:100%;border-radius:3px;min-width:1px}.odds-row .percent{text-align:right;font-family:var(--mono);font-size:9px}.odds-foot{font-size:8px;color:#657f92;margin-top:9px;line-height:1.6}.empty-odds{border:1px dashed #2f424f;border-radius:6px;margin-top:10px;padding:15px 12px;font-size:10px;color:#8097a9;text-align:center;line-height:1.8}.log-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:9px;color:#617c8e;margin-top:10px}.log-message{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.log-footer .state{white-space:nowrap;font-family:var(--mono)}.modal-backdrop{position:fixed;inset:0;z-index:50;background:#050a12cb;backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:22px}.modal-backdrop.show{display:flex}.modal{max-width:700px;width:100%;max-height:92vh;overflow:auto;border:1px solid #38504b;border-radius:14px;background:radial-gradient(ellipse at 85% 0,#1c3d33aa,transparent 50%),#121c26;box-shadow:0 30px 100px #0008;padding:34px;scrollbar-width:thin}.intro-top{display:flex;align-items:center;justify-content:space-between}.intro-kicker{font:10px var(--mono);letter-spacing:2px;color:var(--mint)}.intro-symbols{color:#496655;font-size:20px;letter-spacing:7px}.intro h2{font-size:45px;letter-spacing:4px;line-height:1.1;margin:19px 0 12px;font-weight:800}.intro h3{font-size:16px;font-weight:500;color:#b4c9c7;margin:0}.intro-description{font-size:12px;color:#8ba1b1;line-height:1.9;margin:15px 0 24px}.intro-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.intro-step{border:1px solid #2e4449;border-radius:8px;padding:14px 12px;background:#15263088}.intro-step b{font:11px var(--mono);color:var(--mint);display:block;margin-bottom:10px}.intro-step strong{display:block;font-size:12px;margin-bottom:6px}.intro-step p{font-size:10px;line-height:1.8;color:#8fa9b8;margin:0}.intro-note{border-left:2px solid var(--gold);padding:9px 12px;margin:21px 0;background:#282b2480;color:#bfc6b1;font-size:10px;line-height:1.8}.seed-row{display:flex;gap:9px;align-items:center;color:#8ea7b8;font-size:10px;margin:12px 0}.seed-row input{flex:1;max-width:200px;background:#0d1922;border:1px solid #334951;border-radius:5px;color:#cde0e6;padding:7px 10px;font:11px var(--mono);min-width:0}.seed-row span{font-size:9px;color:#647e90}.intro-buttons{display:flex;gap:9px;margin-top:17px;flex-wrap:wrap}.big-btn{background:var(--mint);color:#112d21;border:1px solid #a1edce;border-radius:7px;padding:13px 22px;font-size:13px;font-weight:750;flex:1}.big-btn.secondary{border-color:#3b535e;background:#1c303b;color:#b2cbd7;font-weight:500}.intro-foot{font-size:9px;color:#688395;text-align:center;margin-top:21px;line-height:1.9}.modal h2{margin-top:0}.modal .close{float:right;border:1px solid var(--line);background:#1b2c36;color:#b1c8d4;border-radius:5px;padding:5px 11px;font-size:11px}.help-section{border-top:1px solid #2c404b;margin-top:19px;padding-top:14px}.help-section h3{font-size:13px;color:var(--mint);margin:0 0 9px}.help-section p,.help-section li{font-size:11px;color:#adc1ce;line-height:1.85}.help-section ul{padding-left:20px;margin:8px 0}.help-section table{width:100%;border-collapse:collapse;font-size:10px;margin:10px 0}.help-section td,.help-section th{padding:7px 6px;border-bottom:1px solid #233641;text-align:right}.help-section td:first-child,.help-section th:first-child{text-align:left}.help-section th{color:#8aafa0;font-weight:500}.help-section code{font-family:var(--mono);color:#d5c599}.help-section .source{font-size:9px;overflow-wrap:anywhere;color:#6e8b9b}.help-section a{color:#82bfa7}.result-title{font-size:31px;letter-spacing:3px;margin:14px 0 7px}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:25px 0}.result-grid>div{background:#152832;border:1px solid #31444b;border-radius:8px;padding:14px;text-align:center}.result-grid small{color:var(--muted);font-size:10px;display:block}.result-grid strong{font:26px var(--mono);color:#dbe9e8}.best-result{padding:14px;border:1px solid #4e6651;border-radius:7px;font-size:12px;text-align:center;color:#c9dabc}.hidden{display:none!important}body.modal-open{overflow:hidden}@keyframes dealIn{from{opacity:.1;transform:translateY(-7px) rotate(-4deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@media(min-width:1600px){.main{grid-template-columns:minmax(0,1fr) 405px}.poker-scroll{padding:0 20px 20px}.hole-row .card{height:99px;width:71px}.board-row .card{height:83px;max-width:64px}.section-label{margin-top:14px}.actions{margin-top:15px}.preview{min-height:73px}}
+@media(max-width:1150px){.app{padding:0 14px 15px}.main{grid-template-columns:minmax(0,1fr) 345px;gap:11px}.dashboard{gap:7px}.metric{padding:9px 11px}.metric-value{font-size:21px}.metric-right{display:none}.upgrade{padding:8px 6px}.upgrade-head{gap:4px}.upgrade-head small{font-size:8px}.upgrade-bottom small{display:none}.poker-scroll{padding:0 13px 13px}.hole-info{width:60px;font-size:8px}.board-row{gap:5px}.brand h1{font-size:18px}.controls .ctrl{padding:7px 9px}.version{display:none}.inspect-title{font-size:11px}}
+@media(max-width:860px){.topbar{height:69px}.brand h1{font-size:16px;letter-spacing:2px}.brand small{font-size:8px}.controls{gap:4px}.controls .ctrl{padding:6px 8px;font-size:10px}.brand-mark{width:29px;height:34px;font-size:23px}.main{grid-template-columns:minmax(0,1fr);height:auto;max-height:none;min-height:0}.battle{height:660px}.poker{height:auto}.poker-scroll{overflow:visible;padding:0 22px 22px}.dashboard{grid-template-columns:1fr 1.25fr 1fr 1fr .7fr;margin-bottom:10px}.metric{height:59px;padding:7px 9px}.metric-label{font-size:8px}.metric-value{font-size:18px}.currency-icon{font-size:16px;width:14px}.metric-value small{font-size:9px;margin-left:0}.mini-label{font-size:8px}.overflow-top strong{font-size:15px}.hole-info{position:static;width:85px;margin-left:15px;font-size:10px}.hole-row .card{width:70px;height:99px}.board-row .card{width:65px;height:87px;max-width:65px}.preview{margin-top:17px}.poker-scroll>.section-label{margin-top:17px}.odds-chart{display:grid;grid-template-columns:1fr 1fr;column-gap:25px}.odds-row{grid-template-columns:82px 1fr 43px}.arena-hint{font-size:8px}.log-footer{margin-bottom:8px}.army-size{font-size:9px!important}}
+@media(max-width:520px){.app{padding:0 9px 14px}.topbar{height:68px;gap:8px}.brand small{letter-spacing:.5px}.brand h1{font-size:13px;letter-spacing:1.5px}.brand{gap:8px}.brand-mark{display:none}.controls .ctrl{padding:5px 7px}.controls .ctrl.hide-mobile{display:none}.dashboard{gap:5px;grid-template-columns:1fr 1fr 1fr}.dashboard .metric:first-child{grid-column:1}.dashboard .overflow-metric{grid-column:2/4}.metric{height:56px}.metric-right{display:block}.metric-value{font-size:21px}.metric-label{font-size:9px}.battle{height:536px}.panel-head{padding:0 11px}.panel-name{font-size:10px;margin-left:5px}.eyebrow{font-size:9px}.unit-inspector{padding:8px 11px}.inspect-sub{font-size:8px}.inspect-stat{font-size:16px}.inspect-title{font-size:10px}.upgrade-head{font-size:9px}.upgrade-head>i{font-size:14px}.upgrade-head small{font-size:7px}.upgrades{gap:5px;padding:9px 7px}.upgrade-bottom span{font-size:10px}.target-row{padding:9px 9px 0;gap:4px}.target-row>span{font-size:9px;margin-right:3px}.target-btn{padding:3px 5px;font-size:8px}.poker-scroll{padding:0 14px 17px}.odds-chart{display:block}.modal{padding:23px 20px}.modal-backdrop{padding:12px}.intro h2{font-size:29px;letter-spacing:2px}.intro h3{font-size:13px}.intro-description{font-size:11px}.intro-steps{gap:6px}.intro-step{padding:11px 9px}.intro-step strong{font-size:10px}.intro-step p{font-size:9px}.intro-note{font-size:9px}.seed-row span{display:none}.big-btn{font-size:11px;padding:12px}.result-grid{gap:6px}.result-grid strong{font-size:21px}.result-grid small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* 0.2 · longer campaign, economy controls, third card, unit archive */
+.brand h1 em{font-style:normal;color:var(--gold)}.main{min-height:785px;max-height:1100px;height:calc(100vh - 202px);grid-template-columns:minmax(0,1fr) 405px}.battle{min-height:785px}.poker-scroll{padding-bottom:20px}.campaign-strip{height:34px;flex-shrink:0;display:flex;align-items:center;gap:13px;padding:0 17px;background:#0e1922;border-bottom:1px solid #22333d;font:9px var(--mono);color:#9eb9bf}.campaign-track{height:4px;background:#283742;flex:1;position:relative;border-radius:4px}.campaign-track>i{height:100%;display:block;background:linear-gradient(90deg,#72c9ab,#eabe70);width:0}.campaign-track>span{position:absolute;top:-2px;width:8px;height:8px;border:1px solid #a28558;background:#14212c;transform:translateX(-50%) rotate(45deg)}.campaign-track>span.cleared{background:#eabe70}.member-bar{min-height:43px;flex-shrink:0;display:flex;gap:9px;align-items:center;padding:7px 16px;background:#111b25;border-bottom:1px solid #24323d}.member-choice{display:flex;align-items:center;gap:8px;flex:1;min-width:0}.member-choice label{font-size:10px;color:#7b92a3;white-space:nowrap}.member-choice select{border:1px solid #35424f;color:#c7d8df;background:#17242e;border-radius:5px;padding:5px 7px;font:10px var(--sans);min-width:0;width:100%;max-width:340px}.member-bar>span{font:10px var(--mono);color:var(--muted);white-space:nowrap}.sell-btn{border:1px solid #715239;color:#e7bf8a;background:#29261f;border-radius:5px;padding:6px 9px;font-size:10px;white-space:nowrap}.upgrades{grid-template-columns:repeat(5,1fr);gap:6px;padding-bottom:6px}.upgrade{padding:9px 8px}.upgrade-head{font-size:10px;gap:4px}.upgrade-head small{font-size:8px}.upgrade-bottom span{font-size:10px}.research-note{font-size:9px;color:#738d9d;text-align:center;padding:3px 9px 10px;flex-shrink:0}.research-note b{color:#b3a7d6;font-weight:500}.side-tabs{display:flex;padding:10px 13px 0;gap:5px;flex-shrink:0}.side-tabs button{flex:1;min-width:0;padding:7px 5px;color:#859da9;font-size:11px;border:1px solid #2b3b46;background:#13222c;border-radius:5px}.side-tabs button.active{color:#c5e9d9;background:#24392f;border-color:#547365}.side-tabs #shopBadge{color:#eabe70;font-size:9px}.pocket-chance{text-align:center;font-size:9px;color:#83959f;margin:7px 0 13px}.pocket-chance.active{color:#eabe70}.hole-row .card.third{border-color:#c7aeed;box-shadow:0 0 12px #be9dec30}.hole-row .card.third:after{content:'Ⅲ';position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);background:#6a5094;color:white;font:9px var(--mono);padding:0 6px;border-radius:4px}.preview{padding:10px;gap:8px}.preview-copy{min-width:0;flex:1}.preview-name{font-size:12px}.preview-small{font-size:9px;white-space:normal;line-height:1.65}.preview-power{font-size:19px}.quality-row{display:flex;align-items:center;gap:8px;font-size:8px;color:#92a1b1;padding:8px 0 2px}.quality-row>span{white-space:nowrap}.quality-row>b{font:9px var(--mono);min-width:32px;text-align:right}.quality-track{height:3px;background:#263340;flex:1}.quality-track i{height:100%;background:var(--gold);display:block;width:0}.streets{margin:15px 0}.store-intro{padding-top:23px}.store-intro h3{font-size:17px;line-height:1.5;font-weight:550;color:#d5e2e4;margin:9px 0}.store-intro p{font-size:10px;color:#8ca3b1;line-height:1.9;margin-bottom:18px}.shop-item{border:1px solid #34444e;background:linear-gradient(135deg,#192832,#121e26);border-radius:9px;margin:12px 0;padding:15px;position:relative;overflow:hidden}.shop-item:before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--shop)}.shop-item-head{display:flex;align-items:center;gap:10px}.shop-item-symbol{font-size:29px;color:var(--shop);line-height:1;width:34px;text-align:center}.shop-item-head h4{font-size:13px;margin:1px 0;color:#e0e6e8}.shop-item-head small{font:8px var(--mono);letter-spacing:1.1px;color:var(--shop)}.shop-level{margin-left:auto;color:#90a3b3;font:11px var(--mono)}.shop-item p{font-size:10px;line-height:1.8;color:#94a8b7;margin:11px 0}.shop-value{font-size:11px;color:var(--shop);margin:12px 0}.shop-buy{width:100%;padding:9px;border:1px solid #5e5a43;background:#302c21;color:#ead09c;border-radius:5px;font-size:11px}.store-summary{border:1px dashed #385145;padding:13px;margin-top:18px;font-size:10px;line-height:1.9;color:#8aa5a7;border-radius:7px}.archive-card{display:grid;grid-template-columns:57px minmax(0,1fr);gap:13px;border-bottom:1px solid #2b3a44;padding:14px 0}.archive-glyph{width:54px;height:54px;display:grid;place-items:center;font-size:29px;border:1px solid var(--grade);border-radius:12px;background:#1d2837;box-shadow:inset 0 0 20px #ffffff05}.archive-card.elite .archive-glyph{transform:rotate(-5deg);box-shadow:0 0 16px color-mix(in srgb,var(--grade),transparent 85%);border-width:2px}.archive-name{color:var(--grade);font-size:12px;font-weight:600}.archive-range{font:11px var(--mono);color:#d1dce1;margin:4px 0}.archive-ability{font-size:9px;line-height:1.8;color:#91a3b1}.archive-count{float:right;font:9px var(--mono);color:#90a4ae}.arena-toast.rare{background:linear-gradient(115deg,#172433f5,#2d2441f5);border-width:2px;box-shadow:0 0 55px #b7a0ee35}.inspect-title{white-space:normal}.unit-inspector{height:78px}.preview-icon{flex-shrink:0}.archive-panel,.shop-panel{flex:1}.odds-foot{font-size:9px}.odds-row{font-size:10px}.odds-row .percent{font-size:10px}
+@media(min-width:1600px){.main{grid-template-columns:minmax(0,1fr) 435px}}
+@media(max-width:1150px){.main{grid-template-columns:minmax(0,1fr) 365px}.upgrade-head small{display:none}.member-bar>span{display:none}.preview-power{font-size:17px}}
+@media(max-width:860px){.main{grid-template-columns:1fr;height:auto;max-height:none;min-height:0}.battle{height:755px;min-height:0}.poker{height:auto;min-height:640px}.shop-panel,.archive-panel{overflow:visible}.upgrades{gap:7px}.upgrade-head small{display:inline}.brand small{font-size:7px}.campaign-strip{font-size:9px}.member-bar{padding:7px 12px}.side-tabs{padding:12px 15px 0}.archive-card{grid-template-columns:62px 1fr}.preview-power{font-size:22px}.poker-scroll{max-height:none}.odds-row{font-size:10px}.odds-chart{display:block}}
+@media(max-width:520px){.main{gap:12px}.battle{height:635px}.brand h1{font-size:12px;letter-spacing:1px}.brand small{font-size:6px;letter-spacing:.1px}.controls .ctrl{padding:5px;font-size:9px}.controls{gap:3px}.topbar{gap:3px}.unit-inspector{height:82px;gap:6px}.inspect-left{gap:7px}.unit-symbol{width:31px;height:36px;font-size:23px}.inspect-stat{font-size:16px}.inspect-title{font-size:10px}.inspect-sub{font-size:8px}.upgrade{padding:7px 5px}.upgrade-head{font-size:8px;gap:3px}.upgrade-head>i{font-size:13px}.upgrade-head small{display:none}.upgrade-bottom span{font-size:9px}.upgrades{padding:8px 7px 4px;gap:5px}.research-note{font-size:8px}.campaign-strip{padding:0 10px;font-size:8px;gap:9px}.member-choice label{font-size:9px}.member-choice select{font-size:9px;padding:5px 3px}.sell-btn{font-size:9px}.member-bar{gap:5px;padding:7px 8px}.arena-top{left:10px;top:10px;gap:6px}.phase-time{font-size:9px}.arena-hint{left:10px;right:10px;font-size:7px}.intro h2{font-size:26px}.intro-description{font-size:10px}.intro-step p{font-size:9px}.modal.intro{padding:22px 16px}.seed-row{font-size:9px}.poker{min-height:660px}.quality-row{font-size:8px}.pocket-chance{font-size:9px}}
+
+.backup-controls{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid #2c404b;padding-top:17px;margin-top:18px}.backup-controls .ctrl{font-size:10px}
+@media(max-width:520px){.dashboard .metric:first-child .metric-right{display:none}.dashboard .metric{gap:6px}.dashboard .metric>div{min-width:0}.dashboard .metric-label{font-size:8px;letter-spacing:0;white-space:nowrap}.dashboard .metric-value{white-space:nowrap}.dashboard .currency-icon{width:12px;font-size:16px;flex-shrink:0}.dashboard .metric-right{display:none}}
+
+/* Version 0.3: physical combat, targeted joker, isolated editor. */
+.combat-meter{display:flex;align-items:center;gap:16px;padding:8px 17px;background:#0e1923;border-top:1px solid #2a3d48;flex-shrink:0;font:10px var(--mono)}.combat-meter>div{display:flex;align-items:baseline;gap:5px}.combat-meter small{font:9px var(--sans);color:#94a8b7}.combat-meter b{font-size:14px;color:#d5e7e0}.combat-meter span{color:#617c8c;font-size:8px}.combat-meter button{margin-left:auto;border:0;background:none;color:#8db6c5;font-size:10px;white-space:nowrap}.editor-ctrl{color:#cdb7f4;border-color:#594d73}.card.selectable{cursor:pointer;opacity:1;outline:1px dashed #bd9ff066;transform:translateY(-2px)}.card.selectable:hover,.card.chosen{outline:3px solid #c3a4ff;box-shadow:0 0 24px #9a74ef77;transform:translateY(-6px)}.joker-panel{background:#241e33;border:1px solid #705491;border-radius:8px;padding:11px;margin-top:10px}.joker-panel strong{font-size:11px;color:#e0cafa}.joker-panel p{font-size:10px;color:#b7a6c9;margin:6px 0}.joker-panel>div{display:flex;gap:8px}.joker-panel button{padding:6px 8px;border:1px solid #695181;background:#3a2b4c;border-radius:5px;font-size:10px}.joker-panel button:last-child{background:transparent;color:#b9a5c6}.editor-modal{max-width:910px}.editor-modal h2{font-size:27px;margin:10px 0}.editor-warning{padding:10px 14px;border-left:2px solid #b393e4;background:#211c30;color:#bcb0d2;font-size:11px}.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.editor-grid section{border:1px solid #35404f;background:#101a26;border-radius:8px;padding:15px;min-width:0}.editor-grid h3{font-size:12px;color:#dbc592;margin:0 0 12px}.editor-grid label{display:block;font-size:10px;color:#94a6b8;margin:7px 0 4px}.editor-grid p{font-size:10px;color:#869daf;line-height:1.7}.editor-grid input,.editor-grid select{background:#0c1420;border:1px solid #374b5a;border-radius:4px;color:#dbe7eb;padding:8px;font:12px var(--mono);width:100%;min-width:0}.editor-grid button{border:1px solid #455a64;background:#21333c;color:#cae0dc;border-radius:5px;padding:8px 10px;font-size:11px;white-space:nowrap}.editor-row{display:flex;gap:7px;align-items:center;margin:8px 0}.editor-row>input{max-width:90px}.editor-row>label{display:flex;align-items:center;gap:7px;margin:0;white-space:nowrap}.editor-row>label>input{width:60px}.editor-row>select{width:auto;flex:1}.editor-row .ed-primary{margin-left:auto}.editor-preview{min-height:20px}.editor-message{padding:10px;background:#20302d;color:#b2d9c8;border-radius:5px;margin-top:14px;font-size:11px}.editor-modal .close{position:sticky;float:right;top:0;z-index:1}.intro-buttons{flex-wrap:wrap}.help-table{width:100%;border-collapse:collapse;font-size:11px;margin:10px 0}.help-table th,.help-table td{padding:6px 8px;text-align:right;border-bottom:1px solid #2a3a46}.help-table th:first-child,.help-table td:first-child{text-align:left}.inspect-sub{white-space:normal}.unit-inspector{height:auto;min-height:77px}.research-note{font-size:9px}.main{min-height:730px}
+@media(max-width:1000px){.combat-meter{gap:8px;padding:7px 10px}.combat-meter small{font-size:8px}.combat-meter b{font-size:12px}.combat-meter>div{flex-wrap:wrap;gap:3px}.combat-meter small{width:100%}}
+@media(max-width:700px){.editor-grid{grid-template-columns:1fr}.controls{gap:4px;flex-wrap:wrap;justify-content:flex-end}.ctrl{padding:6px 8px}.combat-meter{gap:13px}.combat-meter span{display:none}.combat-meter button{font-size:9px}.editor-modal{padding:20px!important}.editor-row{flex-wrap:wrap}.editor-row button{padding:7px}.main{min-height:0}.version{font-size:8px}.topbar{height:auto;min-height:83px;gap:8px}}
+
+/* River is a persistent confirmation state, not an automatic reward. */
+.action.take.river-ready{border-color:#f1cc7a;box-shadow:inset 0 0 18px #eac16d16,0 0 0 1px #edce8640;}
+.action.take.river-ready strong{color:#ffe1a0;}
+
+/* 0.5 / double tempo, single-viewport touch interface. */
+button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-color:transparent }
+#contractPanel{display:flex;flex-direction:column;min-height:0;overflow:hidden;padding-bottom:9px}
+.contract-body{flex:1;min-height:0;overflow:auto;scrollbar-width:thin;padding:0 2px 8px;overscroll-behavior:contain}
+#contractActions{flex-shrink:0;margin-top:7px}
+#contractPanel>.invested{flex-shrink:0;margin:7px 0 0}
+#armyHome{flex-shrink:0}.mobile-dock,.mobile-only,.odds-expand{display:none}
+#armyPanel{min-height:0;flex:1}.pause-layer>div{text-align:center}.pause-layer p{font-size:12px;color:#9dbbae}
+.pause-layer button{min-width:128px;min-height:46px;margin-top:10px;font-size:14px}
+.placement-hint{position:absolute;bottom:8px;left:8px;right:8px;text-align:center;background:#19372eed;color:#c8f3df;padding:8px;border:1px solid #568975;border-radius:6px;font-size:12px;z-index:3}
+.placement-hint button{background:#203b36;border:1px solid #64877a;border-radius:6px;padding:7px 10px;color:#d8eade;margin-left:10px}
+.settings-modal{max-width:650px}.settings-modal h2{font-size:25px}.settings-modal p{font-size:13px;line-height:1.7;color:#a8c0c8}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid #304350;padding:15px 0;flex-wrap:wrap}
+.setting-row button,.setting-row select,.settings-actions button{background:#1a2c36;color:#d6e6e7;border:1px solid #3c5560;border-radius:7px;min-height:44px;padding:9px 11px;font-size:13px}
+#speedOptions{display:flex;gap:5px;flex-wrap:wrap}#speedOptions .on{background:#204837;color:#a5f0cc;border-color:#548871}
+.settings-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.settings-note{font-size:11px!important;color:#8fa9b4!important}
+.settings-modal>.close{position:sticky;top:0;float:right;z-index:2;min-height:44px}.settings-modal select{font-size:16px}
+.low-graphics .modal-backdrop{backdrop-filter:none}.low-graphics .card{animation:none}.low-graphics *{scroll-behavior:auto!important}
+.army-intro{padding:12px 10px 4px}.army-intro b{display:block;font-size:14px;color:#dce9e4}.army-intro small{display:block;color:#8fa9b7;margin-top:4px;font-size:11px}
+.formation-roster{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px}
+.formation-roster button{background:#12232e;border:1px solid #2d4753;border-radius:7px;padding:9px 7px;display:flex;align-items:center;gap:7px;min-height:55px;text-align:left}
+.formation-roster button.active{border-color:var(--unit);background:#1e343a}.formation-roster button>b{color:var(--unit);font-size:20px}.formation-roster span{font-size:11px;flex:1}.formation-roster small{display:block;font-size:9px;color:#9bb2be}.formation-roster strong{font:12px var(--mono);text-align:right}
+.move-button{display:block;width:calc(100% - 18px);margin:10px 9px;min-height:44px}.mobile-army-note{font-size:11px;color:#93adba;margin:9px 12px 15px}
+/* A form-fit UI, rather than stacking the complete desktop layout vertically. */
+.mobile-ui{overflow:hidden;height:100vh;height:100dvh;overscroll-behavior:none}
+.mobile-ui .app{display:flex;flex-direction:column;width:100%;max-width:none;height:100vh;height:100dvh;padding:env(safe-area-inset-top,0px) max(6px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(6px,env(safe-area-inset-left,0px));overflow:hidden}
+.mobile-ui .topbar{height:44px;min-height:44px;gap:6px;flex-shrink:0;margin:0;padding:4px 2px}
+.mobile-ui .brand{gap:7px;min-width:0}.mobile-ui .brand-mark{width:26px;height:29px;font-size:21px;border-radius:6px}
+.mobile-ui .brand h1{font-size:14px;letter-spacing:1px;white-space:nowrap}.mobile-ui .brand small{font-size:8px;letter-spacing:.2px}.mobile-ui .brand .version{display:none}
+.mobile-ui .controls{gap:5px;flex-wrap:nowrap}.mobile-ui .controls button{display:none}.mobile-ui .controls #pauseBtn,.mobile-ui .controls #speedBtn{display:block;min-height:40px;font-size:12px;padding:7px 9px}
+.mobile-ui .dashboard{grid-template-columns:1fr 1fr 1fr 1fr .8fr;gap:4px;margin:4px 0 6px;flex-shrink:0}
+.mobile-ui .dashboard .metric{height:52px;padding:5px 7px;gap:0;min-width:0;border-radius:7px;display:block}
+.mobile-ui .dashboard .metric-label{font:8px var(--mono);letter-spacing:.4px;white-space:nowrap;line-height:13px}
+.mobile-ui .dashboard .metric-value{font:700 19px var(--mono);letter-spacing:-.4px;line-height:25px}
+.mobile-ui .dashboard .metric-value small{font:8px var(--mono);margin:0}.mobile-ui .dashboard .metric-right,.mobile-ui .currency-icon{display:none}
+.mobile-ui .overflow-top{display:block}.mobile-ui #enemyValue{font:700 19px var(--mono);line-height:25px}.mobile-ui #enemyValue small{display:none}
+.mobile-ui .overflow-track{height:2px;margin:0}.mobile-ui #overflowText{display:none}
+.mobile-ui .main{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:min(29dvh,248px) minmax(0,1fr);gap:6px;flex:1;min-height:0;max-height:none;height:auto}
+.mobile-ui .battle{height:auto;min-height:0;display:flex;flex-direction:column;border-radius:9px}.mobile-ui .battle>.panel-head{display:none}
+.mobile-ui .campaign-strip{height:25px;min-height:25px;flex-shrink:0;padding:0 8px;gap:8px;font-size:9px}
+.mobile-ui .campaign-strip>span{white-space:nowrap}.mobile-ui .campaign-track{min-width:10px}.mobile-ui .collapse-arena{display:block;background:none;border:0;color:#9dc3b3;padding:3px 0 3px 3px;min-height:23px;font-size:9px;white-space:nowrap}
+.mobile-ui .arena-wrap{min-height:0;flex:1;height:auto}.mobile-ui #arena{width:100%;height:100%;touch-action:none}
+.mobile-ui .arena-top{top:5px;left:7px;right:7px;gap:5px}.mobile-ui .phase-pill{font-size:7px;letter-spacing:.4px;padding:2px 4px}.mobile-ui .phase-time{font-size:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mobile-ui .arena-hint{display:none}.mobile-ui .arena-toast{min-width:160px;max-width:90%;top:30%;padding:7px 10px;border-radius:6px}.mobile-ui .toast-eyebrow{font-size:7px}.mobile-ui .toast-title{font-size:17px}.mobile-ui .toast-sub{font-size:9px}
+.mobile-ui .combat-meter{min-height:28px;padding:4px 8px;gap:12px}.mobile-ui .combat-meter>div{display:flex;align-items:center;gap:4px;flex-wrap:nowrap}.mobile-ui .combat-meter small{font-size:8px;width:auto}.mobile-ui .combat-meter b{font-size:11px}.mobile-ui .combat-meter span{display:none}.mobile-ui #stageIntelBtn{font-size:9px;padding:5px 3px;min-height:24px}
+.mobile-ui .poker{height:auto;min-height:0;border-radius:9px;display:flex;flex-direction:column}.mobile-ui .poker>.panel-head,.mobile-ui .side-tabs{display:none}
+.mobile-ui .poker-scroll{min-height:0;max-height:none;overflow:auto;overscroll-behavior:contain;padding:0 8px 8px;-webkit-overflow-scrolling:touch}
+.mobile-ui #contractPanel{overflow:hidden;flex:1;min-height:0;padding:0 8px 7px}
+.mobile-ui .contract-body{overflow:auto;flex:1;min-height:0;padding:0 2px 6px;scrollbar-width:thin}
+.mobile-ui .streets{display:none}.mobile-ui .section-label{margin:5px 0 3px;font-size:9px;letter-spacing:.3px;line-height:12px}
+.mobile-ui .hole-row{gap:7px}.mobile-ui .hole-row .card{height:55px;width:44px}.mobile-ui .board-row{gap:7px}.mobile-ui .board-row .card{height:55px;width:44px;max-width:none}
+.mobile-ui .card .rank{font-size:17px;left:5px;top:4px}.mobile-ui .card .pip{font-size:10px;left:6px;top:22px}.mobile-ui .card .big-pip{font-size:24px;bottom:1px;right:4px}.mobile-ui .card .corner{display:none}.mobile-ui .card.back>span{width:22px;height:26px;font-size:18px}.mobile-ui .card.back>small{font-size:6px;bottom:2px}
+.mobile-ui .pocket-chance{font-size:9px;margin:3px 0 1px;line-height:12px}.mobile-ui .hand-caption{display:none}
+.mobile-ui .preview{min-height:40px;height:auto;padding:6px 8px;margin-top:6px;gap:7px;border-radius:6px}.mobile-ui .preview-icon{font-size:21px;width:23px}.mobile-ui .preview-name{font-size:12px}.mobile-ui .preview-small{font-size:9px;margin-top:3px}.mobile-ui .preview-power{font-size:16px}.mobile-ui .preview-power small{font-size:7px}
+.mobile-ui .quality-row{display:none}.mobile-ui #contractPanel>.invested{display:none}
+.mobile-ui #contractActions{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:0;padding-top:5px;background:var(--panel);position:relative;flex-shrink:0;border-top:1px solid #2c3e49}
+.mobile-ui .action{min-height:47px;padding:6px 8px;border-radius:7px}.mobile-ui .action strong{font-size:13px}.mobile-ui .action small{font-size:10px;margin-top:3px}.mobile-ui .action.reroll,.mobile-ui .action.joker{min-height:44px;padding:7px 6px}.mobile-ui .action.reroll strong,.mobile-ui .action.joker strong{font-size:11px}.mobile-ui .action kbd{display:none}
+.mobile-ui .odds-box{padding-top:4px;margin-top:7px}.mobile-ui .odds-head{font-size:10px}.mobile-ui .odds-badge{font-size:7px;margin-left:auto;margin-right:8px}.mobile-ui .odds-expand{display:block;background:#20333e;border:1px solid #3b535f;border-radius:5px;font-size:11px;color:#bdd9d6;min-width:50px;min-height:32px;padding:4px 9px}
+.mobile-ui .odds-summary{padding:7px 0 4px;font-size:9px}.mobile-ui .odds-summary strong{font-size:18px}.mobile-ui .odds-summary div:last-child strong{font-size:16px}.mobile-ui .odds-controls{margin-top:4px}.mobile-ui .odds-controls button{min-height:36px;min-width:98px;font-size:11px;padding:5px 8px}
+.mobile-ui .odds-chart,.mobile-ui .odds-foot{display:none}.mobile-ui .odds-box.expanded .odds-chart,.mobile-ui .odds-box.expanded .odds-foot{display:block}.mobile-ui .empty-odds{margin-top:5px;padding:6px;font-size:10px;line-height:1.6}
+.mobile-ui .joker-panel{margin:6px 0;padding:8px}.mobile-ui .joker-panel p{font-size:10px;line-height:1.6}.mobile-ui .joker-panel button{min-height:44px;font-size:11px}.mobile-ui .joker-panel>div{display:grid;grid-template-columns:1fr 64px;gap:5px}
+.mobile-ui .card.selectable,.mobile-ui .card.chosen{transform:none}.mobile-ui .card.chosen{outline:3px solid #c3a4ff}
+.mobile-ui .mobile-dock{display:grid;grid-template-columns:repeat(5,1fr);flex-shrink:0;gap:4px;height:58px;padding:5px 0 4px;background:#0a111a}
+.mobile-ui .mobile-dock button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:#111e2a;border:1px solid #253b48;border-radius:7px;color:#8ca8b8;min-height:48px;min-width:0;padding:4px 0;line-height:1.1}
+.mobile-ui .mobile-dock button b{font-size:19px;font-weight:500}.mobile-ui .mobile-dock button span{font-size:11px}.mobile-ui .mobile-dock button.active{background:#18352c;color:#a8f3ce;border-color:#497a65}
+.mobile-ui .log-footer{display:none}.mobile-ui .modal-backdrop{padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))}
+.mobile-ui .modal{max-height:calc(100dvh - 22px);padding:20px 16px!important;overflow:auto;overscroll-behavior:contain;border-radius:12px}.mobile-ui .modal input,.mobile-ui .modal select{font-size:16px}
+.mobile-ui .modal button{min-height:44px}.mobile-ui .intro h2{font-size:28px;letter-spacing:1.5px}.mobile-ui .intro h3{font-size:14px}.mobile-ui .intro-description{font-size:12px;line-height:1.7;margin:12px 0}.mobile-ui .intro-steps{display:none}.mobile-ui .intro-note{font-size:11px;margin:15px 0}.mobile-ui .intro-foot{font-size:10px}.mobile-ui .intro-buttons{gap:7px}.mobile-ui .big-btn{min-width:110px;font-size:12px;padding:11px 10px}
+.mobile-ui .seed-row{font-size:12px}.mobile-ui .seed-row span{display:none}.mobile-ui .seed-row input{max-width:none}.mobile-ui .close{font-size:12px}
+.mobile-ui .help-table{font-size:10px}.mobile-ui .help-table th,.mobile-ui .help-table td{padding:6px 4px}.mobile-ui .help-section p{font-size:12px}
+.mobile-ui .shop-item p{font-size:12px}.mobile-ui .shop-buy{min-height:44px;font-size:13px}.mobile-ui .shop-value{font-size:12px}.mobile-ui .store-intro p{font-size:11px}
+.mobile-ui .archive-name{font-size:14px}.mobile-ui .archive-ability{font-size:11px}.mobile-ui .archive-range{font-size:12px}
+.mobile-ui #armyControls{border-top:1px solid #2a4250}.mobile-ui .unit-inspector{padding:10px;min-height:74px;height:auto}.mobile-ui .inspect-title{font-size:12px;white-space:normal}.mobile-ui .inspect-sub{font-size:10px;line-height:1.65}.mobile-ui .inspect-stat{font-size:16px}.mobile-ui .inspect-stat small{font-size:9px}
+.mobile-ui .member-bar{display:flex;flex-wrap:wrap;gap:6px;padding:8px}.mobile-ui .member-choice{width:100%;flex-basis:100%}.mobile-ui .member-choice select{min-height:44px;font-size:16px;padding:5px;width:100%}.mobile-ui .member-choice label{font-size:11px;white-space:nowrap}.mobile-ui #memberPower{display:inline;font-size:12px}.mobile-ui .sell-btn{margin-left:auto;min-height:44px;font-size:12px}
+.mobile-ui .target-row{padding:4px 8px;flex-wrap:wrap;gap:5px}.mobile-ui .target-btn{min-height:38px;font-size:11px;padding:6px 10px}.mobile-ui .army-size{display:none}
+.mobile-ui .upgrades{grid-template-columns:repeat(2,1fr);gap:7px;padding:8px}.mobile-ui .upgrade{min-height:76px;padding:10px}.mobile-ui .upgrade:first-child{grid-column:span 2}.mobile-ui .upgrade-head{font-size:13px;gap:7px}.mobile-ui .upgrade-head i{font-size:18px}.mobile-ui .upgrade-head small{display:inline;font-size:11px}.mobile-ui .upgrade-bottom span{font-size:13px}.mobile-ui .upgrade-bottom small{font-size:11px;color:#a3c7bd}.mobile-ui .research-note{font-size:10px;padding:5px 10px 10px}
+.mobile-ui .placement-hint{font-size:11px;padding:4px}.mobile-ui .placement-hint button{min-height:36px;font-size:11px;padding:5px 9px}
+.mobile-ui.arena-collapsed .main{grid-template-rows:55px minmax(0,1fr)}.mobile-ui.arena-collapsed .arena-wrap{display:none}.mobile-ui.arena-collapsed .combat-meter{min-height:26px}
+@media (max-height:710px) and (orientation:portrait){.mobile-ui .main{grid-template-rows:160px minmax(0,1fr)}.mobile-ui .topbar{height:40px;min-height:40px}.mobile-ui .dashboard .metric{height:46px;padding:3px 6px}.mobile-ui .mobile-dock{height:53px}.mobile-ui .mobile-dock button{min-height:44px}.mobile-ui .brand small{display:none}}
+@media (orientation:landscape) and (max-height:600px){.mobile-ui .main{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);grid-template-rows:minmax(0,1fr)}.mobile-ui .topbar{height:38px;min-height:38px}.mobile-ui .dashboard{margin:1px 0 4px}.mobile-ui .dashboard .metric{height:37px;display:flex;padding:4px 10px}.mobile-ui .dashboard .metric-label{margin-right:6px}.mobile-ui .dashboard .metric>div:first-child{display:flex;align-items:center;gap:6px}.mobile-ui .dashboard .metric-value{font-size:17px}.mobile-ui .overflow-top{display:flex;gap:8px;align-items:center}.mobile-ui .mobile-dock{height:47px;padding-top:3px}.mobile-ui .mobile-dock button{min-height:41px;flex-direction:row;gap:7px}.mobile-ui .collapse-arena{display:none}.mobile-ui.arena-collapsed .main{grid-template-rows:minmax(0,1fr)}.mobile-ui.arena-collapsed .arena-wrap{display:block}.mobile-ui .contract-body{padding:0 2px 4px}.mobile-ui .settings-modal{max-width:680px}}
+.mobile-ui .dashboard .metric{grid-column:auto!important;grid-row:auto!important}
+.mobile-ui .overflow-top{display:block!important}.mobile-ui .overflow-top .metric-label{display:block}
+.mobile-ui .campaign-track>span{width:4px;height:4px}
+/* Keep the next-card expectation visible without crowding touch actions. */
+.mobile-ui .main{grid-template-rows:min(26dvh,224px) minmax(0,1fr)}
+.mobile-ui .odds-controls{display:none}.mobile-ui .odds-box.expanded .odds-controls{display:flex}
+.mobile-ui .odds-summary{padding:8px 0 4px}
+#chipTickMini{display:none}.mobile-ui #chipTickMini{display:inline;float:right;color:#91cebb;font:8px var(--mono);letter-spacing:0}
+@media (max-height:710px) and (orientation:portrait){.mobile-ui .main{grid-template-rows:160px minmax(0,1fr)}}
+@media (orientation:landscape) and (max-height:600px){.mobile-ui .main{grid-template-rows:minmax(0,1fr)}}
+.mobile-ui.arena-collapsed .main{grid-template-rows:55px minmax(0,1fr)}
+@media (orientation:landscape) and (max-height:600px){.mobile-ui.arena-collapsed .main{grid-template-rows:minmax(0,1fr)}}
+</style>
+<meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/></head>
+<body>
+<div class="app">
+<header class="topbar">
+<div class="brand"><div class="brand-mark">♠</div><div><h1>RIVERBOUND <em>VI</em></h1><small>홀덤 랜덤 디펜스 · DISTINCT ARSENAL</small></div><span class="version">PROTOTYPE 0.6</span></div>
+<div class="controls"><button class="ctrl editor-ctrl" id="editorBtn">에디터</button><button class="ctrl" id="helpBtn">가이드</button><button class="ctrl" id="demoBtn">자동 OFF</button><button class="ctrl muted hide-mobile" id="soundBtn">소리 OFF</button><button class="ctrl" id="speedBtn" title="기존 2배속이 기본 템포입니다. 2×에서 약 40분, 2.5×에서 약 32분">2× 기본</button><button class="ctrl" id="pauseBtn" title="Space: 일시정지">Ⅱ 정지</button></div>
+</header>
+<section aria-label="전황과 자원" class="dashboard">
+<div class="metric"><div><div class="metric-label">STAGE</div><div class="metric-value" id="waveValue">00 <small>/ 120</small></div></div><div class="metric-right"><div class="mini-label" id="wavePhase">출격 준비</div><div class="mini-label" id="nextTime">6초 후 진입</div></div></div>
+<div class="metric overflow-metric" id="overflowMetric"><div class="overflow-top"><span class="metric-label">ENEMY</span><strong id="enemyValue">0 <small>/ 200</small></strong></div><div class="overflow-track"><i id="overflowFill"></i></div><div class="mini-label" id="overflowText">잔여 적 200기 도달 시 패배</div></div>
+<div class="metric"><span class="currency-icon gold">◈</span><div style="flex:1"><div class="metric-label">GOLD</div><div class="metric-value gold" id="goldValue">100</div></div></div>
+<div class="metric"><span class="currency-icon mint">◉</span><div style="flex:1"><div class="metric-label">CHIP<span id="chipTickMini">11s</span></div><div class="metric-value mint" id="chipValue">4</div></div><div class="metric-right"><span class="mini-label" id="chipTimer">+1 / 11초</span></div></div>
+<div class="metric"><span class="currency-icon violet">✦</span><div style="flex:1"><div class="metric-label">JOKER</div><div class="metric-value violet" id="jokerValue">1</div></div></div>
+</section>
+<main class="main">
+<section class="panel battle">
+<div class="panel-head"><div><span class="eyebrow">01 / CITADEL</span><span class="panel-name">순환 방어선</span></div><span class="live" id="liveIndicator">REAL TIME</span></div>
+<div class="campaign-strip"><span id="runTime">00:00 / 약 40:00</span><div class="campaign-track" id="campaignTrack"><i id="campaignFill"></i></div><span id="bossNext">보스 S10</span><button aria-expanded="true" class="mobile-only collapse-arena" id="collapseArenaBtn">전장 접기</button></div>
+<div class="arena-wrap" id="arenaWrap">
+<canvas aria-label="적이 외곽을 순환하는 전장. 유닛을 클릭해 선택하고 드래그로 배치 변경." id="arena"></canvas>
+<div class="arena-top"><span class="phase-pill" id="phasePill">DEPLOYMENT</span><span class="phase-time" id="arenaTimer">첫 공세까지 12초</span></div>
+<div class="arena-hint"><span>클릭: 편대 정보 · 드래그: 이동</span><span id="combatStat">2 UNITS · 88 DPS</span></div>
+<div class="arena-toast" id="arenaToast"><small id="toastEyebrow"></small><strong id="toastTitle"></strong><small id="toastSub"></small></div>
+<div class="pause-layer" id="pauseLayer"><div><strong>일시정지</strong><p id="pauseMessage">준비되면 재개하세요.</p><button class="ctrl on" id="resumeBtn">▶ 계속하기</button></div></div>
+<div class="placement-hint hidden" id="placementHint">이동할 칸을 터치하세요 <button id="cancelPlacementBtn">취소</button></div></div>
+<div class="combat-meter"><div><small>실측 · 기본2×</small><b id="realDps">0</b><span>DPS</span></div><div><small>유입 · 기본2×</small><b id="incomingDps">0</b><span>HP/s</span></div><div><small>누적 적 체력</small><b id="backlogHp">0</b><span>HP</span></div><button id="stageIntelBtn" title="스테이지 수치 확인">전황표 ↗</button></div>
+
+
+
+
+<div id="armyHome"></div><div id="armyControls"><div class="unit-inspector"><div class="inspect-left"><div class="unit-symbol" id="inspectSymbol">◎</div><div><div class="inspect-title" id="inspectTitle">전력을 구축하세요</div><div class="inspect-sub" id="inspectSub">노말 2기부터 시작합니다.</div></div></div><div class="inspect-stat" id="inspectDps">88<small>전체 기준 DPS</small></div></div><div class="member-bar"><div class="member-choice"><label for="memberSelect">편대원</label><select aria-label="판매할 개별 유닛 선택" id="memberSelect"><option value="">전장에서 편대 선택</option></select></div><span id="memberPower">—</span><button class="sell-btn" disabled="" id="sellBtn">1기 판매</button></div><div class="target-row"><span>공격 우선</span><button class="target-btn active" data-target="boss">보스</button><button class="target-btn" data-target="oldest">오래된 적</button><button class="target-btn" data-target="nearest">가까운 적</button><span class="army-size" id="armySize">2기 · 1편대</span></div><div class="upgrades" id="upgrades"></div><div class="research-note">레벨당 기본 DPS +16% · 풀하우스 이상은 <b>5종 연구를 모두 합산</b></div></div></section>
+<aside class="panel poker">
+<div class="panel-head"><div><span class="eyebrow">02 / THE TABLE</span><span class="panel-name" id="sideTitle">유닛 계약</span></div><span class="eyebrow" id="dealCount">HAND 001</span></div>
+<div class="side-tabs"><button class="active" data-tab="contract">♠ 유닛 계약</button><button data-tab="shop">◇ 상점 <span id="shopBadge"></span></button><button data-tab="archive">✧ 도감</button></div>
+<div class="poker-scroll" id="contractPanel"><div class="contract-body" id="contractBody">
+<div class="streets"><span class="street active" data-street="0">PRE-FLOP</span><span class="street" data-street="3">FLOP</span><span class="street" data-street="4">TURN</span><span class="street" data-street="5">RIVER</span></div>
+<div class="section-label"><span>HOLE CARDS / 내 핸드 <b id="holeCount"></b></span><span class="lock-tag" id="lockTag">교체 가능</span></div>
+<div class="hole-row" id="holeCards"></div>
+<div class="pocket-chance" id="pocketChance">3장 핸드 확률 0% · 상점에서 확장 가능</div>
+<div class="section-label"><span>COMMUNITY / 공용 카드</span><span id="boardCount">0 / 5</span></div>
+<div class="board-row" id="boardCards"></div>
+<div class="hand-caption" id="handCaption">플랍을 공개하면 핸드가 고정됩니다.</div>
+<div class="preview" id="unitPreview"><div class="preview-icon" id="previewIcon">◇</div><div class="preview-copy"><div class="preview-name" id="previewName">플랍을 기다리는 중</div><div class="preview-small" id="previewSub">5장부터 유닛을 소환할 수 있습니다.</div></div><div class="preview-power" id="previewPower">—<small>소환 DPS</small></div></div>
+<div class="quality-row"><span id="qualityLabel">현재 족보 내 세부 강도</span><div class="quality-track"><i id="qualityFill"></i></div><b id="qualityValue">—</b></div>
+
+<div class="joker-panel hidden" id="jokerPanel"><strong id="jokerPrompt">교체할 공개 카드 한 장을 클릭하세요.</strong><p id="jokerForecast">핸드와 공용 카드 모두 선택 가능 · 한 계약당 1회</p><div><button disabled="" id="jokerConfirm">선택한 한 장 교체 · ✦ 1</button><button id="jokerCancel">취소</button></div></div>
+<div class="odds-box"><div class="odds-head"><strong>족보 상승 확률</strong><span class="odds-badge">EXACT · 5–8 CARDS</span><button aria-expanded="false" class="odds-expand" id="oddsExpandBtn">상세</button></div><div id="oddsContent"></div></div>
+</div><div class="actions" id="contractActions"><button class="action take" id="claimBtn"><kbd>E</kbd><strong>지금 소환</strong><small id="claimSub">현재 족보 확정</small></button><button class="action next" id="advanceBtn"><kbd>D</kbd><strong id="advanceLabel">플랍 공개</strong><small id="advanceCost">◉ 4 CHIP</small></button><button class="action reroll" id="rerollBtn"><kbd>R</kbd><strong id="rerollLabel">핸드 교체 · 12 G</strong></button><button class="action joker" id="jokerBtn"><kbd>J</kbd><strong id="jokerLabel">특수 교체 · ✦ 1</strong></button></div><div class="invested"><span id="invested">이번 계약 투자 0 CHIP</span><span id="actionHint">플랍부터 소환 가능</span></div></div>
+<div class="poker-scroll hidden shop-panel" id="shopPanel"><div class="store-intro"><span class="eyebrow">THE DEALER'S WORKSHOP</span><h3>이번 작전의 규칙을 바꾸다.</h3><p>상점은 전투를 멈추지 않습니다. 연구와 같은 골드를 사용하며, 구매 효과는 이번 작전 동안 유지됩니다.</p></div><div id="shopItems"></div><div class="store-summary" id="storeSummary"></div></div>
+<div class="poker-scroll hidden archive-panel" id="archivePanel"><div class="store-intro"><span class="eyebrow">UNIT ARCHIVE</span><h3>족보가 높아지면, 전력이 달라진다.</h3><p>표시 DPS는 연구·광역·지속 피해 적용 전 기준입니다. 같은 족보 안에서는 전체 포커 서열에 따라 선형 증가합니다.</p></div><div id="archiveItems"></div></div>
+<div class="poker-scroll hidden" id="armyPanel"><div class="army-intro"><b>전력 · 연구 · 판매</b><small>편대를 눌러 선택하세요. 업그레이드는 전투 중 적용됩니다.</small></div><div class="formation-roster" id="formationRoster"></div><div id="armyMobileHome"></div><button class="ctrl move-button" disabled="" id="moveSelectedBtn">선택한 편대 배치 이동</button><p class="mobile-army-note">배치 이동을 누른 뒤 전장의 원하는 칸을 터치하세요. 목적지가 차 있으면 서로 자리를 바꿉니다.</p></div></aside>
+</main>
+<nav aria-label="게임 패널" class="mobile-dock" id="mobileDock"><button class="active" data-tab="contract"><b>♠</b><span>계약</span></button><button data-tab="army"><b>◎</b><span>전력</span></button><button data-tab="shop"><b>◇</b><span>상점</span></button><button data-tab="archive"><b>✧</b><span>도감</span></button><button id="mobileMenuBtn"><b>☰</b><span>설정</span></button></nav><footer class="log-footer"><span class="log-message" id="logMessage">기본 유닛 2기로 시작합니다. 칩을 아끼되 초반 방어를 늦추지 마세요.</span><span class="state" id="saveStatus">LOCAL · OFFLINE</span></footer>
+</div>
+<div class="modal-backdrop show" id="introModal"><section aria-label="게임 시작" aria-modal="true" class="modal intro" role="dialog">
+<div class="intro-top"><span class="intro-kicker">DISTINCT ARSENAL / 120 STAGES</span><span class="intro-symbols">♠ ♥ ♦ ♣</span></div>
+<h2>RIVERBOUND <span style="color:#eabe70">VI</span></h2><h3>지금 소환할 것인가. 한 장 더 볼 것인가.</h3>
+<p class="intro-description">120스테이지 · 매 10스테이지 보스 · 기존 2배속 템포로 약 40분.<br/>희소한 칩으로 병력을 만들고, 연구와 상점 사이에 골드를 투자하세요.</p>
+<div class="intro-steps"><div class="intro-step"><b>01 / HOLD'EM</b><strong>2%의 세 번째 카드</strong><p>2%씩 확률을 높이는 이벤트 핸드. 조커로는 공개된 카드 중 한 장을 바꿀 수 있습니다.</p></div><div class="intro-step"><b>02 / PRECISION</b><strong>세부 족보와 전용 능력</strong><p>같은 페어라도 A가 더 강합니다. 스트레이트부터 특수 능력이 열립니다.</p></div><div class="intro-step"><b>03 / INVEST</b><strong>판매 · 연구 · 상점</strong><p>기존 유닛을 골드로 판매할 수 있습니다. 지금의 화력과 장기 성장을 비교하세요.</p></div></div>
+<div class="intro-note">시작: <b>100 G · 4 CHIP · 조커 1개 · 노말 2기</b><br/>플랍 4칩 → 턴 3칩 → 리버 4칩. 리버에서도 J로 교체하고 E로 직접 소환합니다.<br/>잔여 적 200기 도달 시 패배. 보스 시간 초과는 광폭화·증원.<br/>최종 스테이지는 기본 템포에서 80초 안에 모든 적을 소탕해야 합니다.</div>
+<div class="seed-row"><label for="seedInput">시드</label><input autocomplete="off" id="seedInput" maxlength="40" spellcheck="false"/><span>같은 시드와 같은 조작으로 재현</span></div>
+<div class="intro-buttons"><button class="big-btn hidden" id="continueBtn">이어서 하기</button><button class="big-btn" id="startBtn">작전 시작 →</button><button class="big-btn secondary" id="startDemoBtn">자동 시연</button><button class="big-btn secondary" id="startEditorBtn">에디터</button></div>
+<div class="intro-foot">D 다음 카드 · E 소환 · R 교체 · J 특수 교체 · 1–5 연구 · Space 일시정지<br/>단일 HTML · 오프라인 실행 · 자동 저장 · 기본 2× · PC / 모바일 · 120스테이지</div>
+</section></div>
+<div class="modal-backdrop" id="helpModal"><section aria-label="게임 가이드" aria-modal="true" class="modal" role="dialog"><button class="close" id="closeHelpBtn">닫기 ×</button><div class="intro-kicker">FIELD MANUAL / VERSION 0.6</div><h2 style="font-size:25px;margin-top:10px">작전 가이드</h2><div id="helpContent"></div><div class="backup-controls"><button class="ctrl" id="exportSaveBtn">저장 파일 내보내기</button><button class="ctrl" id="importSaveBtn">저장 파일 불러오기</button><input accept=".json,application/json" hidden="" id="importSaveInput" type="file"/></div><button class="ctrl" id="newGameBtn" style="margin-top:20px">현재 작전을 끝내고 새 게임</button></section></div>
+<div class="modal-backdrop" id="resultModal"><section aria-label="게임 결과" aria-modal="true" class="modal" role="dialog"><div class="intro-kicker" id="resultKicker">OPERATION REPORT</div><h2 class="result-title" id="resultTitle">작전 종료</h2><p id="resultReason" style="color:#93acbc;font-size:12px"></p><div class="result-grid" id="resultGrid"></div><div class="best-result" id="resultBest"></div><div class="intro-buttons"><button class="big-btn" id="retryBtn">같은 시드로 재도전</button><button class="big-btn secondary" id="freshBtn">새 작전</button></div><p class="intro-foot" id="resultTip"></p></section></div>
+<div class="modal-backdrop" id="editorModal"><section aria-label="샌드박스 에디터" aria-modal="true" class="modal editor-modal" role="dialog">
+<button class="close" id="closeEditorBtn">닫기 ×</button><div class="intro-kicker">SANDBOX / NORMAL SAVE IS PRESERVED</div><h2>전장 에디터</h2><p class="editor-warning">이 작전은 에디터 기록으로 표시됩니다. 일반 작전 저장을 덮어쓰지 않습니다. 카드를 지정해 능력·사거리·확률을 시험하세요.</p>
+<div class="editor-grid"><section><h3>01 / 원하는 족보의 유닛</h3><div class="editor-row"><select aria-label="족보" id="edGrade"></select><select aria-label="주요 랭크" id="edRank"></select><select aria-label="무늬" id="edSuit"><option value="0">♠</option><option value="1">♥</option><option value="2">♦</option><option value="3">♣</option></select><button id="edPreset">카드 만들기</button></div><label for="edCards">정확한 카드 5–8장 (s ♠ / h ♥ / d ♦ / c ♣)</label><input id="edCards" spellcheck="false" value="As Ah Ac Ks Kh"/><p class="editor-preview" id="edPreview"></p><div class="editor-row"><label>수량 <input id="edCount" max="10" min="1" type="number" value="1"/></label><button class="ed-primary" id="edSpawn">유닛 직접 소환</button></div><p>소환한 유닛은 실제 전투 수치와 투사체를 사용합니다.</p></section>
+<section><h3>02 / 계약 카드 지정</h3><label for="edHole">핸드 2장 또는 3장</label><input id="edHole" spellcheck="false" value="As Ks"/><label for="edBoard">공용 카드 0장·3장·4장·5장</label><input id="edBoard" spellcheck="false" value="Qs Js 2h"/><button class="ed-primary" id="edSetDeal">현재 계약에 적용</button><p>중복 카드는 허용하지 않습니다. 이후 카드는 남은 덱에서 무작위 공개됩니다.</p></section>
+<section><h3>03 / 스테이지와 연구</h3><div class="editor-row"><input aria-label="스테이지" id="edStage" max="120" min="1" type="number" value="20"/><button id="edJump">해당 스테이지 시작</button></div><p>기존 적·투사체를 정리하고 스테이지 시간을 맞춥니다. 유닛과 연구는 유지합니다.</p><div class="editor-row"><input aria-label="연구 레벨" id="edResearch" max="30" min="0" type="number" value="5"/><button id="edSetResearch">5계열 연구 레벨 설정</button></div></section>
+<section><h3>04 / 테스트 재화와 정리</h3><div class="editor-row"><button id="edGold">+5,000 G</button><button id="edChips">+50 CHIP</button><button id="edTokens">+5 JOKER</button></div><div class="editor-row"><button id="edClearEnemies">잔여 적 정리</button><button id="edClearUnits">모든 유닛 제거</button></div><p>에디터에서 연 작전은 일반 클리어로 취급하지 않습니다. 일반 작전은 새 게임으로 시작하세요.</p></section></div><div class="editor-message" id="edMessage" role="status">수치를 바꾼 뒤 창을 닫으면 전투가 이어집니다.</div>
+</section></div><div class="modal-backdrop" id="settingsModal"><section aria-label="설정" aria-modal="true" class="modal settings-modal" role="dialog"><button class="close" id="closeSettingsBtn">닫기 ×</button><div class="intro-kicker">TACTICAL CONSOLE / 0.6</div><h2>설정 · 저장</h2><p>기본 2×는 이전 버전의 2배속입니다.<br/>이 템포로 120스테이지를 약 40분 동안 플레이합니다.</p><div class="setting-row"><span>플레이 속도</span><div id="speedOptions"><button data-speed="1">1× 느림</button><button class="on" data-speed="2">2× 기본</button><button data-speed="2.5">2.5×</button><button data-speed="3">3×</button></div></div><div class="setting-row"><label for="qualitySelect">그래픽</label><select id="qualitySelect"><option value="auto">자동</option><option value="high">고품질 · 60fps 목표</option><option value="low">절전 · 30fps 목표</option></select></div><p class="settings-note" id="qualityNote">절전은 잔상 장식·빛 효과만 줄입니다. 탄막과 피해 계산은 동일합니다.</p><div class="settings-actions"><button id="settingsSoundBtn">소리 OFF</button><button id="settingsAutoBtn">자동 시연 OFF</button><button id="settingsHelpBtn">가이드 / 스테이지</button><button id="settingsEditorBtn">에디터</button><button id="settingsExportBtn">저장 파일 내보내기</button><button id="settingsImportBtn">저장 파일 불러오기</button></div><p class="settings-note">화면 잠금·앱 전환 시 저장하고 일시정지합니다. 복귀 후 직접 재개하며, 자원이나 적을 몰아서 진행하지 않습니다. 설정 창을 닫아야 전투가 이어집니다.</p><p class="settings-note">0.5·0.6 저장을 PC·모바일 간 파일로 옮길 수 있습니다. 0.5 저장은 다음 웨이브부터 강화 난도를 적용합니다.</p></section></div>
+<script>/* RIVERBOUND core — deterministic, shared by the browser and balance tests. */
+(function (root) {
+  'use strict';
+  const BASE = 759375, POW = [50625,3375,225,15,1];
+  const NAMES = ['하이 카드','원페어','투페어','트리플','스트레이트','플러시','풀하우스','포카드','스트레이트 플러시','로열 플러시'];
+  const EN = ['HIGH CARD','ONE PAIR','TWO PAIR','THREE OF A KIND','STRAIGHT','FLUSH','FULL HOUSE','FOUR OF A KIND','STRAIGHT FLUSH','ROYAL FLUSH'];
+  const TITLES = ['정찰병','보병','특전대','집행자','영웅','전설','신화','초월','태초','로열'];
+  const DPS = [38,92,210,430,900,1450,2350,6100,14800,30000];
+  const MAX_DPS=[52,142,315,620,1240,1930,3080,8000,19400,30000];
+  const COLORS = ['#94a3b8','#7dd3fc','#74dfb0','#a9a1ff','#e8bd68','#f09acd','#c6a4ff','#ff8d74','#79f3e4','#ffdf8b'];
+  const SUITS = [
+    {symbol:'♠',name:'스페이드',type:'펄스',role:'빠른 연사',color:'#82d9ff',rate:2.8,range:425},
+    {symbol:'♥',name:'하트',type:'노바',role:'주변 최대 2기 확산 피해',color:'#ff8096',rate:.95,range:425},
+    {symbol:'♦',name:'다이아',type:'프리즘',role:'보스 피해 ×1.7',color:'#e8be73',rate:.7,range:455},
+    {symbol:'♣',name:'클로버',type:'바이퍼',role:'취약 15% · 감속 18%',color:'#77dfb2',rate:1.45,range:425}
+  ];
+  const CONFIG = {version:6,step:1/30,tempo:2,waves:120,waveSeconds:40,prepSeconds:12,limit:200,overloadSeconds:0,chipInterval:22,flopCost:4,turnCost:3,riverCost:4,startGold:100,startChips:4,upgradeStep:.16,finalClearSeconds:160};
+  const COUNTS = {
+    5:[1302540,1098240,123552,54912,10200,5108,3744,624,36,4],
+    6:[6612900,9730740,2532816,732160,361620,205792,165984,14664,1656,188],
+    7:[23294460,58627800,31433400,6461620,6180020,4047644,3473184,224848,37260,4324]
+  };
+  class RNG {
+    constructor(seed) { this.state=(seed>>>0)||0x912ad451; }
+    next() { let x=this.state; x^=x<<13; x^=x>>>17; x^=x<<5; this.state=x>>>0; return this.state/4294967296; }
+    int(n) { return Math.floor(this.next()*n); }
+    shuffle(a) { for(let i=a.length-1;i>0;i--){const j=this.int(i+1);[a[i],a[j]]=[a[j],a[i]];}return a; }
+  }
+  function hashSeed(s) { let h=2166136261; for(const c of String(s))h=Math.imul(h^c.charCodeAt(0),16777619); return h>>>0; }
+  const rank=c=>c%13+2, suit=c=>Math.floor(c/13);
+  function cardName(c) { const r=rank(c);return (r<11?r:['J','Q','K','A'][r-11])+SUITS[suit(c)].symbol; }
+  function parseCard(text) { const m=/^(10|[2-9TJQKA])([shdc♠♥♦♣])$/i.exec(text);if(!m)throw Error('Invalid card: '+text);let r=({T:10,J:11,Q:12,K:13,A:14})[m[1].toUpperCase()]||Number(m[1]);let s='shdc'.indexOf(m[2].toLowerCase());if(s<0)s='♠♥♦♣'.indexOf(m[2]);return s*13+r-2; }
+  const rc=new Uint8Array(15),sc=new Uint8Array(4),sm=new Uint32Array(4);
+  function straight(mask) { for(let h=14;h>=6;h--){const m=31<<(h-4);if((mask&m)===m)return h;}return (mask&16444)===16444?5:0; }
+  function encode(cat,rs) { let v=cat*BASE;for(let i=0;i<rs.length&&i<5;i++)v+=rs[i]*POW[i];return v; }
+  function score(cards) {
+    rc.fill(0);sc.fill(0);sm.fill(0);let mask=0;
+    for(let i=0;i<cards.length;i++){const c=cards[i],r=c%13+2,s=Math.floor(c/13);rc[r]++;sc[s]++;sm[s]|=1<<r;mask|=1<<r;}
+    let fs=-1;for(let s=0;s<4;s++)if(sc[s]>=5)fs=s;
+    if(fs>=0){const h=straight(sm[fs]);if(h)return encode(h===14?9:8,[h]);}
+    let q=0,t=0,p=0,t2=0;
+    for(let r=14;r>=2;r--){if(rc[r]===4&&!q)q=r;if(rc[r]>=3){if(!t)t=r;else t2=r;}else if(rc[r]>=2&&!p)p=r;}
+    if(q){let k=14;while(k===q||!rc[k])k--;return encode(7,[q,k]);}
+    if(t&&(p||t2))return encode(6,[t,Math.max(p,t2)]);
+    if(fs>=0){const rs=[];for(let r=14;r>=2&&rs.length<5;r--)if(sm[fs]&(1<<r))rs.push(r);return encode(5,rs);}
+    const st=straight(mask);if(st)return encode(4,[st]);
+    if(t){const rs=[t];for(let r=14;r>=2&&rs.length<3;r--)if(r!==t&&rc[r])rs.push(r);return encode(3,rs);}
+    const pairs=[];for(let r=14;r>=2;r--)if(rc[r]>=2)pairs.push(r);
+    if(pairs.length>=2){let k=14;while(!rc[k]||k===pairs[0]||k===pairs[1])k--;return encode(2,[pairs[0],pairs[1],k]);}
+    if(pairs.length){const rs=[pairs[0]];for(let r=14;r>=2&&rs.length<4;r--)if(r!==pairs[0]&&rc[r])rs.push(r);return encode(1,rs);}
+    const rs=[];for(let r=14;r>=2&&rs.length<5;r--)if(rc[r])rs.push(r);return encode(0,rs);
+  }
+  const category=v=>Math.floor(v/BASE);
+  const mainRank=v=>Math.floor((v%BASE)/POW[0]);
+  // A linear rank for every distinct, legal five-card poker value (7,462 total).
+  // Suits do not break poker ties. Royal flush is separated only for unit design.
+  const RANK_TABLES=Array.from({length:10},()=>[]), QUALITY=new Map();
+  (function buildRankTables(){
+    const sets=Array.from({length:10},()=>new Set());
+    function recurse(rs,min){
+      if(rs.length===5){
+        const cnt={};for(const r of rs)cnt[r]=(cnt[r]||0)+1;
+        if(Object.values(cnt).some(n=>n>4))return;
+        const seen={},cards=rs.map((r,i)=>{const occurrence=seen[r]||0;seen[r]=occurrence+1;return occurrence*13+r-2;});
+        if(Object.keys(cnt).length===5)cards[0]+=13; // a non-flush representative
+        let v=score(cards);sets[category(v)].add(v);
+        if(Object.keys(cnt).length===5){v=score(rs.map(r=>r-2));sets[category(v)].add(v);}
+        return;
+      }
+      for(let r=min;r<=14;r++){rs.push(r);recurse(rs,r);rs.pop();}
+    }
+    recurse([],2);
+    sets.forEach((set,cat)=>{RANK_TABLES[cat]=[...set].sort((a,b)=>a-b);const n=RANK_TABLES[cat].length;RANK_TABLES[cat].forEach((v,i)=>QUALITY.set(v,n===1?1:i/(n-1)));});
+  })();
+  const quality=v=>QUALITY.get(v)??0;
+  const power=v=>{const cat=category(v);return DPS[cat]+(MAX_DPS[cat]-DPS[cat])*quality(v);};
+  function scoreRanks(v){let rem=v%BASE;return POW.map(p=>{const r=Math.floor(rem/p);rem%=p;return r;}).filter(Boolean);}
+  function rankLabel(r){return r<11?String(r):['J','Q','K','A'][r-11];}
+  function handLabel(v){
+    const c=category(v),r=scoreRanks(v).map(rankLabel);
+    if(c===0||c===5)return r.join(' · ');
+    if(c===1)return r[0]+' 페어 · '+r.slice(1).join('/');
+    if(c===2)return r[0]+'/'+r[1]+' 투페어 · '+r[2];
+    if(c===3)return r[0]+' 트리플 · '+r.slice(1).join('/');
+    if(c===4||c>=8)return r[0]+(mainRank(v)===5?' 하이 (A–2–3–4–5)':' 하이');
+    if(c===6)return r[0]+' 트리플 + '+r[1]+' 페어';
+    return r[0]+' 포카드 · '+r[1];
+  }
+  function evaluate(cards){
+    if(cards.length<5||cards.length>8||new Set(cards).size!==cards.length||cards.some(c=>!Number.isInteger(c)||c<0||c>51))throw Error('5–8 distinct cards required');
+    const v=score(cards), sorted=cards.slice().sort((a,b)=>rank(b)-rank(a)||suit(a)-suit(b));let best=[];
+    outer:for(let a=0;a<sorted.length-4;a++)for(let b=a+1;b<sorted.length-3;b++)for(let c=b+1;c<sorted.length-2;c++)for(let d=c+1;d<sorted.length-1;d++)for(let e=d+1;e<sorted.length;e++){
+      const five=[sorted[a],sorted[b],sorted[c],sorted[d],sorted[e]];
+      if(score(five)===v){best=five;break outer;}
+    }
+    return {score:v,cat:category(v),main:mainRank(v),quality:quality(v),power:power(v),best,label:handLabel(v)};
+  }
+  const TYPES=[
+    {...SUITS[0],symbol:'♠'},
+    {...SUITS[1],symbol:'♥'},
+    {...SUITS[2],symbol:'♦'},
+    {...SUITS[3],symbol:'♣'},
+    {symbol:'◎',name:'노말',type:'노말',role:'순수 단일 공격 · 특수 효과 없음',color:'#b5c4d4',rate:1.6,range:425},
+    {symbol:'✺',name:'풀하우스',type:'에코 성소',role:'5중 회전 인장 · 궤도 수렴 · 성소 잔상',color:'#c6a4ff',rate:1.05,range:455},
+    {symbol:'✥',name:'포카드',type:'균열 군주',role:'좌우 교대 8발 로켓 · 스플래시 · 보스 ×1.35',color:'#ff9879',rate:.85,range:510},
+    {symbol:'✧',name:'스티플',type:'성운 함대',role:'양익 10발 결정 칼날 · 확산 · 보스 ×1.5',color:'#79f3e4',rate:1.4,range:530},
+    {symbol:'♛',name:'로열',type:'왕관의 심판',role:'상공 소환 12자루 심판검 · 광역 · 보스 ×1.8',color:'#ffdf8b',rate:1.15,range:560}
+  ];
+  const RESEARCH=[4,0,1,2,3];
+  function typeForScore(cards,v){
+    const cat=category(v);if(cat<=3)return 4;if(cat>=6)return cat-1;
+    // A wheel is five-high. For tied copies of a straight's top rank,
+    // choose the fixed order spade, heart, diamond, club. No suit is stronger.
+    if(cat===4){const r=mainRank(v);let s=4;for(const c of cards)if(rank(c)===r)s=Math.min(s,suit(c));return s;}
+    const count=[0,0,0,0];for(const c of cards)count[suit(c)]++;
+    return count.findIndex(n=>n>=5);
+  }
+  function unitType(cards){return typeForScore(cards,score(cards));}
+  function researchFactor(cat,type,upgrades){return 1+CONFIG.upgradeStep*(cat>=6?upgrades.reduce((a,b)=>a+b,0):upgrades[type]);}
+  function forecast(cards,remaining,draws=1,upgrades=null){
+    if(draws!==1&&draws!==2)throw Error('One/two future cards supported');
+    const counts=Array(10).fill(0),c=cards.slice(),old=category(score(cards));let total=0,ep=0,epBase=0;
+    function sample(){const v=score(c),cat=category(v),p=power(v);counts[cat]++;epBase+=p;ep+=p*(upgrades?researchFactor(cat,typeForScore(c,v),upgrades):1);total++;}
+    for(let i=0;i<remaining.length;i++){c.push(remaining[i]);if(draws===1)sample();else for(let j=i+1;j<remaining.length;j++){c.push(remaining[j]);sample();c.pop();}c.pop();}
+    return {counts,total,expected:ep/total,baseExpected:epBase/total,improve:counts.reduce((a,n,i)=>a+(i>old?n:0),0)/total,rare:counts.slice(4).reduce((a,b)=>a+b,0)/total};
+  }
+  function refreshCost(n,expansion=0,broker=0){return Math.max(8,12+Math.ceil(expansion/2)-broker)+4*n+Math.floor(n*n/3);}
+  function upgradeCost(level){return Math.round(65+35*level+9*level*level);}
+  const SHOP=[
+    {id:'pocket',name:'확장 핸드',tag:'THIRD CARD',symbol:'▱',max:10,color:'#e9c879',description:'새 계약·일반 교체마다 3장 이벤트 +2%p / 레벨 (최대 20%). 기본 교체비는 2레벨마다 +1 G. 장수는 매번 재추첨.',cost:l=>Math.round(140+80*l+18*l*l)},
+    {id:'refinery',name:'칩 정제소',tag:'CHIP SUPPLY',symbol:'◉',max:4,color:'#88dfb7',description:'시간당 칩 생산 +8% / 레벨. 시작·웨이브 칩 보상은 바뀌지 않습니다.',cost:l=>Math.round(260+200*l+85*l*l)},
+    {id:'broker',name:'딜러 계약',tag:'BETTER TERMS',symbol:'◇',max:4,color:'#89cbf2',description:'기본 새로고침 가격 −1 G / 레벨. 유닛 판매가 +8% / 레벨.',cost:l=>Math.round(170+140*l+55*l*l)},
+    {id:'jokerforge',name:'조커 공방',tag:'WILD RESOURCE',symbol:'✦',max:3,color:'#c5abfa',description:'구매 즉시 조커 1개. 이후 보스 처치 시 추가 조커 확률 +25%p / 레벨.',cost:l=>Math.round(340+300*l+120*l*l)}
+  ];
+  // Continuous log interpolation avoids the v2 endgame HP cliff.
+  const HP_ANCHORS=[[1,1600],[10,7210],[20,22260],[30,38880],[40,66000],[60,128800],[80,239400],[100,406000],[120,672600]];
+  function waveInfo(w){
+    w=Math.max(1,Math.min(CONFIG.waves,Math.floor(w)));let hp=HP_ANCHORS.at(-1)[1];
+    for(let j=1;j<HP_ANCHORS.length;j++){const [a,x]=HP_ANCHORS[j-1],[b,y]=HP_ANCHORS[j];if(w<=b){hp=x*Math.pow(y/x,(w-a)/(b-a));break;}}
+    hp=Math.round(hp);const count=10+Math.floor((w-1)/16);
+    return {wave:w,hp,count,speed:49+w*.165,boss:w%10===0,bossHP:Math.round(hp*(w===CONFIG.waves?24:18)),bossLimit:115,gold:34+2*w,chips:2,label:w<=20?'전초 방어':w<=40?'전력 확장':w<=60?'소모 전선':w<=80?'심층 공세':w<=100?'심연 돌파':'최종 봉쇄'};
+  }
+  const RANGES=[330,350,372,395,425,455,490,525,565,610];
+  const SHOT_SPEED=[510,560,460,610,700,760,400,420,820,370];
+  const unitRange=u=>RANGES[u.cat];
+  function rateFor(u){return u.cat<=3?[1.7,2.1,1.55,1.8][u.cat]:TYPES[u.type].rate;}
+  function projectileKind(u){return u.cat<=3?['needle','twin','orb','shard'][u.cat]:u.cat>=6?['echo','rift','comet','crown'][u.cat-6]:['pulse','mortar','prism','viper'][u.type];}
+  // One attack cycle has one damage budget, regardless of its visible missile count.
+  // These profiles are shared by the simulation, tooltips and Canvas renderer.
+  const BARRAGES={
+    6:{count:5,spacing:.06,spread:44,speed:540,name:'오중 회전 인장',zone:true},
+    7:{count:8,spacing:.045,spread:62,speed:620,name:'쌍열 로켓 포드',zone:true},
+    8:{count:10,spacing:.028,spread:73,speed:880,name:'결정 날개 일제사',zone:false},
+    9:{count:12,spacing:.03,spread:88,speed:670,name:'천공 심판검',zone:true}
+  };
+  function barrageFor(u){return BARRAGES[u.cat]||{count:1,spacing:0,spread:0,speed:SHOT_SPEED[u.cat],name:'단발',zone:false};}
+  function splashFor(u){
+    // Fraction is per missile, not per volley; direct target never also receives splash.
+    if(u.cat===7)return {radius:68,inner:28,fraction:.14,outer:.06,limit:2};
+    if(u.cat===8)return {radius:98,inner:44,fraction:.40,outer:.18,limit:3};
+    if(u.cat===9)return {radius:108,inner:48,fraction:.48,outer:.22,limit:5};
+    if(u.type===1)return {radius:68,inner:68,fraction:.38,outer:.38,limit:2};
+    return null;
+  }
+  function projectilePosition(p,t){
+    // Visual trajectories only. Damage, target reservation, release times and arrival
+    // times use the unchanged combat schedule. This function never consumes RNG.
+    t=Math.max(0,Math.min(1,t));
+    const dx=p.tx-p.sx,dy=p.ty-p.sy,len=Math.hypot(dx,dy)||1,ux=dx/len,uy=dy/len;
+    const idx=p.volleyIndex||0,fan=p.fan||0;
+    if(p.volleyCount>1){
+      if(p.kind==='echo'){
+        // Five open sigils orbit the emitter, then converge without a comet trail.
+        const angle=idx*Math.PI*2/5+t*Math.PI*2.4;
+        const orbit=36*Math.sin(Math.PI*t)*(1-t),travel=t*t*(3-2*t);
+        return {x:p.sx+dx*travel+Math.cos(angle)*orbit,y:p.sy+dy*travel+Math.sin(angle)*orbit};
+      }
+      if(p.kind==='rift'){
+        // Alternating left/right missile pods; a wide initial launch, tight homing.
+        const side=idx%2===0?-1:1,off=side*(32+Math.floor(idx/2)*5),u=1-t;
+        const c1x=p.sx+ux*40-uy*off,c1y=p.sy+uy*40+ux*off;
+        const c2x=p.tx-ux*len*.24-uy*off*.4,c2y=p.ty-uy*len*.24+ux*off*.4;
+        return {x:u*u*u*p.sx+3*u*u*t*c1x+3*u*t*t*c2x+t*t*t*p.tx,
+                y:u*u*u*p.sy+3*u*u*t*c1y+3*u*t*t*c2y+t*t*t*p.ty};
+      }
+      if(p.kind==='comet'){
+        // A five-blade wing on either side opens first; blades then fly straight in.
+        const side=idx<5?-1:1,lane=idx%5,off=side*(26+lane*11);
+        const ax=p.sx+ux*(16+lane*3)-uy*off,ay=p.sy+uy*(16+lane*3)+ux*off;
+        if(t<.24){const z=t/.24;return {x:p.sx+(ax-p.sx)*z,y:p.sy+(ay-p.sy)*z};}
+        const z=(t-.24)/.76,travel=z*z*(2-z);
+        return {x:ax+(p.tx-ax)*travel,y:ay+(p.ty-ay)*travel};
+      }
+      if(p.kind==='crown'){
+        // Portal transfer, a brief suspended blade, then a near-vertical plunge.
+        const lane=(idx%4-1.5)*16,h=92+Math.floor(idx/4)*18;
+        const ax=p.tx+lane,ay=Math.max(18,p.ty-h);
+        if(t<.26){const z=t/.26,travel=z*z*(3-2*z);return {x:p.sx+(ax-p.sx)*travel,y:p.sy+(ay-p.sy)*travel};}
+        const z=Math.max(0,(t-.43)/.57),drop=z*z;
+        return {x:ax+(p.tx-ax)*drop,y:ay+(p.ty-ay)*drop};
+      }
+    }
+    let lateral=0,lift=0;
+    if(['mortar','orb','echo','crown'].includes(p.kind))lift=Math.sin(Math.PI*t)*(p.cat>=6?55:35);
+    if(p.kind==='viper')lateral=Math.sin(t*Math.PI*5)*14*Math.sin(t*Math.PI);
+    return {x:p.sx+dx*t-uy*lateral,y:p.sy+dy*t+ux*lateral-lift};
+  }
+  function expansionChance(level){return .02*Math.max(0,Math.min(10,level));}
+  function jokerForecast(hole,board,remaining,zone,index,upgrades=null){
+    const group=zone==='hole'?hole:zone==='board'?board:null;
+    if(!group||!Number.isInteger(index)||index<0||index>=group.length)throw Error('Select one revealed card');
+    const cards=[...hole,...board],i=zone==='hole'?index:hole.length+index,old=cards[i],v0=score(cards),counts=Array(10).fill(0);let expected=0,better=0;
+    for(const c of remaining){cards[i]=c;const v=score(cards),cat=category(v);counts[cat]++;better+=v>v0?1:0;expected+=power(v)*(upgrades?researchFactor(cat,typeForScore(cards,v),upgrades):1);}
+    cards[i]=old;return {counts,total:remaining.length,expected:expected/remaining.length,better:better/remaining.length,improve:counts.reduce((a,n,c)=>a+(c>category(v0)?n:0),0)/remaining.length};
+  }
+  const PATH=[[84,70],[816,70],[852,106],[852,474],[816,510],[84,510],[48,474],[48,106]];
+  let pathLength=0;const SEG=PATH.map((p,i)=>{const q=PATH[(i+1)%PATH.length],l=Math.hypot(q[0]-p[0],q[1]-p[1]);pathLength+=l;return {p,q,l};});
+  function pathPoint(distance) {let d=((distance%pathLength)+pathLength)%pathLength;for(const s of SEG){if(d<=s.l)return {x:s.p[0]+(s.q[0]-s.p[0])*d/s.l,y:s.p[1]+(s.q[1]-s.p[1])*d/s.l,angle:Math.atan2(s.q[1]-s.p[1],s.q[0]-s.p[0])};d-=s.l;}return {x:84,y:70,angle:0};}
+  const SLOTS=[];
+  for(let y=0;y<5;y++)for(let x=0;x<8;x++)SLOTS.push({x:177+x*78,y:174+y*58});
+  const SLOT_ORDER=[0,7,32,39,3,35,16,23,1,6,33,38,8,15,24,31,2,5,34,37,4,36,9,14,25,30,10,13,26,29,17,22,18,21,11,12,27,28,19,20];
+  class Game {
+    constructor(seed=12345,events=null){
+      this.rng=new RNG(seed);this.seed=seed>>>0;this.events=events;
+      this.t=0;this.wave=0;this.nextWaveAt=CONFIG.prepSeconds;this.spawned=0;this.spawnClock=0;
+      this.gold=CONFIG.startGold;this.chips=CONFIG.startChips;this.tokens=1;this.chipClock=0;
+      this.upgrades=[0,0,0,0,0];this.shop={pocket:0,refinery:0,broker:0,jokerforge:0};
+      this.units=[];this.enemies=[];this.zones=[];this.projectiles=[];this.editor=false;this.projectileCount=0;this.peakEnemies=0;this.damageWindow=0;this.effectiveDPS=0;this.meterClock=0;this.nextId=1;this.overload=0;this.status='playing';
+      this.kills=0;this.summons=0;this.spent={gold:0,chips:0,tokens:0};this.earned={gold:0,chips:0,sale:0};
+      this.gradeCounts=Array(10).fill(0);this.damage=0;this.bossKills=0;this.target='boss';this.bestGrade=0;
+      this.lastSummon=null;this.actionAt=0;this.finalDeadline=0;this.sold=0;this.threeDeals=0;this.deals=0;
+      // Two ordinary guards; no special types and no free collection rewards.
+      for(let i=0;i<2;i++)this.addUnit(0,4,44,0,{starter:true,score:RANK_TABLES[0][Math.floor(RANK_TABLES[0].length*.25)],invested:0});
+      this.newDeal();
+    }
+    emit(type,data={}){if(this.events)this.events(type,data);}
+    addIncome(gold=0,chips=0){this.gold+=gold;this.chips+=chips;this.earned.gold+=gold;this.earned.chips+=chips;}
+    newDeal(rolls=0){
+      const deck=this.rng.shuffle(Array.from({length:52},(_,i)=>i));
+      const n=this.rng.next()<expansionChance(this.shop.pocket)?3:2;
+      this.deal={hole:Array.from({length:n},()=>deck.pop()),board:[],deck,discard:[],rolls,jokerUsed:false,invested:0,autoAt:0};
+      this.deals++;if(n===3)this.threeDeals++;
+    }
+    canAct(){return this.status==='playing'&&this.t>=this.actionAt;}
+    rerollCost(){return refreshCost(this.deal.rolls,this.shop.pocket,this.shop.broker);}
+    chipInterval(){return CONFIG.chipInterval/(1+.08*this.shop.refinery);}
+    reroll(){
+      const cost=this.rerollCost(),d=this.deal;
+      if(!this.canAct()||d.board.length||this.gold<cost)return false;
+      this.gold-=cost;this.spent.gold+=cost;this.newDeal(d.rolls+1);this.actionAt=this.t+.35;
+      this.emit('reroll',{cost});return true;
+    }
+    advance(){
+      if(!this.canAct())return false;const d=this.deal,n=d.board.length;
+      const cost=n===0?CONFIG.flopCost:n===3?CONFIG.turnCost:n===4?CONFIG.riverCost:Infinity;
+      if(this.chips<cost)return false;this.chips-=cost;this.spent.chips+=cost;d.invested+=cost;
+      for(let i=0;i<(n===0?3:1);i++)d.board.push(d.deck.pop());
+      this.actionAt=this.t+.65;d.autoAt=0; // River always waits for explicit claim, including after a joker.
+      this.emit('reveal',{stage:d.board.length});return true;
+    }
+    joker(zone,index){
+      const d=this.deal,n=d.board.length,group=zone==='hole'?d.hole:zone==='board'?d.board:null;
+      if(!this.canAct()||d.jokerUsed||![3,4,5].includes(n)||this.tokens<1||!group||!Number.isInteger(index)||index<0||index>=group.length||!d.deck.length)return false;
+      this.tokens--;this.spent.tokens++;const old=group[index];d.discard.push(old);group[index]=d.deck.pop();d.jokerUsed=true;
+      this.actionAt=this.t+.6;this.emit('joker',{old,card:group[index],zone,index});return true;
+    }
+    preview(){const cards=[...this.deal.hole,...this.deal.board];if(cards.length<5||!this.deal.board.length)return null;const e=evaluate(cards);e.type=typeForScore(cards,e.score);e.dps=e.power*researchFactor(e.cat,e.type,this.upgrades);return e;}
+    claim(){
+      const d=this.deal;
+      if(d.board.length<3||!this.canAct())return false;
+      const cards=[...d.hole,...d.board],e=this.preview();
+      const u=this.addUnit(e.cat,e.type,e.power,e.main,{score:e.score,invested:d.invested});
+      this.summons++;this.gradeCounts[e.cat]++;this.bestGrade=Math.max(this.bestGrade,e.cat);
+      this.lastSummon={cat:e.cat,type:e.type,power:e.power,stage:d.board.length,cards,best:e.best,id:u.id,t:this.t,label:e.label,score:e.score};
+      this.emit('summon',this.lastSummon);this.newDeal();this.actionAt=this.t+.9;return true;
+    }
+    addUnit(cat,type,p,main=0,detail={}){
+      let u=this.units.find(x=>x.cat===cat&&x.type===type);
+      if(!u){
+        const occupied=new Set(this.units.map(x=>x.slot));const slot=SLOT_ORDER.find(x=>!occupied.has(x));
+        u={id:this.nextId++,cat,type,members:[],base:0,count:0,main,slot,cooldown:this.rng.next()*.3,angle:-Math.PI/2,flash:.7,damage:0};
+        this.units.push(u);
+      }
+      const member={id:this.nextId++,base:p,score:detail.score||RANK_TABLES[cat][0],invested:detail.invested||0,starter:!!detail.starter,cooldown:this.rng.next()/rateFor(u),damage:0};
+      u.members.push(member);u.members.sort((a,b)=>a.score-b.score||a.id-b.id);u.base+=p;u.count=u.members.length;u.flash=.7;
+      return u;
+    }
+    saleValue(u,member){
+      if(member.starter)return 5;
+      const categoryValue=[6,10,19,30,65,95,175,420,1200,2500][u.cat];
+      return Math.floor((member.invested*3+categoryValue*(1+.35*quality(member.score)))*(1+.08*this.shop.broker));
+    }
+    sellUnit(id,memberId=null){
+      if(this.status!=='playing')return false;const u=this.units.find(x=>x.id===id);if(!u)return false;
+      const member=memberId==null?u.members[0]:u.members.find(m=>m.id===memberId);if(!member)return false;
+      const value=this.saleValue(u,member);this.gold+=value;this.earned.sale+=value;this.sold++;
+      u.members=u.members.filter(m=>m!==member);u.count=u.members.length;u.base=u.members.reduce((a,m)=>a+m.base,0);
+      // Existing area effects are cancelled on sale, preventing cast-and-sell abuse.
+      this.zones=this.zones.filter(z=>z.memberId!==member.id);
+      this.projectiles=this.projectiles.filter(p=>{if(p.memberId!==member.id)return true;const e=this.enemies.find(e=>e.id===p.targetId);if(e)e.reserved=Math.max(0,(e.reserved||0)-p.reserved);return false;});
+      if(!u.count)this.units=this.units.filter(x=>x!==u);
+      this.emit('sale',{id,memberId:member.id,value,label:handLabel(member.score)});return value;
+    }
+    upgrade(type){
+      if(!Number.isInteger(type)||type<0||type>4)return false;
+      const cost=upgradeCost(this.upgrades[type]);if(this.status!=='playing'||this.gold<cost)return false;
+      this.gold-=cost;this.spent.gold+=cost;this.upgrades[type]++;this.emit('upgrade',{type});return true;
+    }
+    buyShop(id){
+      const item=SHOP.find(x=>x.id===id);if(!item||this.status!=='playing'||this.shop[id]>=item.max)return false;
+      const cost=item.cost(this.shop[id]);if(this.gold<cost)return false;
+      this.gold-=cost;this.spent.gold+=cost;this.shop[id]++;
+      if(id==='jokerforge')this.tokens++;
+      this.emit('shop',{id,cost});return true;
+    }
+    moveUnit(id,slot){const u=this.units.find(x=>x.id===id);if(!u||!SLOTS[slot])return false;const other=this.units.find(x=>x.slot===slot);if(other)other.slot=u.slot;u.slot=slot;return true;}
+    unitDPS(u){return u.base*researchFactor(u.cat,u.type,this.upgrades);}
+    totalDPS(){return this.units.reduce((a,u)=>a+this.unitDPS(u),0);}
+    startWave(){
+      this.wave++;this.info=waveInfo(this.wave);this.spawned=0;this.spawnClock=0;this.waveAt=this.t;
+      this.nextWaveAt=CONFIG.prepSeconds+this.wave*CONFIG.waveSeconds;this.addIncome(this.info.gold,this.info.chips);
+      if(this.wave%10===0)this.tokens++;
+      if(this.wave===CONFIG.waves)this.finalDeadline=this.t+CONFIG.finalClearSeconds;
+      this.emit('wave',this.info);if(this.info.boss)this.spawnEnemy(true);
+    }
+    spawnEnemy(boss=false,reinforcement=false){
+      const i=this.info;let kind='normal',hp=i.hp,speed=i.speed;
+      if(!boss){
+        if(this.wave>=16&&this.spawned%7===6){kind='swift';hp*=.85;speed*=1.35;}
+        else if(this.wave>=36&&this.spawned%6===5){kind='armored';hp*=1.4;speed*=.88;}
+        else if(this.wave>=70&&this.spawned%9===8){kind='elite';hp*=1.6;speed*=1.05;}
+        if(reinforcement){kind='reinforcement';hp*=.6;}
+      }else{kind='boss';hp=i.bossHP;speed*=.68;}
+      const d=boss?pathLength*.1:this.rng.next()*18;
+      this.enemies.push({id:this.nextId++,kind,boss,wave:this.wave,hp,maxHP:hp,speed,d,age:0,weak:0,slow:0,hit:0,reserved:0,enraged:false,reinforceAt:0,deadline:boss?this.t+i.bossLimit:0,...pathPoint(d)});
+      if(boss)this.emit('boss',{wave:this.wave,hp,limit:i.bossLimit});
+    }
+    damageMultiplier(e,u,pierce=false){
+      let m=e.weak>0?1.15:1;
+      if(e.kind==='armored'&&!pierce&&u.type!==3)m*=.84;
+      if(e.boss)m*=u.type===2?1.7:u.cat===7?1.35:u.cat===8?1.5:u.cat===9?1.8:1;
+      return m;
+    }
+    hitEnemy(e,amount,u,pierce=false,memberId=null){
+      if(e.hp<=0)return;const dmg=amount*this.damageMultiplier(e,u,pierce),actual=Math.min(e.hp,dmg);
+      e.hp-=dmg;e.hit=.16;this.damage+=actual;this.damageWindow+=actual;u.damage+=actual;
+      const m=u.members.find(m=>m.id===memberId);if(m)m.damage+=actual;
+      if(e.hp<=0){
+        this.kills++;this.addIncome(e.boss?100+e.wave*4:e.kind==='reinforcement'?0:4,e.boss?2:0);
+        if(e.boss){this.bossKills++;if(this.rng.next()<this.shop.jokerforge*.25)this.tokens++;this.emit('bosskill',{wave:e.wave});}
+        this.emit('kill',{x:e.x,y:e.y,boss:e.boss});
+      }
+    }
+    createZone(u,target,damage,memberId){
+      const royal=u.cat===9,quad=u.cat===7,duration=royal?3.4:quad?2.8:2.2;
+      // Two afterimages per individual; no multi-target multiplicative explosion.
+      const own=this.zones.filter(z=>z.memberId===memberId);if(own.length>=2)this.zones=this.zones.filter(z=>z!==own[0]);
+      const z={id:this.nextId++,unitId:u.id,memberId,type:u.type,cat:u.cat,x:target.x,y:target.y,life:duration,maxLife:duration,r:royal?86:quad?72:60,clock:0,damage:damage*(royal?.10:quad?.075:.065),maxTargets:royal?4:quad?3:2};
+      this.zones.push(z);this.emit('zone',z);
+    }
+    attack(u,member=null){
+      member=member||u.members[0];if(!member)return false;
+      const p=SLOTS[u.slot],r2=unitRange(u)**2;let target=null,best=-Infinity;
+      for(const e of this.enemies){if(e.hp<=0||e.hp<=(e.reserved||0)*.98)continue;const dist=(p.x-e.x)**2+(p.y-e.y)**2;if(dist>r2)continue;
+        const value=this.target==='boss'?(e.boss?1e9:0)+e.age*100-dist*.001:this.target==='oldest'?e.age*100-dist*.001:-dist;
+        if(value>best){best=value;target=e;}
+      }
+      if(!target)return false;
+      const damage=member.base*researchFactor(u.cat,u.type,this.upgrades)/rateFor(u),barrage=barrageFor(u),count=barrage.count;
+      const kind=projectileKind(u),speed=barrage.speed*(kind==='mortar'?.72:1);
+      u.angle=Math.atan2(target.y-p.y,target.x-p.x);u.flash=.12;
+      for(let i=0;i<count;i++){
+        const packetDamage=damage/count,reserved=packetDamage*this.damageMultiplier(target,u,u.cat>=7);
+        target.reserved=(target.reserved||0)+reserved;
+        const fan=count===1?0:(i/(count-1)*2-1)*barrage.spread;
+        const projectile={id:this.nextId++,unitId:u.id,memberId:member.id,targetId:target.id,type:u.type,cat:u.cat,kind,
+          x:p.x,y:p.y,sx:p.x,sy:p.y,tx:target.x,ty:target.y,age:-i*barrage.spacing,
+          duration:Math.max(.14,Math.hypot(p.x-target.x,p.y-target.y)/speed),damage:packetDamage,reserved,
+          volleyCount:count,volleyIndex:i,fan,zoneDamage:i===count-1&&barrage.zone?damage:0};
+        this.projectiles.push(projectile);this.projectileCount++;this.emit('shot',projectile);
+      }
+      return true;
+    }
+    impact(p,target,u){
+      const at={x:target?target.x:p.tx,y:target?target.y:p.ty},alive=target&&target.hp>0;
+      if(target)target.reserved=Math.max(0,(target.reserved||0)-p.reserved);
+      if(alive)this.hitEnemy(target,p.damage,u,u.cat>=7,p.memberId);
+      let spl=splashFor(u);
+      // Preserve already-fired v0.3 shots on import; no duplication or deletion of damage.
+      if(!p.volleyCount){spl=(u.type===1||u.cat>=8)?{radius:u.cat>=8?98:68,inner:Infinity,fraction:u.cat===9?.48:u.cat===8?.4:.38,outer:0,limit:u.cat===9?5:u.cat===8?3:2}:null;}
+      if(spl){
+        const near=this.enemies.filter(e=>e!==target&&e.hp>0&&(e.x-at.x)**2+(e.y-at.y)**2<=spl.radius*spl.radius)
+          .sort((a,b)=>(a.x-at.x)**2+(a.y-at.y)**2-((b.x-at.x)**2+(b.y-at.y)**2)||a.id-b.id).slice(0,spl.limit);
+        for(const e of near){const d2=(e.x-at.x)**2+(e.y-at.y)**2;
+          this.hitEnemy(e,p.damage*(d2<=spl.inner*spl.inner?spl.fraction:spl.outer),u,u.cat>=7,p.memberId);}
+      }
+      if(u.type===3&&alive&&target.hp>0){target.weak=2.4;target.slow=2.4;}
+      // Only the final missile creates one zone using the complete volley's budget.
+      if(p.volleyCount?p.zoneDamage>0:(u.cat===6||u.cat===7||u.cat===9))this.createZone(u,at,p.volleyCount?p.zoneDamage:p.damage,p.memberId);
+      this.emit('impact',{...at,type:u.type,cat:u.cat,kind:p.kind,volleyCount:p.volleyCount||1,volleyIndex:p.volleyIndex||0,radius:spl?.radius||0});
+    }
+    tick(dt){
+      if(this.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;this.t+=dt;
+      this.chipClock+=dt;const ci=this.chipInterval();while(this.chipClock>=ci){this.chipClock-=ci;this.addIncome(0,1);}
+      if(this.t>=this.nextWaveAt&&this.wave<CONFIG.waves)this.startWave();
+      if(this.wave>0){const interval=34/this.info.count;this.spawnClock+=dt;while(this.spawned<this.info.count&&this.spawnClock>=interval){this.spawnClock-=interval;this.spawned++;this.spawnEnemy();}}
+      let reinforcements=0;
+      for(const e of this.enemies){
+        e.age+=dt;e.weak=Math.max(0,e.weak-dt);e.slow=Math.max(0,e.slow-dt);e.hit=Math.max(0,e.hit-dt);
+        e.d+=e.speed*dt*(e.slow>0?.82:1)*(e.enraged?1.15:1);Object.assign(e,pathPoint(e.d));
+        if(e.boss&&e.hp>0&&this.t>=e.deadline){
+          if(!e.enraged){e.enraged=true;e.reinforceAt=this.t+12;this.emit('enrage',{wave:e.wave});}
+          if(this.t>=e.reinforceAt){e.reinforceAt+=12;reinforcements+=2;}
+        }
+      }
+      for(let i=0;i<reinforcements;i++)this.spawnEnemy(false,true);
+      const emap=new Map(this.enemies.map(e=>[e.id,e])),umap=new Map(this.units.map(u=>[u.id,u]));
+      const flying=[];
+      for(const p of this.projectiles){
+        p.age+=dt;const target=emap.get(p.targetId),u=umap.get(p.unitId);
+        if(!u){if(target)target.reserved=Math.max(0,(target.reserved||0)-p.reserved);continue;}
+        if(p.age<0){flying.push(p);continue;}
+        if(target){p.tx=target.x;p.ty=target.y;}
+        const t=Math.min(1,p.age/p.duration);Object.assign(p,projectilePosition(p,t));
+        if(t>=1)this.impact(p,target,u);else flying.push(p);
+      }
+      this.projectiles=flying;
+      for(const z of this.zones){
+        z.life-=dt;z.clock+=dt;const u=umap.get(z.unitId);if(!u){z.life=0;continue;}
+        while(z.clock>=.4&&z.life>0){z.clock-=.4;let hit=0;for(const e of this.enemies){if(e.hp>0&&(e.x-z.x)**2+(e.y-z.y)**2<=z.r*z.r){this.hitEnemy(e,z.damage,u,u.cat>=7,z.memberId);if(++hit>=z.maxTargets)break;}}}
+      }
+      this.zones=this.zones.filter(z=>z.life>0);
+      for(const u of this.units){u.flash=Math.max(0,u.flash-dt);for(const m of u.members){m.cooldown-=dt;if(m.cooldown<=0){if(this.attack(u,m))m.cooldown+=1/rateFor(u);else m.cooldown=.15;}}}
+      this.enemies=this.enemies.filter(e=>e.hp>0);this.peakEnemies=Math.max(this.peakEnemies,this.enemies.length);
+      this.meterClock+=dt;if(this.meterClock>=4){this.effectiveDPS=this.damageWindow/this.meterClock;this.damageWindow=0;this.meterClock=0;}
+      this.overload=0;
+      if(this.enemies.length>=CONFIG.limit){this.end('lost','잔여 적이 200기에 도달했습니다.');return;}
+      if(this.wave===CONFIG.waves&&this.spawned===this.info.count&&!this.enemies.length){this.end('won','120스테이지와 열두 보스를 모두 방어했습니다.');return;}
+      if(this.finalDeadline&&this.t>=this.finalDeadline)this.end('lost','최종 소탕 제한이 끝났습니다. 기본 템포 기준 80초입니다.');
+    }
+    editorEnable(){this.editor=true;this.emit('editor');return true;}
+    editorJump(w){
+      if(!this.editor||!Number.isInteger(w)||w<1||w>CONFIG.waves)return false;
+      this.enemies=[];this.zones=[];this.projectiles=[];this.status='playing';this.reason='';this.wave=w-1;this.t=CONFIG.prepSeconds+(w-1)*CONFIG.waveSeconds;
+      this.actionAt=0;this.finalDeadline=0;this.deal.autoAt=0;this.damageWindow=0;this.meterClock=0;this.effectiveDPS=0;this.startWave();return true;
+    }
+    editorHand(cards){
+      if(!this.editor||!Array.isArray(cards)||cards.length<5||cards.length>8||new Set(cards).size!==cards.length||cards.some(c=>!Number.isInteger(c)||c<0||c>51))return false;
+      const e=evaluate(cards),type=typeForScore(cards,e.score),u=this.addUnit(e.cat,type,e.power,e.main,{score:e.score,invested:0});
+      this.emit('summon',{cat:e.cat,type,power:e.power,stage:3,cards,best:e.best,id:u.id,t:this.t,label:e.label,score:e.score,editor:true});return u;
+    }
+    editorDeal(hole,board=[]){
+      const all=[...hole,...board];if(!this.editor||![2,3].includes(hole.length)||![0,3,4,5].includes(board.length)||new Set(all).size!==all.length||all.some(c=>!Number.isInteger(c)||c<0||c>51))return false;
+      this.deal={hole:hole.slice(),board:board.slice(),deck:this.rng.shuffle(Array.from({length:52},(_,i)=>i).filter(c=>!all.includes(c))),discard:[],rolls:0,jokerUsed:false,invested:0,autoAt:0};this.actionAt=0;return true;
+    }
+    end(status,reason){this.status=status;this.reason=reason;this.emit('end',{status,reason});}
+    toJSON(){const o={};for(const k of Object.keys(this))if(!['events','rng','rngState','_botCache'].includes(k))o[k]=this[k];o.rngState=this.rng.state;return o;}
+    static restore(data,events=null){const g=Object.create(Game.prototype);Object.assign(g,data);g.rng=new RNG(data.rngState);g.events=events;if(g.deal)g.deal.autoAt=0;g.projectiles=g.projectiles||[];return g;}
+  }
+  // All pilots are non-clairvoyant. Forecasts use the remaining set, not order.
+  function effectivePower(v,type,up){return power(v)*researchFactor(category(v),type,up)*(type===1?1.22:category(v)===6?1.16:category(v)>=7?1.2:1);}
+  function stoppingTree(cards,remaining,upgrades){
+    const work=cards.slice(),out=[];
+    for(let i=0;i<remaining.length;i++){
+      work.push(remaining[i]);const v=score(work),now=power(v)*researchFactor(category(v),typeForScore(work,v),upgrades);let next=0;
+      for(let j=0;j<remaining.length;j++){if(j===i)continue;work.push(remaining[j]);const v2=score(work);next+=power(v2)*researchFactor(category(v2),typeForScore(work,v2),upgrades);work.pop();}
+      out.push({now,next:next/(remaining.length-1)});work.pop();
+    }return out;
+  }
+  function botAct(g,policy='selective'){
+    if(g.status!=='playing'||policy==='idle')return;
+    const naive=['flop','river','flop-roi','river-roi','event-seeker'].includes(policy),noShop=policy==='no-shop',blind=policy==='flop'||policy==='river';
+    const progress=g.wave/2;
+    const desiredPocket=naive?Math.min(8,Math.floor(progress/7)):Math.min(3,Math.floor(Math.max(0,progress-16)/12));
+    const desiredRefinery=Math.min(4,Math.floor(Math.max(0,progress-5)/10));
+    let bought=false;
+    if(!noShop&&g.enemies.length<90){
+      if(g.shop.refinery<desiredRefinery&&g.gold>=SHOP[1].cost(g.shop.refinery))bought=g.buyShop('refinery');
+      else if(g.shop.pocket<desiredPocket&&g.gold>=SHOP[0].cost(g.shop.pocket)&&progress>10)bought=g.buyShop('pocket');
+    }
+    let best=-1,bestValue=0;
+    for(let type=0;type<5;type++){
+      const base=g.units.filter(u=>u.type===type||u.cat>=6).reduce((a,u)=>a+u.base*(u.type===1?1.22:u.cat===6?1.16:1),0);
+      const cost=upgradeCost(g.upgrades[type]),gain=base*CONFIG.upgradeStep;
+      if(g.gold>=cost&&gain/cost>bestValue){best=type;bestValue=gain/cost;}
+    }
+    if(blind){const t=RESEARCH[g.upgrades.reduce((a,b)=>a+b,0)%5];if(!bought&&g.gold>=upgradeCost(g.upgrades[t]))g.upgrade(t);}else if(policy!=='no-research'&&best>=0&&!bought)g.upgrade(best);
+    if(!g.canAct())return;const d=g.deal,n=d.board.length;
+    if(n===0){
+      if(policy==='event-seeker'&&g.shop.pocket>0&&d.hole.length===2&&d.rolls<3&&g.gold>g.rerollCost()+40){g.reroll();return;}
+      const r=d.hole.map(rank).sort((a,b)=>b-a);
+      if(!naive&&d.rolls===0&&d.hole.length===2&&r[0]<=10&&Math.abs(r[0]-r[1])>3&&suit(d.hole[0])!==suit(d.hole[1])&&g.gold>g.rerollCost()+95){g.reroll();return;}
+      g.advance();return;
+    }
+    if(n===5){
+      // The human must confirm. Only an explicitly enabled pilot makes this choice.
+      if(!naive&&!d.jokerUsed&&g.tokens>0){
+        const cards=[...d.hole,...d.board],cur=g.preview().dps;
+        let bestJoker=null;
+        for(const zone of ['hole','board'])for(let index=0;index<d[zone].length;index++){
+          const f=jokerForecast(d.hole,d.board,d.deck,zone,index,g.upgrades);
+          if(!bestJoker||f.expected>bestJoker.expected)bestJoker={...f,zone,index};
+        }
+        if(bestJoker&&bestJoker.expected-cur>Math.max(150,cur*.32)){g.joker(bestJoker.zone,bestJoker.index);return;}
+      }
+      g.claim();return;
+    }
+    if(['flop','flop-roi','event-seeker'].includes(policy)){g.claim();return;}
+    if(policy==='river'||policy==='river-roi'){if(!g.advance()&&g.enemies.length>145)g.claim();return;}
+    const cards=[...d.hole,...d.board],v=score(cards),cat=category(v),cur=power(v)*researchFactor(cat,typeForScore(cards,v),g.upgrades);
+    const key=cards.join(',')+'/'+g.upgrades.join(',')+'/'+d.jokerUsed;
+    if(!g._botCache||g._botCache.key!==key){
+      const next=forecast(cards,d.deck,1,g.upgrades),end=n===3?forecast(cards,d.deck,2,g.upgrades):null;
+      let joker=null;
+      if(!d.jokerUsed&&g.tokens>0&&cat<7){for(const zone of ['hole','board'])for(let i=0;i<d[zone].length;i++){
+        const f=jokerForecast(d.hole,d.board,d.deck,zone,i,g.upgrades);if(!joker||f.expected>joker.expected)joker={...f,zone,index:i};
+      }}
+      g._botCache={key,next,end,joker,tree:n===3?stoppingTree(cards,d.deck,g.upgrades):null};
+    }
+    const f=g._botCache,cost=n===3?CONFIG.turnCost:CONFIG.riverCost;
+    if(f.joker&&!d.jokerUsed&&g.tokens>0&&f.joker.expected-cur>Math.max(150,cur*.32)){g.joker(f.joker.zone,f.joker.index);return;}
+    const shadow=21*(1+CONFIG.upgradeStep*g.upgrades[4]*.62)*(g.enemies.length>100?1.35:1);
+    // E[max(stop at turn, river EV minus river opportunity cost)] is the
+    // exact two-step stopping value for this chosen chip shadow price.
+    let gain=f.next.expected-cur;
+    if(n===3)gain=f.tree.reduce((a,x)=>a+Math.max(x.now,x.next-CONFIG.riverCost*shadow),0)/f.tree.length-cur;
+    if(g.summons<2||g.enemies.length>165||gain<shadow*cost){g.claim();return;}
+    if(g.chips>=cost)g.advance();else if(g.enemies.length>100||(g.wave<=6&&g.chips===0))g.claim();
+  }
+  const api={BARRAGES,barrageFor,splashFor,projectilePosition,HP_ANCHORS,RANGES,SHOT_SPEED,unitRange,rateFor,projectileKind,expansionChance,jokerForecast,stoppingTree,botAct,BASE,CONFIG,NAMES,EN,TITLES,DPS,MAX_DPS,COLORS,SUITS,TYPES,RESEARCH,SHOP,COUNTS,RANK_TABLES,RNG,hashSeed,rank,suit,rankLabel,cardName,parseCard,score,category,mainRank,scoreRanks,quality,handLabel,power,evaluate,forecast,typeForScore,unitType,researchFactor,refreshCost,upgradeCost,waveInfo,PATH,pathLength,pathPoint,SLOTS,Game};
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.RB=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script>
+<script>/* RIVERBOUND VI browser shell. Standalone: no CDN, fonts, assets, or services. */
+(() => {
+  'use strict';
+  const E=window.RB,$=id=>document.getElementById(id),TAU=Math.PI*2;
+  const ctx=$('arena').getContext('2d',{alpha:false});
+  const ui={started:false,paused:false,auto:false,speed:2,elapsed:0,quality:"auto",mobile:false,lowGraphics:false,drawClock:0,placement:false,oddsKey:"",sound:false,selected:null,member:null,modal:'intro',tab:'contract',horizon:1,cache:'',preview:null,forecasts:null,fx:[],particles:[],rings:[],toastUntil:0,saveClock:0,hudClock:0,botClock:0,accumulator:0,realTime:0,view:{width:900,height:580,scale:1,x:0,y:0,dpr:1},pointer:null,memberKey:'',jokerMode:false,jokerTarget:null};
+  let game=new E.Game(E.hashSeed('preview')),saved=null,audio=null;
+  const SAVE_KEY='riverbound_save_v6';
+  const fmt=n=>Math.round(n).toLocaleString('en-US');
+  const short=n=>n>=1000000?(n/1e6).toFixed(2)+'m':n>=10000?(n/1000).toFixed(1)+'k':n>=1000?(n/1000).toFixed(2)+'k':Math.round(n).toString();
+  const pct=n=>n===0?'0%':n<.001?(n*100).toFixed(3)+'%':n<.01?(n*100).toFixed(2)+'%':(n*100).toFixed(1)+'%';
+  const time=n=>Math.floor(n/60).toString().padStart(2,'0')+':'+Math.floor(n%60).toString().padStart(2,'0');
+  const newSeed=()=>{try{return 'RB6-'+crypto.getRandomValues(new Uint32Array(1))[0].toString(36).toUpperCase();}catch{return 'RB6-'+Date.now().toString(36).toUpperCase();}};
+  let seedLabel=newSeed();$('seedInput').value=seedLabel;
+  try{const parsed=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(parsed&&parsed.version===E.CONFIG.version&&parsed.game.status==='playing'&&Array.isArray(parsed.game.deal.deck)){saved=parsed;$('continueBtn').classList.remove('hidden');$('continueBtn').textContent=`이어서 하기 · S${parsed.game.wave}`;}}catch{}
+  document.body.classList.add('modal-open');
+  for(let i=10;i<=E.CONFIG.waves;i+=10){const marker=document.createElement('span');marker.style.left=(i/E.CONFIG.waves*100)+'%';marker.title='S'+i+' 보스';marker.dataset.boss=i;$('campaignTrack').append(marker);}
+  function log(message){$('logMessage').textContent=message;}
+  function sound(kind){
+    if(!ui.sound)return;
+    try{
+      if(!audio)audio=new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();
+      const notes=kind==='rare'?[392,523.25,659.25,783.99,1046.5]:kind==='wave'?[196,261.63]:kind==='end'?[330,247,196]:kind==='upgrade'?[440,660]:kind==='joker'?[587,880]:[350,440];
+      notes.forEach((f,i)=>{const o=audio.createOscillator(),gain=audio.createGain(),t=audio.currentTime+i*.075;o.type='sine';o.frequency.value=f;gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(.025,t+.012);gain.gain.exponentialRampToValueAtTime(.001,t+.2);o.connect(gain);gain.connect(audio.destination);o.start(t);o.stop(t+.22);});
+    }catch{ui.sound=false;$('soundBtn').textContent='소리 사용 불가';}
+  }
+  function toast(kicker,title,sub,color='#7de2ba',duration=2.1,rare=false){
+    $('toastEyebrow').textContent=kicker;$('toastTitle').textContent=title;$('toastTitle').style.color=color;$('toastSub').textContent=sub;$('arenaToast').style.borderColor=color+'88';$('arenaToast').classList.add('visible');$('arenaToast').classList.toggle('rare',rare);ui.toastUntil=ui.realTime+duration;
+  }
+  function event(type,data){
+    if(type==='shot'){
+      // One emitter effect per attack, never one full-screen flare per bullet.
+      if(data.cat>=6&&data.volleyIndex===0&&ui.fx.length<(ui.lowGraphics?20:60))
+        ui.fx.push({x:data.sx,y:data.sy,angle:Math.atan2(data.ty-data.sy,data.tx-data.sx),kind:data.kind,cat:data.cat,life:.52,max:.52,launch:true});
+    }else if(type==='impact'){
+      const multi=data.volleyCount>1,c=E.COLORS[data.cat],a=(data.volleyIndex||0)*2.4;
+      const x=data.x+(multi?Math.cos(a)*7:0),y=data.y+(multi?Math.sin(a)*7:0),life=multi?.30:data.cat>=6?.6:.24;
+      if(ui.rings.length<(ui.lowGraphics?40:160))ui.rings.push({x,y,r:multi?(data.cat===7?21:data.cat===9?29:21):data.cat>=6?40:data.type===1?55:9+data.cat*2,life,max:life,color:c,kind:data.cat>=6?data.kind:'ring',index:data.volleyIndex||0});
+      if(multi&&!ui.lowGraphics)for(let i=0;i<3&&ui.particles.length<340;i++){const k=a+i*TAU/3;ui.particles.push({x,y,vx:Math.cos(k)*45,vy:Math.sin(k)*45,life:.19+i*.025,color:c});}
+    }else if(type==='enrage'){
+      toast('ENRAGED / 광폭화',`S${data.wave} 보스`, `즉사 없음 · 처치까지 ${(12/ui.speed).toFixed(1)}초마다 증원 2기`, '#ff879c',3);
+    }else if(type==='kill'){
+      for(let i=0;i<(ui.lowGraphics?(data.boss?6:0):data.boss?24:3)&&ui.particles.length<220;i++){const a=Math.random()*TAU,v=20+Math.random()*65;ui.particles.push({x:data.x,y:data.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:.25+Math.random()*.4,color:data.boss?'#eabe70':'#6abfa5'});}
+    }else if(type==='summon'){
+      ui.selected=data.id;ui.member=null;const u=game.units.find(x=>x.id===data.id),p=E.SLOTS[u.slot];
+      for(let i=0;i<(data.cat>=6?3:1);i++)ui.rings.push({x:p.x,y:p.y,r:48+30*i,life:.75+i*.2,max:.75+i*.2,color:E.COLORS[data.cat]});
+      log(`${E.NAMES[data.cat]} / ${data.label} · ${E.TYPES[data.type].type} 소환. ${data.stage===3?'플랍':data.stage===4?'턴':'리버'}에서 확정했습니다.`);
+      toast(data.cat>=6?'MYTHIC CONTRACT / 상위 계약':data.cat>=4?'RARE CONTRACT / 희귀 계약':'CONTRACT COMPLETE / 소환 완료',E.NAMES[data.cat],`${E.TYPES[data.type].symbol} ${E.TYPES[data.type].type} · 기본 DPS ${data.power.toFixed(1)}`,E.COLORS[data.cat],data.cat>=4?3:1.5,data.cat>=6);sound(data.cat>=4?'rare':'summon');
+    }else if(type==='wave'){
+      if(!data.boss)toast('INCOMING / 적 접근',`STAGE ${String(data.wave).padStart(2,'0')}`,`${data.label} · ${data.count}기 · 체력 ${fmt(data.hp)}`,'#b5d1c2',1.6);
+      log(`S${data.wave} 시작 · 수당 ${data.gold} G + ${data.chips} CHIP${data.boss?' + 조커 1개':''}.`);sound('wave');
+    }else if(type==='boss'){
+      toast('PRIORITY TARGET / 보스 출현',data.wave===E.CONFIG.waves?'THE FINAL RIVER':'BREACH COMMANDER',`S${data.wave} · HP ${fmt(data.hp)} · 광폭화까지 ${(data.limit/ui.speed).toFixed(1)}초`,'#ff879c',3.7,true);sound('wave');
+    }else if(type==='bosskill'){
+      toast('TARGET ELIMINATED','보스 격파','추가 보상: 2 CHIP + GOLD','#eabe70');log(`S${data.wave} 보스 격파. 다음 공세에 대비하세요.`);sound('rare');
+    }else if(type==='reroll'){log(`새 핸드 ${game.deal.hole.length}장. 다음 교체 ${game.rerollCost()} G · 3장 확률 ${game.shop.pocket*2}%.`);sound('card');}
+    else if(type==='joker'){ui.jokerMode=false;ui.jokerTarget=null;log(`${E.cardName(data.old)} → ${E.cardName(data.card)}. 나머지 카드는 유지되며 버린 한 장은 이번 계약에서 제외됩니다.`);sound('joker');}
+    else if(type==='reveal')sound('card');
+    else if(type==='upgrade'){log(`${E.TYPES[data.type].type} 연구 Lv.${game.upgrades[data.type]} · 해당 타입과 풀하우스 이상에 적용.`);sound('upgrade');}
+    else if(type==='shop'){log(`${E.SHOP.find(i=>i.id===data.id).name} Lv.${game.shop[data.id]} 구매. 이번 작전 동안 유지됩니다.`);sound('upgrade');}
+    else if(type==='sale'){log(`${data.label} 유닛 1기 판매 · +${data.value} G. 칩은 환급하지 않습니다.`);ui.member=null;sound('card');}
+    else if(type==='end'){showResult();sound('end');}
+  }
+  function openModal(name){ui.modal=name;document.querySelectorAll('.modal-backdrop').forEach(e=>e.classList.remove('show'));if(name)$(name+'Modal').classList.add('show');document.body.classList.toggle('modal-open',!!name);ui.accumulator=0;}
+  function setTab(tab){ui.tab=tab;for(const name of ['contract','shop','archive','army'])$(name+'Panel').classList.toggle('hidden',name!==tab);document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('sideTitle').textContent=tab==='shop'?'딜러의 상점':tab==='archive'?'유닛 도감':tab==='army'?'전력 · 연구':'유닛 계약';}
+  function startGame(seed=seedLabel,auto=false,restore=null){
+    seedLabel=String(seed);game=restore?E.Game.restore(restore,event):new E.Game(/^\d+$/.test(seedLabel)?Number(seedLabel)>>>0:E.hashSeed(seedLabel),event);
+    Object.assign(ui,{started:true,paused:false,auto,speed:2,elapsed:restore?Number(restore.activeSeconds||restore.t/2):0,oddsKey:"",cache:'',horizon:1,selected:null,member:null,memberKey:'',jokerMode:false,jokerTarget:null,fx:[],particles:[],rings:[],botClock:0,accumulator:0,saveClock:0,toastUntil:0});
+    $('arenaToast').classList.remove('visible');openModal(null);setTab('contract');ui.placement=false;updateMobileLayout();document.querySelectorAll('[data-target]').forEach(b=>b.classList.toggle('active',b.dataset.target===game.target));updateControls();renderCards();renderHUD();draw();log(restore?'이전 작전을 불러왔습니다.':'노말 2기 지급. D로 플랍, E로 소환. 초반 보강을 늦추지 마세요.');save();
+  }
+  function save(){
+    if(!ui.started||game.status!=='playing')return;
+    const payload={version:E.CONFIG.version,seedLabel,auto:ui.auto,game:{...game.toJSON(),activeSeconds:ui.elapsed}};if(!game.editor){saved=payload;$('continueBtn').classList.remove('hidden');$('continueBtn').textContent=`이어서 하기 · S${game.wave}`;}
+    try{localStorage.setItem(game.editor?SAVE_KEY+'_editor':SAVE_KEY,JSON.stringify(payload));$('saveStatus').textContent=`${game.editor?'EDITOR':'SAVED'} · ${time(game.t/E.CONFIG.tempo)}`;}catch{$('saveStatus').textContent='자동 저장 불가 · 가이드에서 파일 저장';}
+  }
+  function updateControls(){
+    $('pauseBtn').textContent=ui.paused?'▶ 재개':'Ⅱ 정지';$('pauseBtn').classList.toggle('on',ui.paused);$('pauseLayer').classList.toggle('show',ui.paused&&!ui.modal);$('speedBtn').textContent=ui.speed===2?'2× 기본':ui.speed+'×';document.querySelectorAll('[data-speed]').forEach(b=>b.classList.toggle('on',+b.dataset.speed===ui.speed));$('settingsSoundBtn').textContent=ui.sound?'소리 ON':'소리 OFF';$('settingsAutoBtn').textContent=ui.auto?'자동 시연 ON':'자동 시연 OFF';$('speedBtn').classList.toggle('on',ui.speed>1);$('demoBtn').textContent=ui.auto?'자동 ON':'자동 OFF';$('demoBtn').classList.toggle('on',ui.auto);$('liveIndicator').textContent=game.editor?'EDITOR · TEST':ui.auto?'AUTO DEMO':ui.paused?'PAUSED':'REAL TIME';$('editorBtn').classList.toggle('on',game.editor);
+  }
+  function isPlaying(){return ui.started&&!ui.paused&&!ui.modal&&game.status==='playing';}
+  function act(action){if(action==='joker')return toggleJoker();if(!isPlaying())return false;if(ui.jokerMode&&action!=='joker'){log('조커를 교체하거나 취소한 뒤 소환/다음 카드를 선택하세요.');return false;}const result=game[action]();if(result){ui.jokerMode=false;ui.jokerTarget=null;}renderCards();renderHUD();return result;}
+  function togglePause(){if(!ui.started||ui.modal||game.status!=='playing')return;ui.paused=!ui.paused;ui.accumulator=0;updateControls();renderHUD();}
+  function sellSelected(){
+    if(!isPlaying())return;const u=game.units.find(u=>u.id===ui.selected);if(!u)return;const m=u.members.find(m=>m.id===ui.member)||u.members[0];
+    if(u.cat>=4&&!confirm(`${E.NAMES[u.cat]} · ${E.handLabel(m.score)}\n이 유닛 1기를 ${game.saleValue(u,m)} G에 판매할까요?\n공격력이 줄어들며 되돌릴 수 없습니다.`))return;
+    game.sellUnit(u.id,m.id);renderHUD();
+  }
+  $('startBtn').onclick=()=>startGame($('seedInput').value.trim()||newSeed(),false);
+  $('startDemoBtn').onclick=()=>startGame($('seedInput').value.trim()||newSeed(),true);
+  $('continueBtn').onclick=()=>{if(saved)startGame(saved.seedLabel,!!saved.auto,saved.game);};
+  $('pauseBtn').onclick=togglePause;
+  $('speedBtn').onclick=()=>{const speeds=[2,2.5,3,1];ui.speed=speeds[(speeds.indexOf(ui.speed)+1)%speeds.length];updateControls();renderHUD();};
+  $('soundBtn').onclick=()=>{ui.sound=!ui.sound;$('soundBtn').textContent=ui.sound?'소리 ON':'소리 OFF';$('soundBtn').classList.toggle('on',ui.sound);if(ui.sound)sound('card');};
+  $('demoBtn').onclick=()=>{if(!ui.started)return;ui.auto=!ui.auto;updateControls();log(ui.auto?'자동 시연 시작. 같은 재화로 상점·연구·조건부 확률을 사용하는 봇입니다.':'자동 시연 종료. 직접 조작합니다.');};
+  $('helpBtn').onclick=()=>{openModal('help');updateControls();};
+  $('closeHelpBtn').onclick=()=>{openModal(ui.started?null:'intro');updateControls();};
+  $('claimBtn').onclick=()=>act('claim');$('advanceBtn').onclick=()=>act('advance');$('rerollBtn').onclick=()=>act('reroll');$('jokerBtn').onclick=toggleJoker;
+  $('sellBtn').onclick=sellSelected;$('memberSelect').onchange=e=>{ui.member=Number(e.target.value)||null;renderHUD();};
+  function exportSave(){
+    if(!ui.started||game.status!=='playing'){alert('진행 중인 작전이 없습니다.');return;}
+    const data={version:E.CONFIG.version,seedLabel,auto:ui.auto,game:{...game.toJSON(),activeSeconds:ui.elapsed}};
+    const blob=new Blob([JSON.stringify(data)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
+    link.href=url;link.download=`Riverbound_v6_S${game.wave}_save.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),10000);
+  }
+  function importSaved(data){
+    if(!data||![5,6].includes(data.version)||!data.game||data.game.status!=='playing')throw Error('120스테이지 캠페인의 0.5 또는 0.6 저장만 지원합니다.');
+    const g=data.game,d=g.deal;
+    if(!Number.isFinite(g.t)||g.t<0||!Number.isInteger(g.wave)||g.wave<0||g.wave>E.CONFIG.waves||!d||![2,3].includes(d.hole?.length)||![0,3,4,5].includes(d.board?.length)||!Array.isArray(d.deck)||!Array.isArray(d.discard)||!Array.isArray(g.units)||!Array.isArray(g.enemies)||!Array.isArray(g.zones)||g.upgrades?.length!==5||!g.shop)throw Error('저장 파일의 형식이 올바르지 않습니다.');
+    const all=[...d.hole,...d.board,...d.deck,...d.discard];
+    if(all.length!==52||new Set(all).size!==52||all.some(c=>!Number.isInteger(c)||c<0||c>51))throw Error('저장 파일의 덱 정보가 올바르지 않습니다.');
+    for(const key of ['gold','chips','tokens'])if(!Number.isFinite(g[key])||g[key]<0)throw Error('재화 정보가 올바르지 않습니다.');
+    for(const u of g.units)if(!E.TYPES[u.type]||!E.SLOTS[u.slot]||!u.members?.length||u.members.some(m=>!Number.isFinite(m.base)||m.base<0))throw Error('유닛 정보가 올바르지 않습니다.');
+    if(data.version===5)g.importedFromVersion=5; startGame(String(data.seedLabel||g.seed),false,g);log(data.version===5?'0.5 저장 복원: 현재 적과 웨이브는 유지하고 다음 웨이브부터 강화 난도를 적용합니다.':'0.6 저장 복원: 기본 2×, 자동 시연 OFF.');return true;
+  }
+  $('exportSaveBtn').onclick=exportSave;
+  $('importSaveBtn').onclick=()=>$('importSaveInput').click();
+  $('importSaveInput').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>10000000)throw Error('파일이 너무 큽니다.');const data=JSON.parse(await file.text());if(ui.started&&game.status==='playing'&&!confirm('현재 작전을 저장 파일의 상태로 교체할까요?'))return;importSaved(data);}catch(err){alert('불러오기 실패: '+err.message);}finally{e.target.value='';}};
+  $('newGameBtn').onclick=()=>{if(ui.started&&game.status==='playing'&&!confirm('진행 중인 작전을 끝내고 새로 시작할까요?'))return;save();ui.started=false;$('seedInput').value=newSeed();openModal('intro');};
+  $('retryBtn').onclick=()=>startGame(seedLabel,false);
+  $('freshBtn').onclick=()=>{ui.started=false;$('seedInput').value=newSeed();$('continueBtn').classList.add('hidden');openModal('intro');};
+  document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+  document.querySelectorAll('[data-target]').forEach(b=>b.onclick=()=>{game.target=b.dataset.target;document.querySelectorAll('[data-target]').forEach(x=>x.classList.toggle('active',x===b));});
+  document.addEventListener('keydown',e=>{
+    if(e.target.matches('input,textarea,select')||e.ctrlKey||e.altKey||e.metaKey)return;
+    if(e.code==='Escape'){if(ui.modal==='settings'){$('closeSettingsBtn').click();e.preventDefault();}else if(ui.modal==='editor'){$('closeEditorBtn').click();e.preventDefault();}else if(ui.modal==='help'){$('closeHelpBtn').click();e.preventDefault();}else if(ui.jokerMode){cancelJoker();e.preventDefault();}return;}
+    if(ui.modal)return;const actions={KeyD:'advance',KeyE:'claim',KeyR:'reroll',KeyJ:'joker'};
+    if(e.code==='Space'){e.preventDefault();if(!e.repeat)togglePause();}
+    else if(actions[e.code]){e.preventDefault();if(!e.repeat)act(actions[e.code]);}
+    else if(/^Digit[1-5]$/.test(e.code)&&isPlaying()&&!e.repeat){game.upgrade(E.RESEARCH[Number(e.code.slice(-1))-1]);renderHUD();}
+    else if(e.code==='KeyB'&&!e.repeat)setTab(ui.tab==='shop'?'contract':'shop');
+  });
+  $('oddsContent').addEventListener('click',e=>{const b=e.target.closest('[data-horizon]');if(b){ui.horizon=Number(b.dataset.horizon);renderOdds();}});
+  $('upgrades').innerHTML=E.RESEARCH.map((t,i)=>{const s=E.TYPES[t];return `<button class="upgrade" data-upgrade="${t}" style="--suit:${s.color}" title="${s.type}: 레벨마다 기본 DPS 16% 추가. 풀하우스 이상에도 적용. 단축키 ${i+1}"><div class="upgrade-head"><i>${s.symbol}</i><span>${s.type}</span><small id="upLevel${t}">LV.0</small></div><div class="upgrade-bottom"><span id="upCost${t}">65 G</span><small id="upBonus${t}">+0%</small></div></button>`;}).join('');
+  document.querySelectorAll('[data-upgrade]').forEach(b=>b.onclick=()=>{if(isPlaying()){game.upgrade(Number(b.dataset.upgrade));renderCards();renderHUD();}});
+  $('shopItems').innerHTML=E.SHOP.map(s=>`<article class="shop-item" style="--shop:${s.color}"><div class="shop-item-head"><div class="shop-item-symbol">${s.symbol}</div><div><small>${s.tag}</small><h4>${s.name}</h4></div><span class="shop-level" id="shopLevel_${s.id}">0 / ${s.max}</span></div><p>${s.description}</p><div class="shop-value" id="shopValue_${s.id}"></div><button class="shop-buy" data-buy="${s.id}" id="shopBuy_${s.id}"></button></article>`).join('');
+  document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{if(isPlaying()){game.buyShop(b.dataset.buy);renderHUD();}});
+  const gradeAbility=c=>c<=3?'노말 · 단일 사격만 사용':c<=5?'최고 카드 무늬 → 펄스 / 노바 / 프리즘 / 바이퍼':E.TYPES[c-1].role;
+  $('archiveItems').innerHTML=E.NAMES.map((name,c)=>`<div class="archive-card ${c>=6?'elite':''}" style="--grade:${E.COLORS[c]}"><div class="archive-glyph">${c<=3?['·','Ⅱ','Ⅳ','▲'][c]:c===4?'↗':c===5?'♠':E.TYPES[c-1].symbol}</div><div><span class="archive-count" id="archiveCount${c}">0 획득</span><div class="archive-name">${name}</div><div class="archive-range">${fmt(E.DPS[c])}${E.DPS[c]===E.MAX_DPS[c]?'':' – '+fmt(E.MAX_DPS[c])} DPS</div><div class="archive-ability">${gradeAbility(c)}</div></div></div>`).join('');
+  function renderShop(){
+    let affordable=0;
+    for(const item of E.SHOP){const lv=game.shop[item.id],max=lv===item.max,button=$('shopBuy_'+item.id);$('shopLevel_'+item.id).textContent=`LV.${lv} / ${item.max}`;button.textContent=max?'최대 레벨':`업그레이드 · ${fmt(item.cost(lv))} G`;button.disabled=!isPlaying()||max||game.gold<item.cost(lv);if(!max&&game.gold>=item.cost(lv))affordable++;
+      $('shopValue_'+item.id).textContent=item.id==='pocket'?`현재 3장 핸드 확률 ${lv*2}% → ${Math.min(20,(lv+1)*2)}%`:item.id==='refinery'?`1 CHIP / ${(game.chipInterval()/ui.speed).toFixed(1)}초 (현재 속도) · 생산량 +${lv*8}%`:item.id==='broker'?`기본 교체 −${lv} G · 판매 보너스 +${lv*8}%`:`보스 추가 조커 ${lv*25}% · 구매 시 조커 +1`;
+    }
+    $('shopBadge').textContent=affordable?'· '+affordable:'';
+    $('storeSummary').innerHTML=`현재 기본 교체 <b>${E.refreshCost(0,game.shop.pocket,game.shop.broker)} G</b> · 다음 교체 ${game.rerollCost()} G<br>확장 카드는 다음 새 계약·일반 교체부터 적용.<br>특수 교체는 현재 핸드 장수를 유지합니다.<br>상점은 이번 판에만 적용되며 새 작전에서 초기화됩니다.`;
+    E.NAMES.forEach((_,c)=>$('archiveCount'+c).textContent=game.gradeCounts[c]+' 획득');
+  }
+  function cardHTML(card,index,best=null,third=false,zone='board'){
+    if(card==null)return `<div class="card back"><span>♠</span><small>${index<3?'FLOP':index===3?'TURN':'RIVER'}</small></div>`;
+    const r=E.rank(card),s=E.suit(card),cl=['card',s===1||s===2?'red-suit':'',best?(best.includes(card)?'best':'unused'):'',third?'third':''].filter(Boolean).join(' ');
+    const selected=ui.jokerTarget?.zone===zone&&ui.jokerTarget?.index===index;return `<div class="${cl}${ui.jokerMode?' selectable':''}${selected?' chosen':''}" data-zone="${zone}" data-index="${index}" ${ui.jokerMode?'role="button" tabindex="0"':''} title="${E.cardName(card)}${ui.jokerMode?' · 클릭해서 교체 대상으로 선택':''}"><span class="rank">${E.rankLabel(r)}</span><span class="pip">${E.SUITS[s].symbol}</span><span class="big-pip">${E.SUITS[s].symbol}</span><span class="corner">${E.rankLabel(r)}</span></div>`;
+  }
+  function renderCards(){
+    const d=game.deal,n=d.board.length,all=[...d.hole,...d.board],key=all.join(',')+'|'+d.discard.join(',')+'|'+n+'|'+game.upgrades.join(',')+'|'+ui.jokerMode+'|'+JSON.stringify(ui.jokerTarget);
+    if(key===ui.cache)return;ui.cache=key;const ev=n?game.preview():null;ui.preview=ev;
+    $('holeCards').innerHTML=d.hole.map((c,i)=>cardHTML(c,i,ev?.best,i===2,'hole')).join('');
+    $('boardCards').innerHTML=Array.from({length:5},(_,i)=>cardHTML(d.board[i],i,ev?.best)).join('');
+    document.querySelectorAll('[data-street]').forEach(s=>{s.classList.toggle('active',Number(s.dataset.street)===n);s.classList.toggle('passed',Number(s.dataset.street)<n);});
+    $('lockTag').textContent=n?'핸드 고정':'교체 가능';$('lockTag').classList.toggle('locked',!!n);$('boardCount').textContent=n+' / 5';$('holeCount').textContent=d.hole.length===3?'Ⅲ':'';
+    $('handCaption').textContent=n===5?`${all.length}장 중 최상의 5장 · 확인 후 직접 소환`:n?`${all.length}장 중 최상의 5장 · 금색 테두리`:'플랍 공개 이후에는 조커 토큰으로만 교체할 수 있습니다.';
+    const oddsKey=all.join(',')+'|'+d.discard.join(',')+'|'+game.upgrades.join(',');if(oddsKey!==ui.oddsKey){ui.oddsKey=oddsKey;ui.forecasts=n===3||n===4?{next:E.forecast(all,d.deck,1,game.upgrades),river:E.forecast(all,d.deck,n===3?2:1,game.upgrades)}:null;}
+    renderOdds();
+  }
+  function renderOdds(){
+    const n=game.deal.board.length;
+    if(!ui.forecasts){$('oddsContent').innerHTML=`<div class="empty-odds">${n===5?'리버 공개 완료. 자동 소환되지 않습니다.<br>조커를 사용하거나 <b>E · 지금 소환</b>으로 확정하세요.<br>확인하는 동안에도 전투는 계속됩니다.':'플랍을 열면 가능한 모든 다음 카드를 계산합니다.<br>3장 핸드와 교체로 제외된 카드도 반영합니다.'}</div>`;return;}
+    if(n===4)ui.horizon=1;const f=ui.horizon===1?ui.forecasts.next:ui.forecasts.river;
+    const rows=f.counts.map((x,i)=>({p:x/f.total,i})).filter(x=>x.p>0).reverse();
+    $('oddsContent').innerHTML=`<div class="odds-controls"><button data-horizon="1" class="${ui.horizon===1?'active':''}">${n===3?'턴 1장':'리버 1장'}</button>${n===3?`<button data-horizon="2" class="${ui.horizon===2?'active':''}">리버까지 2장</button>`:''}</div><div class="odds-summary"><div><strong>${pct(f.improve)}</strong>${n===3&&ui.horizon===2?'리버까지':'다음 1장'} · 등급 상승</div><div><strong>${short(f.expected)}</strong>기대 소환 DPS</div></div><div class="odds-chart">${rows.map(x=>`<div class="odds-row"><span style="color:${E.COLORS[x.i]}">${E.NAMES[x.i]}</span><span class="bar"><i style="width:${x.p*100}%;background:${E.COLORS[x.i]}"></i></span><span class="percent">${pct(x.p)}</span></div>`).join('')}</div><div class="odds-foot">${fmt(f.total)}가지 전수 계산 · 핸드 유지 기준<br>세부 서열·변경될 타입·연구 반영. 광역·지속 피해·사거리 제외.<br>같은 등급 안의 개선은 ‘족보 등급 상승’에 포함하지 않습니다.</div>`;
+  }
+  function renderMembers(u){
+    const key=u?u.id+'/'+u.members.map(m=>m.id).join(','):'';
+    if(ui.memberKey!==key||(!u&&$('memberSelect').value)){ui.memberKey=key;$('memberSelect').innerHTML=u?u.members.map(m=>`<option value="${m.id}">${m.starter?'기본 정찰병':E.handLabel(m.score)} · ${m.base.toFixed(1)} DPS</option>`).join(''):'<option value="">전장에서 편대를 선택하세요</option>';}
+    if(!u){ui.member=null;$('sellBtn').disabled=true;$('sellBtn').textContent='1기 판매';$('memberPower').textContent='—';return;}
+    const m=u.members.find(m=>m.id===ui.member)||u.members[0];ui.member=m.id;$('memberSelect').value=m.id;
+    $('memberPower').textContent=short(m.base*E.researchFactor(u.cat,u.type,game.upgrades))+' DPS';
+    $('sellBtn').textContent=`1기 판매 · ${game.saleValue(u,m)} G`;$('sellBtn').disabled=!isPlaying();
+    $('sellBtn').title='선택한 편대원 1기만 판매합니다. 칩·조커·연구비는 환급하지 않습니다.';
+  }
+  function renderHUD(){
+    const d=game.deal,n=d.board.length,playing=isPlaying(),ready=playing&&game.canAct(),next=Math.max(0,Math.ceil((game.nextWaveAt-game.t)/ui.speed)),phase=game.wave?E.waveInfo(game.wave).label:'출격 준비';
+    $('waveValue').innerHTML=String(game.wave).padStart(2,'0')+' <small>/ '+E.CONFIG.waves+'</small>';$('wavePhase').textContent=phase;$('nextTime').textContent=game.wave===E.CONFIG.waves?'최종 방어':next+'초 후 진입';
+    $('runTime').textContent=time(ui.elapsed)+' / ~'+time(ui.elapsed+Math.max(0,E.CONFIG.waves*E.CONFIG.waveSeconds-game.t)/ui.speed);$('runTime').title='기준 진행 시간 · 실제 플레이 '+time(ui.elapsed);$('campaignFill').style.width=Math.min(100,game.t/(E.CONFIG.waves*E.CONFIG.waveSeconds)*100)+'%';$('bossNext').textContent=game.wave===E.CONFIG.waves?'최종 보스':`보스 S${Math.floor(game.wave/10)*10+10}`;
+    document.querySelectorAll('[data-boss]').forEach(b=>b.classList.toggle('cleared',Number(b.dataset.boss)<=game.bossKills*10));
+    $('enemyValue').innerHTML=game.enemies.length+' <small style="font-size:10px;color:#7790a0">/ 200</small>';
+    $('overflowFill').style.width=Math.min(100,game.enemies.length/200*100)+'%';$('overflowFill').style.background=game.enemies.length>=160?'#fa8195':game.enemies.length>=100?'#eabe70':'#7de2ba';$('overflowMetric').classList.toggle('danger',game.enemies.length>=160);
+    $('overflowText').textContent=game.enemies.length>=160?'붕괴 위험 · 200기 전에 밀린 적을 줄이세요':game.enemies.length>=100?'적 누적 중 · 보스와 일반 적의 화력을 배분하세요':'200기 도달 시 패배 · 보스 초과 시 증원';
+    $('goldValue').textContent=fmt(game.gold);$('chipValue').textContent=fmt(game.chips);$('jokerValue').textContent=fmt(game.tokens);$('chipTickMini').textContent=Math.max(0,Math.ceil((game.chipInterval()-game.chipClock)/ui.speed))+'s';$('chipTimer').textContent=`+1 / ${Math.max(0,Math.ceil((game.chipInterval()-game.chipClock)/ui.speed))}초`;
+    const boss=game.enemies.find(e=>e.boss);$('phasePill').textContent=boss?'BOSS ALERT':game.wave===0?'DEPLOYMENT':game.wave>=101?'FINAL SIEGE':`STAGE ${String(game.wave).padStart(2,'0')}`;$('phasePill').style.color=boss?'#ff9cab':game.wave>=101?'#eabe70':'#b3d1c1';
+    $('arenaTimer').textContent=boss?`보스 HP ${short(boss.hp)} · ${boss.enraged?'광폭화 / 증원':Math.max(0,(boss.deadline-game.t)/ui.speed).toFixed(0)+'초 후 광폭화'}`:game.wave===0?`첫 공세까지 ${next}초`:game.wave===E.CONFIG.waves?`최종 소탕 · ${Math.max(0,((game.finalDeadline||game.t)-game.t)/ui.speed).toFixed(0)}초`:`${phase} · 다음 ${next}초`;
+    const total=game.units.reduce((a,u)=>a+u.count,0);$('combatStat').textContent=`${total} UNITS · ${short(game.totalDPS())} DPS`;$('armySize').textContent=`${total}기 · ${game.units.length}편대`;$('dealCount').textContent='HAND '+String(game.summons+1).padStart(3,'0');
+    const cost=n===0?E.CONFIG.flopCost:n===3?E.CONFIG.turnCost:E.CONFIG.riverCost;
+    $('claimBtn').disabled=!ready||n<3||ui.jokerMode;$('claimBtn').classList.toggle('river-ready',n===5&&!ui.jokerMode);$('advanceBtn').disabled=!ready||n===5||ui.jokerMode||game.chips<cost;
+    $('rerollBtn').disabled=!ready||n>0||game.gold<game.rerollCost();$('jokerBtn').disabled=!ready||![3,4,5].includes(n)||d.jokerUsed||game.tokens<1;
+    $('advanceLabel').textContent=n===0?'플랍 공개':n===3?'턴 공개':n===4?'리버 공개':'리버 공개 완료';$('advanceCost').textContent=n===5?'E로 소환 확정':'◉ '+cost+' CHIP';$('rerollLabel').textContent=n?'일반 교체 잠김':`핸드 교체 · ${fmt(game.rerollCost())} G`;$('jokerLabel').textContent=d.jokerUsed?'특수 교체 사용 완료':ui.jokerMode?'교체할 카드 선택 중':'한 장 교체 · ✦ 1';
+    $('invested').textContent=`이번 계약 투자 ${d.invested} CHIP`;$('actionHint').textContent=n===5?'리버 확인 중 · J 교체 / E 소환':n===0?`일반 교체 ${d.rolls}회`:'조커: 원하는 공개 카드 한 장만 교체';
+    $('pocketChance').textContent=`3장 핸드 확률 ${game.shop.pocket*2}%${d.hole.length===3?' · 확장 핸드 적용 중':' · 상점에서 확장 가능'}`;$('pocketChance').classList.toggle('active',d.hole.length===3);
+    const ev=ui.preview;
+    if(n&&ev){const role=E.TYPES[ev.type];$('previewIcon').textContent=role.symbol;$('previewIcon').style.color=E.COLORS[ev.cat];$('unitPreview').style.borderColor=E.COLORS[ev.cat]+'66';$('previewName').textContent=E.NAMES[ev.cat]+' · '+role.type;$('previewName').style.color=E.COLORS[ev.cat];$('previewSub').textContent=ev.label;$('previewPower').innerHTML=short(ev.dps)+'<small>소환 기준 DPS</small>';$('claimSub').textContent=E.NAMES[ev.cat]+' 유닛 획득';$('qualityFill').style.width=(ev.quality*100)+'%';$('qualityValue').textContent=Math.round(ev.quality*100)+'%';$('qualityLabel').textContent='같은 족보 내 서열';}
+    else{$('previewIcon').textContent='◇';$('previewIcon').style.color='#7da996';$('unitPreview').style.borderColor='#354b46';$('previewName').textContent='플랍을 기다리는 중';$('previewName').style.color='#bfccd4';$('previewSub').textContent='트리플 이하 노말 · 스트레이트부터 특수';$('previewPower').innerHTML='—<small>소환 기준 DPS</small>';$('claimSub').textContent='현재 족보 확정';$('qualityFill').style.width='0%';$('qualityValue').textContent='—';}
+    for(const t of E.RESEARCH){$('upLevel'+t).textContent='LV.'+game.upgrades[t];$('upCost'+t).textContent=fmt(E.upgradeCost(game.upgrades[t]))+' G';const base=game.units.filter(u=>u.type===t||u.cat>=6).reduce((sum,u)=>sum+u.base,0);$('upBonus'+t).textContent=ui.mobile?'+'+short(base*E.CONFIG.upgradeStep)+' DPS':'+'+(game.upgrades[t]*16)+'%';document.querySelector(`[data-upgrade="${t}"]`).disabled=!playing||game.gold<E.upgradeCost(game.upgrades[t]);}
+    const u=game.units.find(x=>x.id===ui.selected);
+    if(u){const role=E.TYPES[u.type],bonus=Math.round((E.researchFactor(u.cat,u.type,game.upgrades)-1)*100);$('inspectSymbol').textContent=role.symbol;$('inspectSymbol').style.color=role.color;$('inspectSymbol').style.borderColor=E.COLORS[u.cat]+'88';$('inspectTitle').textContent=`${E.NAMES[u.cat]} · ${role.type} ×${u.count}`;$('inspectTitle').style.color=E.COLORS[u.cat];$('inspectSub').textContent=role.role+` · 사거리 ${E.unitRange(u)} · ${E.barrageFor(u).count}발 × ${E.rateFor(u).toFixed(2)}회/s/기 · 연구 +${bonus}%${u.cat>=6?' (전체)':''}`;$('inspectDps').innerHTML=short(game.unitDPS(u))+'<small>편대 기준 DPS</small>';}
+    else{$('inspectSymbol').textContent='◇';$('inspectSymbol').style.color='#81a898';$('inspectTitle').textContent='유닛을 선택해 개별 성능과 판매가를 확인하세요';$('inspectTitle').style.color='#c9dbde';$('inspectSub').textContent='같은 족보·타입은 편대화 · 각 유닛의 세부 DPS는 별도 보존';$('inspectDps').innerHTML=short(game.totalDPS())+'<small>전체 기준 DPS</small>';}
+    renderMembers(u);renderRoster();renderShop();renderJoker();$('moveSelectedBtn').disabled=!u||!ui.started;$('realDps').textContent=short(game.effectiveDPS*E.CONFIG.tempo);const wi=E.waveInfo(Math.max(1,game.wave));$('incomingDps').textContent=short(wi.hp*wi.count/E.CONFIG.waveSeconds*E.CONFIG.tempo);$('backlogHp').textContent=short(game.enemies.reduce((a,e)=>a+e.hp,0));
+  }
+  function showResult(){
+    const won=game.status==='won';$('resultTitle').textContent=won?'SIEGE COMPLETE':'LINE BREACHED';$('resultTitle').style.color=won?'#7de2ba':'#fa8195';$('resultReason').textContent=game.reason;
+    $('resultGrid').innerHTML=[['도달 스테이지',game.wave+' / '+E.CONFIG.waves],['실제 플레이',time(ui.elapsed)],['처치 수',fmt(game.kills)],['소환 / 판매',game.summons+' / '+game.sold],['보스 처치',game.bossKills+' / 12'],['최종 DPS',short(game.totalDPS())]].map(([a,b])=>`<div><small>${a}</small><strong>${b}</strong></div>`).join('');
+    $('resultKicker').textContent=game.editor?'EDITOR / 테스트 결과 (일반 기록 아님)':'OPERATION REPORT';$('resultBest').textContent=`최고 족보: ${E.NAMES[game.bestGrade]} · ${game.gradeCounts[game.bestGrade]}회 · 확장 핸드 Lv.${game.shop.pocket}`;$('resultBest').style.color=E.COLORS[game.bestGrade];$('resultTip').textContent=won?'120스테이지를 방어했습니다. 남은 골드와 칩, 판매·상점 투자 결과를 비교해 보세요.':'초반 노말 연구와 소환을 확보하세요. 확장 핸드는 장기 투자이며, 상점에만 투자하면 방어가 무너질 수 있습니다.';
+    try{localStorage.removeItem(game.editor?SAVE_KEY+'_editor':SAVE_KEY);}catch{}if(!game.editor){saved=null;$('continueBtn').classList.add('hidden');}openModal('result');
+  }
+  function resize(){
+    const r=$('arena').getBoundingClientRect(),dpr=Math.min(ui.lowGraphics?1.25:ui.mobile?1.5:2,window.devicePixelRatio||1);if(r.width<1||r.height<1)return;
+    $('arena').width=Math.round(r.width*dpr);$('arena').height=Math.round(r.height*dpr);const scale=Math.min(r.width/900,r.height/580);
+    ui.view={width:r.width,height:r.height,scale,x:(r.width-900*scale)/2,y:(r.height-580*scale)/2,dpr};
+  }
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe($('arenaWrap'));else window.addEventListener('resize',resize);
+  function worldPoint(e){const r=$('arena').getBoundingClientRect(),v=ui.view;return {x:(e.clientX-r.left-v.x)/v.scale,y:(e.clientY-r.top-v.y)/v.scale};}
+  function nearestSlot(p){let id=-1,d=Infinity;E.SLOTS.forEach((q,i)=>{const v=Math.hypot(q.x-p.x,q.y-p.y);if(v<d){d=v;id=i;}});return {id,d};}
+  function endPlacement(){ui.placement=false;$('placementHint').classList.add('hidden');}
+  $('arena').addEventListener('pointerdown',e=>{
+    if(!ui.started||ui.modal||e.isPrimary===false)return;const p=worldPoint(e);
+    if(ui.placement){const slot=nearestSlot(p);if(slot.d<Math.max(47,22/ui.view.scale)){game.moveUnit(ui.selected,slot.id);endPlacement();log('편대 배치를 변경했습니다.');renderHUD();}return;}
+    const candidates=game.units.map(u=>({u,d:Math.hypot(E.SLOTS[u.slot].x-p.x,E.SLOTS[u.slot].y-p.y)})).sort((a,b)=>a.d-b.d);
+    const radius=e.pointerType==='touch'?Math.max(25,22/ui.view.scale):25,u=candidates[0]?.d<radius?candidates[0].u:null;
+    if(u){ui.selected=u.id;ui.member=null;ui.pointer={id:e.pointerId,unit:u.id,start:p,now:p};try{$('arena').setPointerCapture(e.pointerId);}catch{}}else ui.selected=null;renderHUD();
+  });
+  $('arena').addEventListener('pointermove',e=>{if(ui.pointer?.id===e.pointerId)ui.pointer.now=worldPoint(e);});
+  $('arena').addEventListener('pointerup',e=>{
+    const a=ui.pointer;if(a?.id!==e.pointerId)return;const p=worldPoint(e),dist=Math.hypot(a.start.x-p.x,a.start.y-p.y)*ui.view.scale;
+    if(dist>8){const s=nearestSlot(p);if(s.d<Math.max(47,22/ui.view.scale)){game.moveUnit(a.unit,s.id);log('배치를 변경했습니다.');}}
+    ui.pointer=null;try{$('arena').releasePointerCapture(e.pointerId);}catch{}renderHUD();
+  });
+  $('arena').addEventListener('pointercancel',()=>{ui.pointer=null;});
+  $('arena').addEventListener('lostpointercapture',()=>{ui.pointer=null;});
+  function polygon(x,y,r,n,angle=0){ctx.beginPath();for(let i=0;i<n;i++){const a=angle+i*TAU/n;const px=x+Math.cos(a)*r,py=y+Math.sin(a)*r;if(!i)ctx.moveTo(px,py);else ctx.lineTo(px,py);}ctx.closePath();}
+  function path(){ctx.beginPath();E.PATH.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();}
+  function roundRect(x,y,w,h,r=5){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  function glow(color,blur){ctx.shadowColor=color;ctx.shadowBlur=ui.lowGraphics?0:blur;}
+  function draw(){
+    const v=ui.view;ctx.setTransform(v.dpr,0,0,v.dpr,0,0);ctx.fillStyle='#0c151d';ctx.fillRect(0,0,v.width,v.height);ctx.translate(v.x,v.y);ctx.scale(v.scale,v.scale);ctx.save();
+    // Technical grid and subdued terrain panels.
+    ctx.strokeStyle='#1a2c352b';ctx.lineWidth=1;ctx.beginPath();for(let x=10;x<900;x+=30){ctx.moveTo(x,0);ctx.lineTo(x,580);}for(let y=0;y<580;y+=30){ctx.moveTo(0,y);ctx.lineTo(900,y);}ctx.stroke();
+    const gradient=ctx.createRadialGradient(450,290,30,450,290,440);gradient.addColorStop(0,'#25453635');gradient.addColorStop(1,'#0b141900');ctx.fillStyle=gradient;ctx.fillRect(0,0,900,580);
+    // Clockwise racetrack, rails and dashed centerline.
+    ctx.lineJoin='round';path();ctx.strokeStyle='#30414a';ctx.lineWidth=57;ctx.stroke();path();ctx.strokeStyle='#10202b';ctx.lineWidth=53;ctx.stroke();path();ctx.strokeStyle='#203a453d';ctx.lineWidth=38;ctx.stroke();
+    ctx.setLineDash([6,14]);ctx.lineDashOffset=-(game.t*4)%20;path();ctx.strokeStyle='#4d767853';ctx.lineWidth=1;ctx.stroke();ctx.setLineDash([]);
+    for(let d=140;d<E.pathLength;d+=225){const p=E.pathPoint(d);ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle);ctx.beginPath();ctx.moveTo(-4,-4);ctx.lineTo(1,0);ctx.lineTo(-4,4);ctx.strokeStyle='#638a7855';ctx.lineWidth=1.5;ctx.stroke();ctx.restore();}
+    // Portal.
+    glow('#82e3c6',14);ctx.strokeStyle='#7ddfba';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(85,45);ctx.lineTo(85,95);ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle='#89b9a8';ctx.font='9px '+getComputedStyle(document.documentElement).getPropertyValue('--mono');
+    // Inner build area.
+    roundRect(124,131,652,312,14);ctx.fillStyle='#13232a7a';ctx.fill();ctx.strokeStyle='#35584466';ctx.lineWidth=1;ctx.stroke();
+    const occupied=new Set(game.units.map(u=>u.slot));
+    for(let i=0;i<E.SLOTS.length;i++){const p=E.SLOTS[i];if(occupied.has(i))continue;ctx.strokeStyle=ui.pointer?'#688e7477':'#35564655';ctx.lineWidth=1;ctx.beginPath();const l=6;for(const [x,y,sx,sy] of [[p.x-17,p.y-17,1,1],[p.x+17,p.y-17,-1,1],[p.x+17,p.y+17,-1,-1],[p.x-17,p.y+17,1,-1]]){ctx.moveTo(x,y+sy*l);ctx.lineTo(x,y);ctx.lineTo(x+sx*l,y);}ctx.stroke();ctx.fillStyle='#3654475e';ctx.fillRect(p.x-1,p.y-1,2,2);}
+    ctx.save();ctx.globalAlpha=.055;ctx.fillStyle='#9bcab1';ctx.font='bold 24px sans-serif';ctx.textAlign='center';ctx.fillText('R I V E R B O U N D',450,297);ctx.restore();
+    // Selected unit range sits beneath enemies and units.
+    const selected=game.units.find(u=>u.id===ui.selected);
+    if(selected){const p=E.SLOTS[selected.slot];ctx.save();ctx.beginPath();ctx.arc(p.x,p.y,E.unitRange(selected),0,TAU);ctx.fillStyle=E.TYPES[selected.type].color+'05';ctx.fill();ctx.strokeStyle=E.TYPES[selected.type].color+'35';ctx.lineWidth=1;ctx.setLineDash([5,6]);ctx.stroke();ctx.restore();}
+    for(const z of game.zones)drawZone(z);
+    // Enemies: regular drones, skirmishers, armoured heavies and command ships.
+    for(const enemy of game.enemies)drawEnemy(enemy);
+    // Actual simulated projectiles, including travel time before damage.
+    for(const f of ui.fx)drawEmitter(f);
+    for(const projectile of game.projectiles)drawProjectile(projectile);
+    for(const u of game.units)drawUnit(u);
+    for(const r of ui.rings)drawImpact(r);
+    ctx.save();for(const p of ui.particles){ctx.globalAlpha=Math.min(1,p.life*3);ctx.fillStyle=p.color;ctx.fillRect(p.x-1,p.y-1,2.5,2.5);}ctx.restore();
+    if(ui.pointer){const p=ui.pointer.now;ctx.strokeStyle='#9ee6bf';ctx.setLineDash([4,4]);ctx.beginPath();ctx.arc(p.x,p.y,20,0,TAU);ctx.stroke();ctx.setLineDash([]);}
+    // Four exterior signal lights.
+    for(const [x,y] of [[30,30],[870,30],[30,550],[870,550]]){const warning=game.enemies.length>=160;ctx.fillStyle=warning?'#ee7184':'#527963';ctx.globalAlpha=.4+.3*Math.sin(ui.realTime*2);ctx.fillRect(x-2,y-2,4,4);}ctx.globalAlpha=1;
+    if(game.overload>0){ctx.strokeStyle='#f9819566';ctx.lineWidth=5;ctx.strokeRect(3,3,894,574);}
+    ctx.restore();
+  }
+  function drawProjectile(p){
+    if(p.age<0)return; // Staggered launch queue is not drawn before the actual launch.
+    const q=Math.min(1,p.age/p.duration),pos=E.projectilePosition(p,q),prev=E.projectilePosition(p,Math.max(0,q-.015));
+    const x=pos.x,y=pos.y,c=p.cat>=6?E.COLORS[p.cat]:E.TYPES[p.type].color;
+    if(p.volleyCount>1){
+      drawArsenalProjectile(p,q,pos,prev,c);return;
+    }
+    ctx.save();ctx.translate(x,y);ctx.rotate(Math.atan2(p.ty-p.sy,p.tx-p.sx));glow(c,p.cat>=6?15:5);ctx.fillStyle=c;ctx.strokeStyle=c;ctx.lineWidth=1.5;
+    if(p.kind==='needle'||p.kind==='twin'||p.kind==='pulse'){
+      const len=p.kind==='pulse'?14:8;ctx.globalAlpha=.3;ctx.fillRect(-len*1.8,-1.5,len*2,3);ctx.globalAlpha=1;
+      if(p.kind==='twin'){ctx.fillRect(-4,-3,8,1.7);ctx.fillRect(-4,1.3,8,1.7);}else{roundRect(-5,-1.8,len,3.6,1.5);ctx.fill();}
+    }else if(p.kind==='orb'||p.kind==='mortar'){
+      ctx.beginPath();ctx.arc(0,0,p.kind==='mortar'?7:4.5,0,TAU);ctx.fill();ctx.strokeStyle='#ffffed';ctx.beginPath();ctx.arc(-1,-1,p.kind==='mortar'?3:2,0,TAU);ctx.stroke();
+      ctx.globalAlpha=.2;ctx.beginPath();ctx.arc(0,0,12,0,TAU);ctx.stroke();
+    }else if(p.kind==='shard'||p.kind==='prism'){
+      polygon(0,0,p.kind==='prism'?10:6,4,0);ctx.fill();ctx.strokeStyle='#fff5cf';ctx.stroke();ctx.globalAlpha=.4;ctx.beginPath();ctx.moveTo(-18,0);ctx.lineTo(0,0);ctx.stroke();
+    }else if(p.kind==='viper'){
+      ctx.beginPath();ctx.moveTo(-18,3);ctx.quadraticCurveTo(-9,-6,0,0);ctx.stroke();ctx.beginPath();ctx.arc(0,0,4.5,0,TAU);ctx.fill();
+    }else if(p.kind==='echo'){
+      ctx.rotate(p.age*3);star(0,0,10,4,6);ctx.stroke();polygon(0,0,4.5,6);ctx.fill();
+      ctx.globalAlpha=.25;ctx.beginPath();ctx.arc(0,0,15,0,TAU);ctx.stroke();
+    }else if(p.kind==='rift'){
+      ctx.globalAlpha=.6;ctx.beginPath();ctx.moveTo(-26,-2);ctx.lineTo(-12,4);ctx.lineTo(-5,-3);ctx.lineTo(4,0);ctx.stroke();ctx.globalAlpha=1;star(0,0,13,4,4,p.age*6);ctx.fill();
+    }else if(p.kind==='comet'){
+      const gr=ctx.createLinearGradient(-40,0,5,0);gr.addColorStop(0,c+'00');gr.addColorStop(1,c);ctx.fillStyle=gr;ctx.beginPath();ctx.moveTo(-45,0);ctx.lineTo(2,-7);ctx.lineTo(10,0);ctx.lineTo(2,7);ctx.closePath();ctx.fill();ctx.fillStyle='#effffb';star(0,0,7,3,4);ctx.fill();
+    }else{
+      ctx.rotate(p.age*2);ctx.lineWidth=2;star(0,0,15,8,8);ctx.stroke();ctx.fillStyle='#fff4c8';polygon(0,0,7,6);ctx.fill();ctx.globalAlpha=.4;ctx.beginPath();ctx.arc(0,0,20,0,TAU);ctx.stroke();
+    }ctx.restore();
+  }
+  function drawEmitter(f){
+    const age=1-f.life/f.max,c=E.COLORS[f.cat];ctx.save();ctx.translate(f.x,f.y);ctx.rotate(f.angle);
+    ctx.globalAlpha=(1-age)*.65;ctx.strokeStyle=c;ctx.fillStyle=c;ctx.lineWidth=1.5;
+    if(f.kind==='echo'){
+      ctx.rotate(age*1.5);polygon(0,0,20+age*18,5);ctx.stroke();
+      for(let i=0;i<5;i++){const a=i*TAU/5;polygon(Math.cos(a)*26,Math.sin(a)*26,4,4,a);ctx.stroke();}
+    }else if(f.kind==='rift'){
+      for(const side of [-1,1]){roundRect(-4,side*18-7,21,14,2);ctx.fillStyle='#273d49';ctx.fill();ctx.stroke();
+        for(let i=0;i<3;i++){ctx.fillStyle=age<.55?'#ffe1a2':c;ctx.fillRect(13,side*18-5+i*4,6,2);}}
+    }else if(f.kind==='comet'){
+      for(const side of [-1,1])for(let i=0;i<5;i++){ctx.beginPath();ctx.moveTo(7+i*3,side*(24+i*7));ctx.lineTo(-2+i*3,side*(30+i*7));ctx.lineTo(17+i*3,side*(28+i*7));ctx.closePath();ctx.stroke();}
+    }else{
+      ctx.rotate(-f.angle);ctx.beginPath();ctx.ellipse(0,-28-age*8,26+age*6,8,0,0,TAU);ctx.stroke();
+      for(let i=0;i<4;i++){const a=i*TAU/4+age;polygon(Math.cos(a)*24,-28+Math.sin(a)*7,3,4);ctx.stroke();}
+    }
+    ctx.restore();
+  }
+  function drawImpact(r){
+    const q=1-r.life/r.max,rad=6+r.r*q;ctx.save();ctx.translate(r.x,r.y);ctx.globalAlpha=Math.max(0,(1-q)*.85);ctx.strokeStyle=r.color;ctx.fillStyle=r.color;ctx.lineWidth=1.4;
+    if(r.kind==='echo'){
+      ctx.rotate(q*.6);polygon(0,0,rad,5);ctx.stroke();polygon(0,0,rad*.55,5,-q);ctx.stroke();
+    }else if(r.kind==='rift'){
+      ctx.fillStyle=q<.25?'#fff3c7':r.color;star(0,0,rad*(1-q*.4),rad*.42,7,(r.index||0)*.7);ctx.fill();
+      if(!ui.lowGraphics){ctx.globalAlpha*=.45;ctx.beginPath();ctx.arc(0,0,rad*1.3,0,TAU);ctx.stroke();}
+    }else if(r.kind==='comet'){
+      ctx.rotate((r.index||0)*.4);for(const a of [-.8,.8]){ctx.save();ctx.rotate(a);ctx.beginPath();ctx.moveTo(-rad,0);ctx.lineTo(rad,0);ctx.stroke();ctx.restore();}
+      for(let i=0;i<3;i++){const a=i*TAU/3;polygon(Math.cos(a)*rad,Math.sin(a)*rad,3*(1-q)+1,3,a);ctx.fill();}
+    }else if(r.kind==='crown'){
+      ctx.beginPath();ctx.ellipse(0,0,rad,rad*.38,0,0,TAU);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(0,7);ctx.lineTo(0,-rad*1.55);ctx.moveTo(-rad*.55,-rad*.35);ctx.lineTo(rad*.55,-rad*.35);ctx.stroke();
+    }else{ctx.beginPath();ctx.arc(0,0,rad,0,TAU);ctx.stroke();}
+    ctx.restore();
+  }
+  function drawArsenalProjectile(p,q,pos,prev,c){
+    const idx=p.volleyIndex||0,x=pos.x,y=pos.y,angle=Math.atan2(y-prev.y,x-prev.x);
+    ctx.save();ctx.strokeStyle=c;ctx.fillStyle=c;ctx.lineWidth=1.4;
+    if(p.kind==='echo'){
+      // Hollow pentagonal seals, not luminous heads with continuous tails.
+      if(!ui.lowGraphics)for(const back of [.10,.20]){if(q<=back)continue;const v=E.projectilePosition(p,q-back);ctx.globalAlpha=back===.1?.20:.08;polygon(v.x,v.y,9,5,p.age*3);ctx.stroke();}
+      ctx.globalAlpha=1;ctx.translate(x,y);ctx.rotate(p.age*4+idx*TAU/5);glow(c,7);
+      ctx.fillStyle='#34214be0';polygon(0,0,11,5);ctx.fill();ctx.stroke();ctx.beginPath();ctx.arc(0,0,7.3,0,TAU);ctx.stroke();
+      star(0,0,5.6,2.4,5,-p.age*6);ctx.fillStyle='#f3ddff';ctx.fill();
+      for(let i=0;i<5;i++){const a=i*TAU/5;ctx.fillRect(Math.cos(a)*12-1,Math.sin(a)*12-1,2,2);}
+    }else if(p.kind==='rift'){
+      // Hard-edged rockets with short exhaust and discrete smoke squares.
+      if(!ui.lowGraphics)for(let i=1;i<=3;i++){const z=q-i*.025;if(z<0)continue;const v=E.projectilePosition(p,z);ctx.globalAlpha=.19/i;ctx.fillStyle='#849ba5';ctx.fillRect(v.x-2-i*.3,v.y-2-i*.3,4+i*.6,4+i*.6);}
+      ctx.globalAlpha=1;ctx.translate(x,y);ctx.rotate(angle);ctx.shadowBlur=0;
+      ctx.fillStyle='#9faeb7';ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(4,-3.7);ctx.lineTo(-8,-3.7);ctx.lineTo(-8,3.7);ctx.lineTo(4,3.7);ctx.closePath();ctx.fill();ctx.strokeStyle='#263846';ctx.stroke();
+      ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(3,-3.8);ctx.lineTo(3,3.8);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#dee8eb';for(const side of [-1,1]){ctx.beginPath();ctx.moveTo(-3,side*3);ctx.lineTo(-10,side*8);ctx.lineTo(-8,side*2);ctx.closePath();ctx.fill();}
+      ctx.fillStyle='#ffd175';ctx.beginPath();ctx.moveTo(-8,-2.6);ctx.lineTo(-17-(idx%3)*2,0);ctx.lineTo(-8,2.6);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#fff3cf';ctx.fillRect(-11,-1,4,2);ctx.strokeStyle='#edf8ff';ctx.beginPath();ctx.moveTo(-5,-2);ctx.lineTo(2,-2);ctx.stroke();
+    }else if(p.kind==='comet'){
+      // Mirrored crystal knives: broad facets and a short, straight wake.
+      ctx.translate(x,y);ctx.rotate(q<.24?angle+(idx<5?-1:1)*.5:angle);glow(c,5);
+      if(q>.4&&!ui.lowGraphics){ctx.globalAlpha=.28;ctx.beginPath();ctx.moveTo(-27,-3);ctx.lineTo(-13,-3);ctx.moveTo(-24,3);ctx.lineTo(-10,3);ctx.stroke();ctx.globalAlpha=1;}
+      ctx.beginPath();ctx.moveTo(17,0);ctx.lineTo(-9,-7.5);ctx.lineTo(-4,0);ctx.lineTo(-9,7.5);ctx.closePath();ctx.fillStyle='#55bdb9';ctx.fill();ctx.strokeStyle='#afffec';ctx.stroke();
+      ctx.beginPath();ctx.moveTo(17,0);ctx.lineTo(-6,-5);ctx.lineTo(0,0);ctx.closePath();ctx.fillStyle='#effffa';ctx.fill();
+      ctx.strokeStyle='#143e4a';ctx.beginPath();ctx.moveTo(-4,0);ctx.lineTo(14,0);ctx.stroke();
+    }else{
+      // A summoned sword hangs at a portal, then falls. No curved tail.
+      const lane=(idx%4-1.5)*16,portalX=p.tx+lane,portalY=Math.max(18,p.ty-92-Math.floor(idx/4)*18);
+      if(q<.26){
+        // Transfer is communicated by two gates, not by a travelling tadpole.
+        ctx.globalAlpha=Math.sin(q/.26*Math.PI)*.65;ctx.beginPath();ctx.ellipse(p.sx,p.sy-20,16,5,0,0,TAU);ctx.stroke();
+        ctx.beginPath();ctx.ellipse(portalX,portalY-11,12,4,0,0,TAU);ctx.stroke();
+      }else{
+        if(q<.72){ctx.globalAlpha=(.72-q)*1.4;ctx.beginPath();ctx.ellipse(portalX,portalY-13,13,4.5,0,0,TAU);ctx.stroke();}
+        if(idx%4===0){ctx.globalAlpha=.22*(1-q);polygon(p.tx,p.ty,21,4,Math.PI/4);ctx.stroke();}
+        ctx.globalAlpha=1;ctx.translate(x,y);ctx.rotate(q>.43?Math.atan2(p.ty-y,p.tx-x)-Math.PI/2:0);glow(c,8);
+        // Blade points down: visible crossguard, hilt and bevel.
+        ctx.fillStyle='#efd27d';ctx.beginPath();ctx.moveTo(0,20);ctx.lineTo(-5,10);ctx.lineTo(-4,-8);ctx.lineTo(4,-8);ctx.lineTo(5,10);ctx.closePath();ctx.fill();ctx.strokeStyle='#fff2b7';ctx.stroke();
+        ctx.fillStyle='#fffbea';ctx.beginPath();ctx.moveTo(0,20);ctx.lineTo(0,-8);ctx.lineTo(3,-7);ctx.lineTo(3,9);ctx.closePath();ctx.fill();
+        ctx.fillStyle='#ad7943';ctx.fillRect(-2,-18,4,9);ctx.fillStyle='#ffe4a4';ctx.fillRect(-10,-10,20,3);polygon(0,-20,3.5,4);ctx.fill();
+        if(q>.55&&!ui.lowGraphics){ctx.globalAlpha=.30;ctx.strokeStyle='#fff4c8';ctx.beginPath();ctx.moveTo(-5,-19);ctx.lineTo(-5,-37);ctx.moveTo(5,-19);ctx.lineTo(5,-32);ctx.stroke();}
+      }
+    }
+    ctx.restore();
+  }
+  function drawEnemy(e){
+    ctx.save();ctx.translate(e.x,e.y);const boss=e.boss,r=boss?21:e.kind==='elite'?14:e.kind==='armored'?12:e.kind==='swift'?8:9;ctx.rotate(e.angle);
+    const color=boss?(e.enraged?'#ffcd66':'#ff8c9f'):e.kind==='elite'?'#e896f2':e.kind==='armored'?'#cda47e':e.kind==='swift'?'#a89fdb':'#cc6a78';
+    ctx.fillStyle='#0005';polygon(2,3,r+2,boss?6:4,Math.PI/4);ctx.fill();glow(color,boss?12:3);polygon(0,0,r,boss?6:e.kind==='swift'?3:4,boss?0:Math.PI/4);ctx.fillStyle=e.hit>0?'#fae2db':boss?'#632d42':e.kind==='armored'?'#514331':'#56333c';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=boss?1.5:1;ctx.stroke();ctx.shadowBlur=0;
+    if(boss){polygon(0,0,10,6,ui.realTime);ctx.strokeStyle='#edb2bc';ctx.stroke();ctx.fillStyle='#fff2d6';ctx.fillRect(0,-2,6,4);}else{ctx.fillStyle=color;ctx.fillRect(1,-1.3,3,2.6);}
+    ctx.restore();
+    if(true){const width=boss?48:22,h=boss?4:2;ctx.fillStyle='#071016';ctx.fillRect(e.x-width/2,e.y-r-8,width,h);ctx.fillStyle=boss?'#fd94a6':e.weak>0?'#84dcb3':'#adbdad';ctx.fillRect(e.x-width/2,e.y-r-8,width*Math.max(0,e.hp/e.maxHP),h);}
+    if(e.weak>0){ctx.strokeStyle='#78e9b466';ctx.beginPath();ctx.arc(e.x,e.y,r+4,0,TAU);ctx.stroke();}
+  }
+  function star(x,y,r,inner,n,angle=0){ctx.beginPath();for(let i=0;i<n*2;i++){const a=angle+i*Math.PI/n,rr=i%2?inner:r,px=x+Math.cos(a)*rr,py=y+Math.sin(a)*rr;if(i)ctx.lineTo(px,py);else ctx.moveTo(px,py);}ctx.closePath();}
+  function drawZone(z){
+    const life=z.life/z.maxLife,color=E.COLORS[z.cat];ctx.save();ctx.translate(z.x,z.y);ctx.globalAlpha=Math.min(.7,life+.2);
+    const gr=ctx.createRadialGradient(0,0,3,0,0,z.r);gr.addColorStop(0,color+'38');gr.addColorStop(1,color+'00');ctx.fillStyle=gr;ctx.beginPath();ctx.arc(0,0,z.r,0,TAU);ctx.fill();
+    ctx.strokeStyle=color+'99';ctx.lineWidth=1.2;ctx.setLineDash([5,7]);ctx.beginPath();ctx.arc(0,0,z.r*(.7+.05*Math.sin(game.t*5)),0,TAU);ctx.stroke();ctx.setLineDash([]);
+    glow(color,10);ctx.strokeStyle=color;ctx.rotate(game.t*(z.cat===7?-.4:.25));
+    if(z.cat===6){star(0,0,22,10,6);ctx.stroke();polygon(0,0,13,6,game.t);ctx.stroke();}
+    else if(z.cat===7){for(let i=0;i<4;i++){ctx.rotate(Math.PI/2);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(7,-10);ctx.lineTo(3,-17);ctx.lineTo(13,-32);ctx.stroke();}polygon(0,0,12,4,Math.PI/4);ctx.fillStyle='#5e1e1b';ctx.fill();ctx.stroke();}
+    else{star(0,0,32,14,8);ctx.stroke();ctx.font='28px serif';ctx.textAlign='center';ctx.fillStyle=color;ctx.fillText('♛',0,10);}
+    ctx.restore();
+  }
+  function drawUnit(u){
+    const p=E.SLOTS[u.slot],role=E.TYPES[u.type],color=E.COLORS[u.cat],q=u.members.reduce((a,m)=>a+E.quality(m.score),0)/u.count,t=game.t;
+    const selected=u.id===ui.selected;ctx.save();ctx.translate(p.x,p.y);
+    ctx.fillStyle='#0006';ctx.beginPath();ctx.ellipse(1,14,u.cat>=6?28:23,9,0,0,TAU);ctx.fill();
+    if(u.cat>=4){
+      const gr=ctx.createRadialGradient(0,0,4,0,0,u.cat>=6?43:33);gr.addColorStop(0,color+'28');gr.addColorStop(1,color+'00');ctx.fillStyle=gr;ctx.fillRect(-44,-44,88,88);
+      ctx.save();ctx.rotate(t*(u.cat>=6?.32:.16));ctx.strokeStyle=color+'70';ctx.lineWidth=u.cat>=6?1.4:1;ctx.setLineDash([u.cat>=6?5:10,7]);ctx.beginPath();ctx.arc(0,0,u.cat>=6?30:25,0,TAU);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+      if(u.cat>=6){ctx.save();ctx.rotate(-t*.2);polygon(0,0,34,u.cat===7?4:6,Math.PI/6);ctx.strokeStyle=color+'48';ctx.lineWidth=.8;ctx.stroke();ctx.restore();}
+    }
+    if(selected){ctx.strokeStyle=role.color;ctx.lineWidth=1.2;ctx.setLineDash([7,3]);ctx.beginPath();ctx.arc(0,0,u.cat>=6?37:29,0,TAU);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=role.color;polygon(0,33,4,3,Math.PI/2);ctx.fill();}
+    polygon(0,0,u.cat<=3?18+u.cat:23,u.cat===7?4:6,Math.PI/6);const metal=ctx.createLinearGradient(-20,-20,20,20);metal.addColorStop(0,u.cat>=6?'#414054':'#293d49');metal.addColorStop(.45,'#172830');metal.addColorStop(1,'#101920');ctx.fillStyle=metal;ctx.fill();ctx.strokeStyle=color+(u.cat>=4?'cc':'8a');ctx.lineWidth=u.cat>=6?1.8:1;ctx.stroke();
+    ctx.save();ctx.rotate(u.angle);glow(role.color,u.flash>0?18:u.cat>=6?10:2);ctx.fillStyle='#192c3a';ctx.strokeStyle=u.cat>=6?color:role.color;ctx.lineWidth=1.5;
+    if(u.cat<=3){
+      // Normal families differ in silhouette, not in special abilities.
+      const barrels=u.cat===0?1:u.cat===1?2:u.cat===2?2:3;
+      if(u.cat>=2){for(const sign of [-1,1]){ctx.beginPath();ctx.moveTo(-13,sign*8);ctx.lineTo(-5,sign*17);ctx.lineTo(9,sign*12);ctx.closePath();ctx.fillStyle='#294051';ctx.fill();ctx.stroke();}}
+      polygon(0,0,10+u.cat,6,Math.PI/6);ctx.fillStyle='#254153';ctx.fill();ctx.stroke();
+      for(let i=0;i<barrels;i++){const y=(i-(barrels-1)/2)*5;ctx.fillStyle='#8fa5b2';ctx.fillRect(2,y-1.4,14+u.cat*1.5,2.8);if(u.flash>0){ctx.fillStyle='#edf4f2';ctx.fillRect(16+u.cat*1.5,y-2,5,4);}}
+      ctx.fillStyle=color;ctx.beginPath();ctx.arc(-3,0,3+q*1.3,0,TAU);ctx.fill();
+    }else if(u.cat<=5){
+      const size=u.cat===5?19:16;
+      if(u.type===0){ctx.beginPath();ctx.moveTo(size+5,0);ctx.lineTo(-size,11);ctx.lineTo(-size*.4,0);ctx.lineTo(-size,-11);ctx.closePath();ctx.fill();ctx.stroke();ctx.fillStyle=role.color;ctx.fillRect(-4,-2,size+2,4);}
+      else if(u.type===1){polygon(0,0,size,6);ctx.fill();ctx.stroke();for(let j=0;j<3;j++){const a=j*TAU/3;ctx.beginPath();ctx.arc(Math.cos(a)*size,Math.sin(a)*size,3.5,0,TAU);ctx.fillStyle=role.color;ctx.fill();}}
+      else if(u.type===2){star(0,0,size+3,8,4);ctx.fill();ctx.stroke();ctx.beginPath();ctx.moveTo(-8,0);ctx.lineTo(size+7,0);ctx.stroke();}
+      else{for(let j=0;j<3;j++){const a=j*TAU/3;ctx.beginPath();ctx.arc(Math.cos(a)*9,Math.sin(a)*9,7,0,TAU);ctx.fill();ctx.stroke();}}
+      if(u.cat===5){ctx.beginPath();ctx.arc(0,0,11,0,TAU);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}
+      ctx.fillStyle=role.color;ctx.beginPath();ctx.arc(0,0,4,0,TAU);ctx.fill();
+    }else if(u.cat===6){
+      // Full house: six-point floating temple, rotating orbiting shards.
+      ctx.rotate(-u.angle+t*.2);star(0,0,27,14,6,Math.PI/6);ctx.fillStyle='#39295a';ctx.fill();ctx.stroke();polygon(0,0,17,6,-t*.4);ctx.fillStyle='#645185';ctx.fill();ctx.stroke();star(0,0,12,6,6);ctx.fillStyle='#dcc6ff';ctx.fill();
+      for(let i=0;i<3;i++){const a=t*.7+i*TAU/3;polygon(Math.cos(a)*29,Math.sin(a)*29,3.5,4,a);ctx.fillStyle='#ecdcff';ctx.fill();}
+    }else if(u.cat===7){
+      // Four of a kind: four mechanical blades and a hot rift core.
+      for(let i=0;i<4;i++){ctx.rotate(Math.PI/2);ctx.beginPath();ctx.moveTo(7,-8);ctx.lineTo(28,-5);ctx.lineTo(22,4);ctx.lineTo(10,9);ctx.closePath();ctx.fillStyle='#6d3938';ctx.fill();ctx.stroke();}
+      polygon(0,0,16,4,Math.PI/4);ctx.fillStyle='#8c4539';ctx.fill();ctx.stroke();star(0,0,11,4.5,4,t*.8);ctx.fillStyle='#ffe4bd';ctx.fill();
+    }else if(u.cat===8){
+      // Straight flush: luminous crystal wings and a double star core.
+      for(const sign of [-1,1]){ctx.beginPath();ctx.moveTo(-20,sign*5);ctx.lineTo(-9,sign*23);ctx.lineTo(10,sign*14);ctx.lineTo(26,0);ctx.lineTo(3,sign*5);ctx.closePath();ctx.fillStyle='#265e62';ctx.fill();ctx.stroke();}
+      star(0,0,19,8,8,t*.6);ctx.fillStyle='#8ceee0';ctx.fill();ctx.strokeStyle='#eafffc';ctx.stroke();polygon(0,0,6,4);ctx.fillStyle='white';ctx.fill();
+    }else{
+      // Royal: gold crown, eight-point halo, orbiting pearls.
+      ctx.rotate(-u.angle);star(0,0,30,16,8,-t*.15);ctx.fillStyle='#5b4824';ctx.fill();ctx.stroke();ctx.beginPath();ctx.moveTo(-16,8);ctx.lineTo(-19,-13);ctx.lineTo(-8,-5);ctx.lineTo(0,-21);ctx.lineTo(8,-5);ctx.lineTo(19,-13);ctx.lineTo(16,8);ctx.closePath();const gold=ctx.createLinearGradient(0,-21,0,10);gold.addColorStop(0,'#fff1bf');gold.addColorStop(.5,'#f6cf77');gold.addColorStop(1,'#b57c3d');ctx.fillStyle=gold;ctx.fill();ctx.strokeStyle='#fff4d2';ctx.stroke();ctx.fillStyle='#fff3c9';ctx.fillRect(-16,10,32,3);for(let i=0;i<4;i++){const a=t*.5+i*TAU/4;ctx.beginPath();ctx.arc(Math.cos(a)*32,Math.sin(a)*32,2.8,0,TAU);ctx.fill();}
+    }
+    ctx.restore();ctx.shadowBlur=0;
+    const stars=Math.min(5,1+Math.floor(u.cat/2));for(let i=0;i<stars;i++){ctx.fillStyle=color;ctx.fillRect(-((stars-1)*4)/2+i*4-1,23,2,2);}
+    // Aggregate formations retain a per-member, separately sellable score.
+    if(u.count>1){roundRect(11,-27,23,14,4);ctx.fillStyle='#10202a';ctx.fill();ctx.strokeStyle=color+'88';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#e7f0f0';ctx.font='9px monospace';ctx.textAlign='center';ctx.fillText('×'+u.count,22.5,-17);}
+    ctx.restore();
+  }
+  function helpHTML(){
+    const powers=E.NAMES.map((n,c)=>`<tr><td style="color:${E.COLORS[c]}">${n}</td><td>${E.DPS[c]}–${E.MAX_DPS[c]}</td><td>${E.RANGES[c]}</td></tr>`).join('');
+    const stages=[1,10,20,30,40,50,60,70,80,90,100,110,120].map(w=>{const i=E.waveInfo(w);return `<tr><td>${w}${i.boss?' · 보스':''}</td><td>${fmt(i.hp)}</td><td>${i.count}</td><td>${fmt(i.hp*i.count/(E.CONFIG.waveSeconds/E.CONFIG.tempo))}</td><td>${i.boss?fmt(i.bossHP):'—'}</td></tr>`;}).join('');
+    return `<div class="help-section"><h3>0.6 / DISTINCT ARSENAL</h3><p>120스테이지 · 기본 2×에서 20초 간격 · 약 40–41분. 매 10스테이지, 총 12회 보스가 등장합니다. 기존 2배속을 기본으로 삼되 캠페인을 2배 길게 설계했습니다. 2.5×를 고르면 약 32–33분입니다. 잔여 적이 <b>200기에 도달하면 패배</b>합니다. 보스는 기본 템포에서 57.5초 안에 처치하지 못하면 광폭화하여 기본 템포에서 6초마다 증원 2기를 보냅니다. 보스 자체 시간 초과는 즉사가 아닙니다. 최종 스테이지 소탕 제한은 기본 템포에서 80초입니다.</p><p><b>0.6 난도 조정:</b> 시작 체력·자원·생산 속도는 유지합니다. 0.5 대비 기본 적 및 보스 체력을 S10 +3%, S40 +10%, S80 +14%, S120 +18%로 점진 강화했습니다. 적 수와 200기 패배 기준은 그대로입니다.</p></div>
+    <div class="help-section"><h3>핸드와 조커</h3><p>플랍 전 골드 교체는 2장/3장 장수까지 매번 재추첨합니다. 확장 핸드는 레벨당 2%p, 최대 20%의 이벤트입니다. 기본 교체비는 2레벨마다 1 G 증가합니다. 플랍 4칩 · 턴 추가 3칩 · 리버 추가 4칩. 플랍·턴·리버 모두 직접 소환합니다. 리버 공개 후에도 조커를 쓸 수 있으며, E 또는 지금 소환을 누를 때까지 최종 족보를 유지합니다. 전투는 계속됩니다.</p><p><b>J → 원하는 공개 카드 클릭 → 교체 확정</b>. 내 핸드와 공용 카드 어느 쪽이든 한 장을 선택합니다. 대체 카드는 남은 덱에서 무작위이며, 조커 1개·계약당 한 번입니다. 플랍이나 턴에서 이미 썼으면 리버에서 다시 쓸 수 없습니다. 나머지 카드는 그대로이고 버린 카드는 다시 나오지 않습니다. 교체로 족보가 나빠질 수도 있습니다. 확률 패널의 기대 DPS는 직접 공격 기준이며 승률이 아닙니다.</p></div>
+    <div class="help-section"><h3>연구·재화·판매</h3><p>시작 100 G · 4칩 · 조커 1개 · 노말 2기. 기본 2×에서 11초마다 1칩, 스테이지마다 2칩, 보스 처치 시 2칩을 받습니다. 일반 적은 4 G, 광폭화 증원은 0 G입니다. 연구는 레벨당 기본 DPS +16%; 노말·펄스·노바·프리즘·바이퍼 5계열이고 풀하우스 이상에는 다섯 레벨의 합이 적용됩니다. 각 배율을 곱하지 않습니다.</p><p>편대원은 개별로 사격하며, 합쳐서 한 발을 쏘지 않습니다. 유닛을 선택하면 사거리·연사·개별 DPS가 표시됩니다. 투사체가 도착해야 피해가 들어갑니다. 판매는 선택한 한 기만 제거하며 그 기의 잔상과 날아가는 투사체도 제거됩니다. 연구 가격과 판매가는 서로 독립적입니다.</p></div>
+    <div class="help-section"><h3>기본 성능 / 사거리</h3><table class="help-table"><thead><tr><th>족보</th><th>기본 DPS</th><th>사거리</th></tr></thead><tbody>${powers}</tbody></table><p>전체 포커 세부 서열에 따라 족보 안에서 선형 증가합니다. 스트레이트·플러시만 최고 카드 무늬 능력을 받습니다. A2345는 5의 무늬입니다. 풀하우스 이상은 고유 능력·모든 연구 적용입니다. 하이 카드부터 투사체와 사거리가 달라지지만 트리플 이하는 상태이상·광역 효과가 없습니다.</p></div>
+    <div class="help-section"><h3>다발 투사체 · 피해 예산</h3><p>풀하우스는 궤도를 돌며 모이는 5중 회전 인장, 포카드는 양쪽 포드에서 교대 발사하는 8발 로켓, 스트레이트 플러시는 양익에 펼친 10개 결정 칼날, 로열은 상공 문양에서 수직 낙하하는 12자루 심판검입니다. 색뿐 아니라 실루엣·궤적·발사 이펙트·피격 이펙트가 다릅니다. 피해량·탄수·명중 시점은 0.5와 동일합니다. 총 직접 피해는 <b>기본 DPS × 연구 배율 ÷ 공격 주기 수</b>이며 이를 탄수로 나눕니다. 탄수가 늘어도 단일 대상의 기준 DPS는 늘지 않습니다.</p><p>포카드는 반경 28 이내 14%, 반경 68 이내 6%로 주변 최대 2기에 폭발 피해. 스티플은 반경 44/98에서 40%/18%, 주변 최대 3기. 로열은 반경 48/108에서 48%/22%, 주변 최대 5기입니다. 비율은 <b>각 작은 탄의 피해 기준</b>이고 직접 피격 대상은 스플래시를 중복 적용받지 않습니다. 풀하우스·포카드·로열의 잔상은 탄막당 마지막 탄에서 한 개만 생깁니다. 미사일마다 완전한 잔상을 만들지 않습니다.</p></div>
+    <div class="help-section" id="stageIntel"><h3>스테이지 전황표</h3><table class="help-table"><thead><tr><th>S</th><th>기본 HP</th><th>적 수</th><th>유입 HP/s</th><th>보스 HP</th></tr></thead><tbody>${stages}</tbody></table><p>유입 HP/s = 기본 HP × 기본 적 수 ÷ 20초 (기본 2×의 실제 초 기준). 장갑·정예·보스·광폭화 증원은 제외한 참고 하한입니다. 실측 DPS는 최근 전투시간 4초(기본 템포의 실제 2초) 동안 깎은 체력이라 오버킬을 세지 않으며, 적이 없으면 낮아집니다. HUD의 실측 DPS와 유입 HP/s는 기본 2×의 실제 초 기준입니다. 카드·도감의 기준 DPS는 이전 버전과 같은 전투시간 1초 기준이므로 2×에서 실제 직접 피해량은 2배입니다. 장갑 적의 피해 감소는 16%입니다.</p></div>
+    <div class="help-section"><h3>조작·에디터·저장</h3><p>D 다음 카드 · E 소환 · R 일반 교체 · J 한 장 교체 · 1–5 연구 · B 상점 · Space 정지. 전장 드래그로 위치 변경. 상점은 시간이 흐르며 가이드·에디터 창·비활성 브라우저 탭에서는 멈춥니다.</p><p>상단 <b>에디터</b>에서 지정 카드로 유닛 소환, 현재 핸드 지정, 스테이지 이동, 재화·연구 설정을 할 수 있습니다. 에디터를 켠 작전은 계속 테스트 기록이며 일반 저장을 덮어쓰지 않습니다. 일반 모드로 돌아가려면 새 작전을 시작하세요. 자동 시연도 최적 전략은 아니며 승리를 보장하지 않습니다. 0.5·0.6 저장을 가져올 수 있습니다. 0.5에서 가져오면 현재 적과 웨이브의 체력은 그대로 두고 다음 웨이브부터 강화 난도를 적용합니다. 자동 시연은 꺼진 상태로 복원합니다. 새 난도를 처음부터 검증하려면 새 작전을 시작하세요. 0.1–0.4 저장은 지원하지 않습니다. 모바일은 하단 계약·전력·상점·도감 탭을 사용하세요. 전력에서 편대를 선택해 연구·개별 판매·탭 배치가 가능합니다. 화면을 잠그거나 다른 앱으로 이동하면 자동 저장·일시정지하며 복귀 후 직접 재개합니다. 그래픽 절전 옵션은 렌더링만 줄이고 전투 판정은 바꾸지 않습니다.</p></div>`;
+  }
+  function cancelJoker(){ui.jokerMode=false;ui.jokerTarget=null;ui.cache='';renderCards();renderHUD();}
+  function toggleJoker(){if(!isPlaying()||![3,4,5].includes(game.deal.board.length)||game.deal.jokerUsed||game.tokens<1)return false;if(ui.jokerMode){cancelJoker();return true;}ui.jokerMode=true;ui.jokerTarget=null;ui.cache='';renderCards();renderHUD();return true;}
+  function renderJoker(){
+    if(game.deal.jokerUsed||![3,4,5].includes(game.deal.board.length)){ui.jokerMode=false;ui.jokerTarget=null;}
+    $('jokerPanel').classList.toggle('hidden',!ui.jokerMode);$('jokerConfirm').disabled=!ui.jokerTarget||!isPlaying()||!game.canAct();
+    if(!ui.jokerMode)return;
+    if(!ui.jokerTarget){$('jokerPrompt').textContent='교체할 공개 카드 한 장을 클릭하세요.';$('jokerForecast').textContent='내 핸드와 공용 카드 모두 가능 · 대체 카드는 무작위';return;}
+    const {zone,index}=ui.jokerTarget,d=game.deal,card=d[zone][index],key=d.hole.join()+d.board.join()+zone+index+game.upgrades.join();
+    if(ui.jokerKey!==key){ui.jokerKey=key;ui.jokerStats=E.jokerForecast(d.hole,d.board,d.deck,zone,index,game.upgrades);}
+    const f=ui.jokerStats;$('jokerPrompt').textContent=`${E.cardName(card)} 한 장만 교체`;$('jokerForecast').textContent=`${f.total}가지 전수 계산 · 세부 족보 개선 ${pct(f.better)} · 교체 직후 기대 ${short(f.expected)} DPS (현재 ${short(game.preview().dps)})`;
+  }
+  function chooseCard(e){const c=e.target.closest('[data-zone]');if(!ui.jokerMode||!c)return;ui.jokerTarget={zone:c.dataset.zone,index:Number(c.dataset.index)};ui.cache='';renderCards();renderHUD();}
+  for(const id of ['holeCards','boardCards']){$(id).addEventListener('click',chooseCard);$(id).addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();chooseCard(e);}});}
+  $('jokerCancel').onclick=cancelJoker;
+  $('jokerConfirm').onclick=()=>{if(!isPlaying()||!ui.jokerTarget)return;const {zone,index}=ui.jokerTarget;if(game.joker(zone,index)){ui.jokerMode=false;ui.jokerTarget=null;}ui.cache='';renderCards();renderHUD();};
+  $('stageIntelBtn').onclick=()=>{openModal('help');setTimeout(()=>$('stageIntel').scrollIntoView({block:'start',behavior:'smooth'}),30);};
+  function openEditor(){
+    if(!ui.started)startGame($('seedInput').value.trim()||newSeed(),false);
+    if(!game.editor){if(!confirm('에디터를 활성화하면 이 작전은 테스트 기록이 됩니다. 일반 저장은 보존됩니다.'))return;save();game.editorEnable();}
+    ui.auto=false;ui.jokerMode=false;ui.jokerTarget=null;openModal('editor');updateControls();$('edStage').value=Math.max(1,game.wave);editorPreview();
+  }
+  $('editorBtn').onclick=openEditor;$('startEditorBtn').onclick=openEditor;$('closeEditorBtn').onclick=()=>{openModal(null);ui.cache='';updateControls();renderCards();renderHUD();save();};
+  $('edGrade').innerHTML=E.NAMES.map((n,c)=>`<option value="${c}" ${c===6?'selected':''}>${n}</option>`).join('');
+  $('edRank').innerHTML=Array.from({length:13},(_,i)=>i+2).reverse().map(r=>`<option value="${r}">${E.rankLabel(r)}</option>`).join('');
+  function readCards(id){const txt=$(id).value.trim();return txt?txt.split(/[\s,]+/).filter(Boolean).map(E.parseCard):[];}
+  function editorPreview(){try{const e=E.evaluate(readCards('edCards'));$('edPreview').textContent=`${E.NAMES[e.cat]} · ${e.label} · ${e.power.toFixed(1)} 기본 DPS`;$('edPreview').style.color=E.COLORS[e.cat];}catch(err){$('edPreview').textContent='서로 다른 카드 5–8장을 입력하세요.';$('edPreview').style.color='#fa8195';}}
+  $('edCards').oninput=editorPreview;
+  function preset(){
+    const cat=+$('edGrade').value,suit=+$('edSuit').value,want=+$('edRank').value,table=E.RANK_TABLES[cat];
+    const target=table.filter(v=>E.mainRank(v)===want).at(-1)??table.at(-1);let found=null;
+    // Deterministically find a representative for any of the 7,462 values.
+    const values=E.scoreRanks(target),r=values[0],c=(r,s)=>s*13+r-2;
+    if(cat===0||cat===5){found=values.map((r,i)=>c(r,cat===5?suit:i===0?suit:(suit+1)%4));}
+    else if(cat===1)found=[c(r,0),c(r,1),...values.slice(1).map(x=>c(x,suit))];
+    else if(cat===2)found=[c(r,0),c(r,1),c(values[1],2),c(values[1],3),c(values[2],suit)];
+    else if(cat===3)found=[c(r,0),c(r,1),c(r,2),...values.slice(1).map(x=>c(x,suit))];
+    else if(cat===6)found=[c(r,0),c(r,1),c(r,2),c(values[1],0),c(values[1],1)];
+    else if(cat===7)found=[c(r,0),c(r,1),c(r,2),c(r,3),c(values[1],suit)];
+    else{const ranks=r===5?[5,4,3,2,14]:[r,r-1,r-2,r-3,r-4];found=ranks.map((rr,i)=>c(rr,cat===4&&i>0?(suit+1)%4:suit));}
+    $('edCards').value=found.map(E.cardName).join(' ');editorPreview();
+  }
+  $('edPreset').onclick=preset;
+  function edAction(fn){if(!game.editor)return;try{const msg=fn();$('edMessage').textContent=msg||'적용되었습니다.';ui.cache='';ui.memberKey='';renderCards();renderHUD();save();}catch(err){$('edMessage').textContent='적용 실패: '+err.message;}}
+  $('edSpawn').onclick=()=>edAction(()=>{const cs=readCards('edCards');E.evaluate(cs);const n=Math.max(1,Math.min(10,Math.floor(Number($('edCount').value)||1)));for(let i=0;i<n;i++)game.editorHand(cs);return `${E.NAMES[E.evaluate(cs).cat]} ${n}기 소환. 창을 닫으면 전투가 이어집니다.`;});
+  $('edSetDeal').onclick=()=>edAction(()=>{if(!game.editorDeal(readCards('edHole'),readCards('edBoard')))throw Error('핸드는 2/3장, 공용 카드는 0/3/4/5장, 모든 카드는 중복 없이 입력하세요.');return '지정 카드로 현재 계약을 변경했습니다.';});
+  $('edJump').onclick=()=>edAction(()=>{if(!game.editorJump(+$('edStage').value))throw Error('1–120 사이의 정수 스테이지를 입력하세요.');ui.fx=[];ui.rings=[];ui.particles=[];return `S${game.wave}로 이동했습니다. 유닛·연구는 유지됩니다.`;});
+  $('edSetResearch').onclick=()=>edAction(()=>{const l=+$('edResearch').value;if(!Number.isInteger(l)||l<0||l>30)throw Error('0–30 사이 레벨을 입력하세요.');game.upgrades=[l,l,l,l,l];return `다섯 연구를 모두 Lv.${l}로 설정했습니다.`;});
+  $('edGold').onclick=()=>edAction(()=>{game.gold+=5000;return '+5,000 G';});$('edChips').onclick=()=>edAction(()=>{game.chips+=50;return '+50 CHIP';});$('edTokens').onclick=()=>edAction(()=>{game.tokens+=5;return '+5 JOKER';});
+  $('edClearEnemies').onclick=()=>edAction(()=>{game.enemies=[];game.zones=[];game.projectiles=[];return '잔여 적·잔상·투사체를 정리했습니다. 앞으로의 예정 스폰은 유지됩니다.';});
+  $('edClearUnits').onclick=()=>edAction(()=>{game.units=[];game.zones=[];game.projectiles=[];for(const e of game.enemies)e.reserved=0;return '모든 유닛을 제거했습니다.';});
+
+  const mobileMQ=window.matchMedia('(max-width: 900px), (pointer: coarse) and (max-height: 600px)');
+  function updateMobileLayout(){
+    ui.mobile=mobileMQ.matches;document.body.classList.toggle('mobile-ui',ui.mobile);
+    const home=ui.mobile?$('armyMobileHome'):$('armyHome');home.append($('armyControls'));
+    if(!ui.mobile&&ui.tab==='army')setTab('contract');applyQuality();resize();
+  }
+  function applyQuality(){ui.lowGraphics=ui.quality==='low'||(ui.quality==='auto'&&ui.mobile);document.body.classList.toggle('low-graphics',ui.lowGraphics);$('qualitySelect').value=ui.quality;resize();}
+  function renderRoster(){
+    if(!ui.mobile)return;
+    const key=game.units.map(u=>u.id+':'+u.count+':'+Math.round(game.unitDPS(u))).join('|')+'/'+ui.selected;
+    if(ui.rosterKey===key)return;ui.rosterKey=key;
+    $('formationRoster').innerHTML=game.units.map(u=>`<button data-formation="${u.id}" class="${ui.selected===u.id?'active':''}" style="--unit:${E.COLORS[u.cat]}"><b>${E.TYPES[u.type].symbol}</b><span>${E.NAMES[u.cat]}<small>${E.TYPES[u.type].type} ×${u.count}</small></span><strong>${short(game.unitDPS(u))}<small>DPS</small></strong></button>`).join('')||'<p>아직 유닛이 없습니다.</p>';
+  }
+  $('formationRoster').onclick=e=>{const b=e.target.closest('[data-formation]');if(!b)return;ui.selected=+b.dataset.formation;ui.member=null;renderHUD();};
+  $('moveSelectedBtn').onclick=()=>{if(!ui.selected)return;ui.placement=true;document.body.classList.remove('arena-collapsed');$('collapseArenaBtn').textContent='전장 접기';$('placementHint').classList.remove('hidden');resize();};
+  $('cancelPlacementBtn').onclick=endPlacement;
+  $('collapseArenaBtn').onclick=()=>{const collapsed=document.body.classList.toggle('arena-collapsed');$('collapseArenaBtn').textContent=collapsed?'전장 펼치기':'전장 접기';$('collapseArenaBtn').setAttribute('aria-expanded',String(!collapsed));resize();};
+  $('oddsExpandBtn').onclick=()=>{const open=document.querySelector('.odds-box').classList.toggle('expanded');$('oddsExpandBtn').textContent=open?'접기':'상세';$('oddsExpandBtn').setAttribute('aria-expanded',String(open));};
+  $('mobileMenuBtn').onclick=()=>{openModal('settings');updateControls();};
+  $('closeSettingsBtn').onclick=()=>{openModal(null);renderHUD();};
+  $('settingsHelpBtn').onclick=()=>openModal('help');
+  $('settingsEditorBtn').onclick=openEditor;
+  $('settingsExportBtn').onclick=exportSave;
+  $('settingsImportBtn').onclick=()=>$('importSaveInput').click();
+  $('settingsSoundBtn').onclick=()=>{$('soundBtn').click();updateControls();};
+  $('settingsAutoBtn').onclick=()=>{if(ui.started){ui.auto=!ui.auto;updateControls();}};
+  document.querySelectorAll('[data-speed]').forEach(b=>b.onclick=()=>{ui.speed=+b.dataset.speed;updateControls();renderHUD();});
+  $('qualitySelect').onchange=()=>{ui.quality=$('qualitySelect').value;applyQuality();try{localStorage.setItem('riverbound_graphics',ui.quality);}catch{}};
+  try{const q=localStorage.getItem('riverbound_graphics');if(['auto','low','high'].includes(q))ui.quality=q;}catch{}
+  $('resumeBtn').onclick=()=>{togglePause();$('pauseMessage').textContent='준비되면 재개하세요.';};
+  function suspendForBackground(){if(ui.started&&game.status==='playing'){ui.paused=true;ui.pointer=null;ui.accumulator=0;$('pauseMessage').textContent='앱 전환으로 정지했습니다. 준비되면 계속하세요.';save();updateControls();renderHUD();}}
+  if(mobileMQ.addEventListener)mobileMQ.addEventListener('change',updateMobileLayout);else mobileMQ.addListener(updateMobileLayout);
+  if(window.visualViewport)window.visualViewport.addEventListener('resize',()=>{resize();});
+  updateMobileLayout();
+  $('helpContent').innerHTML=helpHTML();
+  let last=performance.now();
+  function frame(now){
+    const gap=(now-last)/1000;const realDt=Math.min(.25,Math.max(0,gap));last=now;ui.realTime+=realDt;if(gap>2&&ui.started&&!ui.modal&&!ui.paused&&game.status==='playing'){suspendForBackground();}
+    if(isPlaying()&&!document.hidden){
+      const dt=realDt*ui.speed;ui.elapsed+=realDt;ui.accumulator+=dt;
+      while(ui.accumulator>=E.CONFIG.step){game.tick(E.CONFIG.step);ui.accumulator-=E.CONFIG.step;ui.botClock=ui.auto&&!ui.jokerMode?ui.botClock+E.CONFIG.step:0;if(ui.auto&&!ui.jokerMode&&ui.botClock>=.8){ui.botClock-=.8;E.botAct(game);}if(game.status!=='playing'){ui.accumulator=0;break;}}
+      for(const f of ui.fx)f.life-=dt;ui.fx=ui.fx.filter(f=>f.life>0);
+      for(const r of ui.rings)r.life-=dt;ui.rings=ui.rings.filter(r=>r.life>0);
+      for(const p of ui.particles){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;}ui.particles=ui.particles.filter(p=>p.life>0);
+      ui.saveClock+=realDt;if(ui.saveClock>=3){ui.saveClock=0;save();}
+    }else ui.accumulator=0;
+    if(ui.toastUntil&&ui.realTime>ui.toastUntil){$('arenaToast').classList.remove('visible');ui.toastUntil=0;}
+    ui.hudClock+=realDt;if(ui.hudClock>=.15){ui.hudClock=0;renderCards();renderHUD();}
+    ui.drawClock+=realDt;if(!document.hidden&&ui.drawClock>=(ui.lowGraphics?1/30:1/60)-.002){ui.drawClock=0;draw();}requestAnimationFrame(frame);
+  }
+  window.addEventListener('pagehide',suspendForBackground);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)suspendForBackground();last=performance.now();ui.accumulator=0;});
+  window.Riverbound={get game(){return game;},get state(){return ui;},start:startGame,openEditor,suspendForBackground,setTab,updateMobileLayout,draw,refresh:()=>{ui.cache='';renderCards();renderHUD();},save,exportSave,importSaved};
+  resize();renderCards();renderHUD();requestAnimationFrame(frame);
+})();
+</script>
+</body></html>
