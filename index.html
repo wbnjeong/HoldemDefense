@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#0a0f17" name="theme-color"/><meta content="120스테이지, 40분의 포커 랜덤 디펜스. 오프라인 브라우저 게임." name="description"/>
-<title>RIVERBOUND VI — 홀덤 랜덤 디펜스</title>
+<title>RIVERBOUND VIII · 0.8 — 홀덤 랜덤 디펜스</title>
 <style>:root{color-scheme:dark;--bg:#0a0f17;--panel:#111923;--panel2:#151f2b;--line:#26313f;--muted:#8997a8;--text:#edf3f9;--mint:#7de2ba;--gold:#eabe70;--violet:#b5a2f0;--red:#fa8195;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;--sans:Inter,"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 40% 0,#142431 0,transparent 42%),var(--bg);font-family:var(--sans);color:var(--text);font-size:13px;line-height:1.5}button,input{font:inherit}button{cursor:pointer;transition:background .16s,border-color .16s,transform .12s;color:inherit}button:disabled{opacity:.36;cursor:not-allowed}button:not(:disabled):active{transform:translateY(1px)}button:focus-visible,input:focus-visible{outline:2px solid var(--mint);outline-offset:3px}button:hover:not(:disabled){filter:brightness(1.12)}.app{max-width:1710px;margin:auto;padding:0 25px 20px}.topbar{height:77px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:37px;height:43px;display:grid;place-items:center;border:1px solid #597969;border-radius:9px;background:linear-gradient(135deg,#254a3e,#10291f);color:var(--mint);font-size:29px;transform:rotate(-8deg);box-shadow:0 0 25px #7de2ba12}.brand h1{font-size:21px;letter-spacing:3.5px;font-weight:750;margin:0;line-height:1.18}.brand small{color:var(--muted);font-size:10px;letter-spacing:1.4px}.version{align-self:flex-start;margin:4px 0 0 2px;color:#8fa7b8;font:9px var(--mono);letter-spacing:1px;border:1px solid var(--line);padding:3px 7px;border-radius:3px}.controls{display:flex;gap:7px;align-items:center}.ctrl,.small-btn{border:1px solid var(--line);border-radius:6px;background:#15202a;padding:8px 12px;font-size:11px;font-weight:600;white-space:nowrap}.ctrl.on{color:var(--mint);border-color:#417f68;background:#162f28}.ctrl.muted{color:var(--muted)}.dashboard{display:grid;grid-template-columns:1.05fr 1.45fr 1fr 1fr .8fr;gap:10px;margin-bottom:14px}.metric{height:66px;background:linear-gradient(120deg,#17212c,#111a24);border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:10px}.metric-label{font-size:10px;color:var(--muted);letter-spacing:.7px}.metric-value{font-size:24px;font-family:var(--mono);letter-spacing:-1px;font-weight:700;line-height:1.12}.metric-value small{font:11px var(--sans);color:var(--muted);margin-left:5px}.metric-right{text-align:right}.mini-label{font-size:10px;color:var(--muted);white-space:nowrap}.currency-icon{font-size:23px;margin-right:2px;width:29px;opacity:.9}.gold{color:var(--gold)}.mint{color:var(--mint)}.violet{color:var(--violet)}.red{color:var(--red)}.overflow-metric{display:block;padding:9px 14px}.overflow-top{display:flex;align-items:center;justify-content:space-between}.overflow-top strong{font-family:var(--mono);font-size:18px}.overflow-track,.wave-track{height:4px;border-radius:3px;background:#26333e;overflow:hidden;margin:7px 0 3px}.overflow-track>i,.wave-track>i{display:block;height:100%;background:var(--mint);width:0;transition:width .25s,background .25s}.overflow-metric.danger{border-color:#b15368;background:#2b1b27}.danger .overflow-track>i{background:var(--red)}.main{display:grid;grid-template-columns:minmax(0,1fr) 386px;gap:15px;height:calc(100vh - 178px);min-height:674px;max-height:970px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:11px;overflow:hidden;box-shadow:0 10px 40px #00000016}.battle{display:flex;flex-direction:column;min-width:0}.panel-head{height:45px;flex-shrink:0;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 17px;gap:10px}.eyebrow{font-size:10px;font-family:var(--mono);letter-spacing:1.6px;color:#8fa2b5}.panel-name{font-size:12px;font-weight:700;margin-left:9px;letter-spacing:0}.live{font-size:9px;color:var(--mint);letter-spacing:1.3px;display:flex;align-items:center;gap:5px}.live:before{content:"";display:block;width:5px;height:5px;border-radius:50%;background:currentColor;box-shadow:0 0 10px #8bd9b9}.arena-wrap{position:relative;flex:1;min-height:310px;background:radial-gradient(ellipse at center,#14232b,#0b121a 76%);isolation:isolate}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}.arena-top{pointer-events:none;position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:11px}.phase-pill{font-size:9px;letter-spacing:1.3px;padding:4px 9px;border:1px solid #375646;color:#b3d1c1;background:#11231dd9;border-radius:4px}.phase-time{font:11px var(--mono);color:#9badbf}.arena-hint{position:absolute;bottom:9px;left:17px;right:17px;display:flex;justify-content:space-between;color:#617789;font-size:9px;pointer-events:none;letter-spacing:.3px}.arena-toast{pointer-events:none;position:absolute;left:50%;top:20%;transform:translate(-50%,-12px);opacity:0;transition:.3s;background:#101b24eF;border:1px solid #496b62;border-radius:8px;text-align:center;padding:12px 25px;min-width:245px;box-shadow:0 15px 50px #0007}.arena-toast.visible{opacity:1;transform:translate(-50%,0)}.arena-toast strong{display:block;font-size:19px;margin:2px 0;letter-spacing:1px}.arena-toast small{color:#acb9c6;font-size:10px}.pause-layer{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:#08101bad;backdrop-filter:blur(3px);z-index:10}.pause-layer.show{display:flex}.pause-layer strong{letter-spacing:7px;font-size:23px}.pause-layer span{color:var(--muted);font-size:11px}.unit-inspector{height:72px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:10px 17px;background:#121e29}.inspect-left{display:flex;align-items:center;gap:11px;min-width:0}.unit-symbol{font-size:26px;background:#0b141e;border:1px solid #3a4957;border-radius:8px;width:42px;height:42px;display:grid;place-items:center;flex-shrink:0}.inspect-title{font-size:12px;font-weight:650;white-space:nowrap}.inspect-sub{font-size:10px;color:var(--muted);margin-top:3px}.inspect-stat{font:20px var(--mono);text-align:right;white-space:nowrap}.inspect-stat small{display:block;color:var(--muted);font:9px var(--sans);margin-top:2px}.target-row{display:flex;align-items:center;gap:7px;padding:9px 16px 0}.target-row>span{font-size:10px;color:var(--muted);margin-right:5px}.target-btn{background:#17222d;border:1px solid #2b3b49;color:#8298aa;border-radius:4px;font-size:9px;padding:3px 7px}.target-btn.active{color:#c8e3d7;background:#22362f;border-color:#416a58}.army-size{margin-left:auto!important;color:#a7bccd!important}.upgrades{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:10px 12px 12px}.upgrade{border:1px solid var(--line);border-radius:7px;background:#15212c;text-align:left;padding:10px;min-width:0;position:relative;overflow:hidden}.upgrade:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--suit)}.upgrade-head{display:flex;align-items:center;gap:7px;font-size:11px}.upgrade-head>i{font-style:normal;font-size:17px;color:var(--suit)}.upgrade-head small{font:9px var(--mono);color:var(--muted);margin-left:auto}.upgrade-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:6px}.upgrade-bottom span{color:var(--gold);font:11px var(--mono);font-weight:600}.upgrade-bottom small{font-size:9px;color:#8194a5}.poker{display:flex;flex-direction:column}.poker-scroll{overflow:auto;scrollbar-width:thin;scrollbar-color:#324254 transparent;padding:0 17px 16px}.streets{display:flex;align-items:center;justify-content:space-between;margin:17px 0 18px;position:relative}.street{font:9px var(--mono);color:#4f6577;background:var(--panel);z-index:1;padding:0 5px;text-align:center;letter-spacing:.8px}.street:before{content:"";display:block;width:6px;height:6px;border:1px solid #42606c;border-radius:50%;margin:0 auto 7px;background:#14212a}.street.active{color:var(--mint)}.street.active:before{background:var(--mint);border-color:var(--mint);box-shadow:0 0 12px #7de2ba66}.street.passed{color:#a9cabc}.street.passed:before{background:#3c8b70;border-color:#3c8b70}.streets:before{content:"";height:1px;background:#294237;position:absolute;left:20px;right:20px;top:3px}.section-label{display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:1px;color:var(--muted);margin:10px 0 9px}.lock-tag{font-size:9px;letter-spacing:0;color:#86bea5}.lock-tag.locked{color:var(--gold)}.hole-row{display:flex;align-items:center;justify-content:center;gap:9px;position:relative}.card{width:58px;height:79px;position:relative;border-radius:7px;border:1px solid #f0f0e7;background:linear-gradient(155deg,#fcfbf5,#dfe6e6);color:#132a3b;box-shadow:0 3px 7px #0004;flex-shrink:0;user-select:none;transition:opacity .2s,box-shadow .2s,transform .2s;animation:dealIn .25s ease-out}.hole-row .card{width:65px;height:91px}.card.red-suit{color:#bd3a50}.card .rank{position:absolute;left:8px;top:5px;font-size:19px;line-height:1;font-weight:800;font-family:Georgia,serif}.card .pip{position:absolute;left:9px;top:25px;font-size:12px;line-height:1}.card .big-pip{position:absolute;right:9px;bottom:4px;font-size:34px;line-height:1.2;opacity:.94}.card .corner{position:absolute;right:5px;top:5px;font-size:8px;opacity:.45}.card.best{border-color:#f2cc81;box-shadow:0 0 0 2px #e6bd6877,0 4px 16px #e6bd6817}.card.unused{opacity:.46}.card.back{border:1px solid #2a4553;background:repeating-linear-gradient(45deg,#182d37,#182d37 3px,#162831 3px,#162831 7px);box-shadow:none;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#385967;animation:none}.card.back>span{border:1px solid #355460;border-radius:4px;width:27px;height:34px;display:grid;place-items:center;font-size:23px}.card.back>small{font:7px var(--mono);position:absolute;bottom:7px;letter-spacing:1px;color:#547987}.card.pending{filter:saturate(.4)}.hole-info{position:absolute;right:0;top:11px;width:75px;font-size:9px;color:var(--muted);line-height:1.7}.hole-info strong{font-size:19px;font-weight:600;display:block;line-height:1.2}.board-row{display:flex;justify-content:center;gap:6px}.board-row .card{width:calc((100% - 24px)/5);max-width:60px;height:77px}.board-row .rank{font-size:18px;left:7px}.board-row .pip{left:8px}.board-row .big-pip{font-size:29px;right:7px}.hand-caption{font-size:9px;min-height:14px;color:#879dac;margin:6px 0 11px;text-align:center}.preview{display:flex;align-items:center;gap:11px;padding:11px 12px;background:linear-gradient(110deg,#1c2d31,#16222c);border:1px solid #354d4b;border-radius:7px;margin-top:9px;min-height:65px}.preview-icon{font-size:25px;width:28px;text-align:center}.preview-name{font-size:15px;font-weight:700;line-height:1.2}.preview-small{font-size:9px;color:var(--muted);margin-top:4px}.preview-power{margin-left:auto;text-align:right;font:18px var(--mono)}.preview-power small{display:block;font:8px var(--sans);color:var(--muted);margin-top:3px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.action{border-radius:7px;padding:11px 9px;border:1px solid transparent;text-align:center;line-height:1.2;min-height:51px;position:relative}.action strong{font-size:12px;display:block;letter-spacing:.1px}.action small{display:block;font-size:9px;margin-top:5px;opacity:.7}.action.take{background:var(--mint);color:#102c21;border-color:#a2f0d0}.action.next{background:#243c38;border-color:#4a7463;color:#cfebdf}.action.reroll{border-color:#66563b;background:#2b291f;color:#efd29a;min-height:39px;padding:9px}.action.reroll strong{font-size:10px}.action.joker{background:#262339;border-color:#4b4267;color:#d1bffa;min-height:39px;padding:9px}.action.joker strong{font-size:10px}.action kbd{position:absolute;top:5px;right:6px;font:8px var(--mono);opacity:.4}.invested{font-size:9px;color:#8aa1b0;margin:8px 0 13px;display:flex;justify-content:space-between}.odds-box{border-top:1px solid var(--line);padding-top:12px}.odds-head{display:flex;align-items:center;justify-content:space-between;font-size:10px}.odds-head strong{font-size:10px;font-weight:600}.odds-badge{font:8px var(--mono);color:#82bfa7;letter-spacing:1.2px}.odds-controls{display:flex;gap:5px;margin-top:9px}.odds-controls button{border:1px solid #2f4050;background:#14212b;border-radius:4px;padding:4px 8px;font-size:9px;color:#7894a7}.odds-controls button.active{color:#b5dccd;border-color:#48695e;background:#21352e}.odds-summary{display:flex;align-items:center;justify-content:space-between;padding:10px 0 8px;font-size:9px;color:var(--muted)}.odds-summary strong{color:var(--mint);font-size:23px;font-family:var(--mono);display:block;line-height:1.2}.odds-summary div:last-child{text-align:right}.odds-summary div:last-child strong{font-size:17px;color:#c7d5e0}.odds-row{display:grid;grid-template-columns:77px 1fr 40px;gap:8px;align-items:center;margin:5px 0;font-size:9px;color:#aebdca}.odds-row .bar{height:4px;background:#1c2b38;border-radius:3px;overflow:hidden}.odds-row .bar i{display:block;height:100%;border-radius:3px;min-width:1px}.odds-row .percent{text-align:right;font-family:var(--mono);font-size:9px}.odds-foot{font-size:8px;color:#657f92;margin-top:9px;line-height:1.6}.empty-odds{border:1px dashed #2f424f;border-radius:6px;margin-top:10px;padding:15px 12px;font-size:10px;color:#8097a9;text-align:center;line-height:1.8}.log-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:9px;color:#617c8e;margin-top:10px}.log-message{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.log-footer .state{white-space:nowrap;font-family:var(--mono)}.modal-backdrop{position:fixed;inset:0;z-index:50;background:#050a12cb;backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:22px}.modal-backdrop.show{display:flex}.modal{max-width:700px;width:100%;max-height:92vh;overflow:auto;border:1px solid #38504b;border-radius:14px;background:radial-gradient(ellipse at 85% 0,#1c3d33aa,transparent 50%),#121c26;box-shadow:0 30px 100px #0008;padding:34px;scrollbar-width:thin}.intro-top{display:flex;align-items:center;justify-content:space-between}.intro-kicker{font:10px var(--mono);letter-spacing:2px;color:var(--mint)}.intro-symbols{color:#496655;font-size:20px;letter-spacing:7px}.intro h2{font-size:45px;letter-spacing:4px;line-height:1.1;margin:19px 0 12px;font-weight:800}.intro h3{font-size:16px;font-weight:500;color:#b4c9c7;margin:0}.intro-description{font-size:12px;color:#8ba1b1;line-height:1.9;margin:15px 0 24px}.intro-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.intro-step{border:1px solid #2e4449;border-radius:8px;padding:14px 12px;background:#15263088}.intro-step b{font:11px var(--mono);color:var(--mint);display:block;margin-bottom:10px}.intro-step strong{display:block;font-size:12px;margin-bottom:6px}.intro-step p{font-size:10px;line-height:1.8;color:#8fa9b8;margin:0}.intro-note{border-left:2px solid var(--gold);padding:9px 12px;margin:21px 0;background:#282b2480;color:#bfc6b1;font-size:10px;line-height:1.8}.seed-row{display:flex;gap:9px;align-items:center;color:#8ea7b8;font-size:10px;margin:12px 0}.seed-row input{flex:1;max-width:200px;background:#0d1922;border:1px solid #334951;border-radius:5px;color:#cde0e6;padding:7px 10px;font:11px var(--mono);min-width:0}.seed-row span{font-size:9px;color:#647e90}.intro-buttons{display:flex;gap:9px;margin-top:17px;flex-wrap:wrap}.big-btn{background:var(--mint);color:#112d21;border:1px solid #a1edce;border-radius:7px;padding:13px 22px;font-size:13px;font-weight:750;flex:1}.big-btn.secondary{border-color:#3b535e;background:#1c303b;color:#b2cbd7;font-weight:500}.intro-foot{font-size:9px;color:#688395;text-align:center;margin-top:21px;line-height:1.9}.modal h2{margin-top:0}.modal .close{float:right;border:1px solid var(--line);background:#1b2c36;color:#b1c8d4;border-radius:5px;padding:5px 11px;font-size:11px}.help-section{border-top:1px solid #2c404b;margin-top:19px;padding-top:14px}.help-section h3{font-size:13px;color:var(--mint);margin:0 0 9px}.help-section p,.help-section li{font-size:11px;color:#adc1ce;line-height:1.85}.help-section ul{padding-left:20px;margin:8px 0}.help-section table{width:100%;border-collapse:collapse;font-size:10px;margin:10px 0}.help-section td,.help-section th{padding:7px 6px;border-bottom:1px solid #233641;text-align:right}.help-section td:first-child,.help-section th:first-child{text-align:left}.help-section th{color:#8aafa0;font-weight:500}.help-section code{font-family:var(--mono);color:#d5c599}.help-section .source{font-size:9px;overflow-wrap:anywhere;color:#6e8b9b}.help-section a{color:#82bfa7}.result-title{font-size:31px;letter-spacing:3px;margin:14px 0 7px}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:25px 0}.result-grid>div{background:#152832;border:1px solid #31444b;border-radius:8px;padding:14px;text-align:center}.result-grid small{color:var(--muted);font-size:10px;display:block}.result-grid strong{font:26px var(--mono);color:#dbe9e8}.best-result{padding:14px;border:1px solid #4e6651;border-radius:7px;font-size:12px;text-align:center;color:#c9dabc}.hidden{display:none!important}body.modal-open{overflow:hidden}@keyframes dealIn{from{opacity:.1;transform:translateY(-7px) rotate(-4deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
 @media(min-width:1600px){.main{grid-template-columns:minmax(0,1fr) 405px}.poker-scroll{padding:0 20px 20px}.hole-row .card{height:99px;width:71px}.board-row .card{height:83px;max-width:64px}.section-label{margin-top:14px}.actions{margin-top:15px}.preview{min-height:73px}}
@@ -123,18 +123,91 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
 @media (orientation:landscape) and (max-height:600px){.mobile-ui .main{grid-template-rows:minmax(0,1fr)}}
 .mobile-ui.arena-collapsed .main{grid-template-rows:55px minmax(0,1fr)}
 @media (orientation:landscape) and (max-height:600px){.mobile-ui.arena-collapsed .main{grid-template-rows:minmax(0,1fr)}}
+
+/* 0.7 / Trading counter. Controls remain >=44px on touch screens. */
+.market-tabs{display:flex;gap:5px;position:sticky;top:0;z-index:4;background:#101e25;padding:8px 0;margin:0 0 12px;}
+.market-tabs button{flex:1;min-height:44px;border:1px solid #30464c;border-radius:7px;background:#14252c;color:#94aab3;font:600 12px inherit;cursor:pointer;}
+.market-tabs button.active{color:#f5d394;background:#343026;border-color:#9f8150;}
+.market-meta{font-size:11px;line-height:1.6;color:#8fa6b1;margin:9px 0 12px;}
+.trade-card{background:linear-gradient(125deg,#17282f,#112027);border:1px solid #355056;border-radius:10px;padding:16px;margin-bottom:12px;}
+.trade-top{display:flex;align-items:center;gap:12px;}.trade-top>div{min-width:0;flex:1;}.trade-top h4{font-size:15px;line-height:1.5;color:#e5f0ed;margin:4px 0;overflow-wrap:anywhere;}.trade-top small{font-size:9px;letter-spacing:1.4px;color:#8dabaa;}.trade-top>b{font-size:12px;color:#9db4ac;white-space:nowrap;}
+.trade-mark{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;background:#102225;border:1px solid #607b6c;border-radius:10px;color:#a4dac5;font-size:25px;}
+.trade-card p{font-size:12px;line-height:1.75;color:#a9bec2;margin:12px 0;}.trade-math{color:#d4bc8e;font-size:11px;line-height:1.7;margin:8px 0 13px;}
+.trade-buy{width:100%;min-height:46px;line-height:1.6;padding:10px;border:1px solid #567465;border-radius:7px;background:#223e35;color:#d7e9ce;font-weight:600;cursor:pointer;white-space:normal;}
+.trade-buy:disabled{opacity:.42;cursor:default;}.trade-buy.confirm{background:#654621;border-color:#dca34f;color:#ffe4b9;}
+.rare-ticket{border-color:#786244;background:linear-gradient(130deg,#312b23,#14262c);}.rare-ticket .trade-mark{color:#e2bd7b;border-color:#8e724b;}.ticket-odds{display:flex;gap:10px;margin-top:15px;}.ticket-odds span{flex:1;background:#152229;padding:10px;border-radius:6px;font-size:11px;color:#bcc7ce;}.ticket-odds b{float:right;color:#e8cf9d;}
+.market-footnote{font-size:11px;color:#819ba5;line-height:1.8;padding:8px 2px;}.night-header{padding:12px 0;}.night-header small{color:#a895be;font-size:9px;letter-spacing:2px;}.night-header h4{color:#e4c591;font-size:16px;line-height:1.6;margin:8px 0;}.night-header p{color:#a1b6bd;font-size:12px;line-height:1.8;}
+.hidden-offer{border-color:var(--offer);}.hidden-offer.sold{opacity:.55;}.hidden-offer .trade-mark{color:var(--offer);border-color:var(--offer);}.market-cards{display:flex;flex-wrap:wrap;gap:6px;margin:15px 0;}.market-cards span{border-radius:5px;background:#dae3dd;color:#173537;font-weight:700;padding:8px 9px;font-size:14px;}.market-cards .red{color:#a83d47;}
+.night-closed{display:grid;justify-items:center;gap:14px;text-align:center;padding:38px 12px;border:1px dashed #66556d;border-radius:12px;color:#9b83a6;}.night-closed>span{font-size:42px;}.night-closed strong{font-size:11px;letter-spacing:2px;}.night-closed p{font-size:12px;line-height:1.8;color:#91a5b0;}
+.reservation-box{font-size:12px;line-height:1.8;color:#d8c18f;padding:13px;margin:14px 0;background:#292920;border:1px solid #605735;border-radius:8px;}.market-feedback{font-size:11px;line-height:1.7;color:#a4ccb8;padding:12px 0 4px;}.shop-value{white-space:pre-line;}
+.night-notice{border:0;border-bottom:1px solid #88714b;background:#332c26;color:#e7c797;padding:8px 12px;font-size:11px;min-height:35px;flex-shrink:0;text-align:left;cursor:pointer;}
+.mobile-ui .market-tabs{margin-top:0;}.mobile-ui .trade-card{padding:13px;}.mobile-ui .night-notice{min-height:32px;padding:6px 10px;font-size:10px;}
+
+.shop-panel[data-active="hidden"]>.store-intro,.shop-panel[data-active="facility"]>.store-intro{display:none;}
+.editor-active .brand small::before{content:"EDITOR · ";color:#e9c17f;font-weight:700;}
+/* 0.8: concise panels, explicit currencies, details in the guide. */
+.store-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 0 12px;}
+.store-heading h3{font-size:16px;line-height:1.3;margin:0;font-weight:700;}
+.guide-link,.guide-inline{font:inherit;border:1px solid #34434f;border-radius:6px;color:#9fc9d6;background:#14212a;cursor:pointer;min-height:36px;padding:6px 10px;font-size:11px;white-space:nowrap;}
+.guide-inline{float:right;min-height:30px;margin:0 0 7px 8px;border:0;background:transparent;padding:3px 2px;}
+.compact-note{font-size:11px;color:var(--muted);margin:0 0 12px;}
+.shop-panel .market-tabs{margin-top:0;}
+.shop-panel .trade-card{padding:14px;margin-top:12px;}
+.shop-panel .trade-top{gap:10px;}
+.shop-panel .trade-top h4{font-size:14px;line-height:1.45;overflow-wrap:anywhere;}
+.shop-panel .trade-top small{font-size:10px;letter-spacing:0;color:#93a6b2;margin-top:2px;display:block;}
+.shop-panel .trade-mark{width:36px;height:38px;font-size:22px;flex:0 0 36px;}
+.shop-panel .trade-card p{font-size:11px;line-height:1.5;margin:9px 0;color:#94a9b8;}
+.shop-panel .ticket-odds{margin:12px 0 9px;}
+.shop-panel .trade-math{font-size:11px;line-height:1.55;margin:6px 0 10px;}
+.shop-panel .market-cards{margin:10px 0;gap:5px;}
+.shop-panel .market-cards span{font-size:13px;padding:6px 8px;}
+.payment-options{display:grid;gap:8px;}
+.payment-options.dual-payment{grid-template-columns:1fr 1fr;}
+.payment-options .trade-buy{margin:0;min-width:0;padding:10px 5px;font-size:12px;min-height:44px;white-space:normal;line-height:1.4;}
+.payment-options .pay-gold{border-color:#766348;background:#302b22;color:#f0cb84;}
+.payment-options .pay-chips{border-color:#3b7a68;background:#1b332c;color:#a1ebca;}
+.payment-options .confirm{background:#43544a;border-color:#d5d8a0;color:#fcf4cf;}
+.payment-options button:disabled{opacity:.43;}
+.shop-panel .shop-item{padding:14px;margin-top:12px;}
+.shop-panel .shop-item p{margin:7px 0;color:#8fa5b5;font-size:11px;line-height:1.5;}
+.shop-panel .shop-value{font-size:12px;line-height:1.6;margin:7px 0;}
+.shop-panel .shop-buy{clear:both;display:block;min-height:44px;width:100%;}
+.shop-panel .night-header{padding:12px 0 0;}
+.shop-panel .night-header h4{margin:0;font-size:14px;line-height:1.5;}
+.shop-panel .night-header p{margin:5px 0 0;font-size:11px;line-height:1.6;}
+.shop-panel .market-feedback:empty{display:none;}
+.shop-panel .reservation-box{padding:9px 11px;font-size:11px;line-height:1.6;}
+.income-badge{color:#b6c494;font:9px var(--mono);letter-spacing:-.3px;white-space:nowrap;}
+.guide-nav{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 20px;}
+.guide-nav button{background:#14242c;border:1px solid #314752;border-radius:6px;color:#b6d6d6;padding:9px 13px;font-size:12px;min-height:42px;}
+.guide-section{border:1px solid #2b3b49;border-radius:8px;margin:10px 0;background:#111d27;scroll-margin:18px;}
+.guide-section summary{cursor:pointer;padding:14px;font-weight:650;font-size:14px;color:#cbdedc;min-height:47px;}
+.guide-section[open] summary{border-bottom:1px solid #2b3b49;color:#a8ddc6;}
+.guide-section>.help-section{padding:0 15px 14px;margin:0;border:0;}
+.guide-section p{line-height:1.85;font-size:12px;color:#afc0cb;}
+.guide-table-wrap{max-width:100%;overflow-x:auto;}
+.guide-live{padding:11px;border-radius:6px;border:1px solid #35594c;background:#172b25;color:#b8ddc9!important;}
+.modal.intro .intro-foot .guide-link{margin-top:0;}
+.mobile-ui .store-heading{padding:12px 0 9px;}
+.mobile-ui .shop-panel .trade-card{padding:12px;}
+.mobile-ui .guide-link{min-height:40px;}
+.mobile-ui .guide-inline{min-height:36px;}
+@media(max-width:360px){.payment-options .trade-buy{font-size:11px}.shop-panel .market-cards span{padding:5px 7px}.income-badge{font-size:8px}.guide-section>.help-section{padding:0 10px 12px}}
+.facility-actions{display:grid;grid-template-columns:minmax(0,1fr) 62px;gap:8px;align-items:stretch;margin-top:11px;}
+.facility-actions .guide-inline{float:none;margin:0;min-height:44px;border:1px solid #334650;border-radius:6px;background:#13222c;padding:6px;font-size:11px;}
 </style>
 <meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/></head>
 <body>
 <div class="app">
 <header class="topbar">
-<div class="brand"><div class="brand-mark">♠</div><div><h1>RIVERBOUND <em>VI</em></h1><small>홀덤 랜덤 디펜스 · DISTINCT ARSENAL</small></div><span class="version">PROTOTYPE 0.6</span></div>
+<div class="brand"><div class="brand-mark">♠</div><div><h1>RIVERBOUND <em>VIII</em></h1><small>홀덤 랜덤 디펜스</small></div><span class="version">PROTOTYPE 0.8</span></div>
 <div class="controls"><button class="ctrl editor-ctrl" id="editorBtn">에디터</button><button class="ctrl" id="helpBtn">가이드</button><button class="ctrl" id="demoBtn">자동 OFF</button><button class="ctrl muted hide-mobile" id="soundBtn">소리 OFF</button><button class="ctrl" id="speedBtn" title="기존 2배속이 기본 템포입니다. 2×에서 약 40분, 2.5×에서 약 32분">2× 기본</button><button class="ctrl" id="pauseBtn" title="Space: 일시정지">Ⅱ 정지</button></div>
 </header>
 <section aria-label="전황과 자원" class="dashboard">
 <div class="metric"><div><div class="metric-label">STAGE</div><div class="metric-value" id="waveValue">00 <small>/ 120</small></div></div><div class="metric-right"><div class="mini-label" id="wavePhase">출격 준비</div><div class="mini-label" id="nextTime">6초 후 진입</div></div></div>
 <div class="metric overflow-metric" id="overflowMetric"><div class="overflow-top"><span class="metric-label">ENEMY</span><strong id="enemyValue">0 <small>/ 200</small></strong></div><div class="overflow-track"><i id="overflowFill"></i></div><div class="mini-label" id="overflowText">잔여 적 200기 도달 시 패배</div></div>
-<div class="metric"><span class="currency-icon gold">◈</span><div style="flex:1"><div class="metric-label">GOLD</div><div class="metric-value gold" id="goldValue">100</div></div></div>
+<div class="metric"><span class="currency-icon gold">◈</span><div style="flex:1"><div class="metric-label">GOLD<span class="income-badge" id="goldProduction"></span></div><div class="metric-value gold" id="goldValue">100</div></div></div>
 <div class="metric"><span class="currency-icon mint">◉</span><div style="flex:1"><div class="metric-label">CHIP<span id="chipTickMini">11s</span></div><div class="metric-value mint" id="chipValue">4</div></div><div class="metric-right"><span class="mini-label" id="chipTimer">+1 / 11초</span></div></div>
 <div class="metric"><span class="currency-icon violet">✦</span><div style="flex:1"><div class="metric-label">JOKER</div><div class="metric-value violet" id="jokerValue">1</div></div></div>
 </section>
@@ -150,53 +223,58 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
 <div class="pause-layer" id="pauseLayer"><div><strong>일시정지</strong><p id="pauseMessage">준비되면 재개하세요.</p><button class="ctrl on" id="resumeBtn">▶ 계속하기</button></div></div>
 <div class="placement-hint hidden" id="placementHint">이동할 칸을 터치하세요 <button id="cancelPlacementBtn">취소</button></div></div>
 <div class="combat-meter"><div><small>실측 · 기본2×</small><b id="realDps">0</b><span>DPS</span></div><div><small>유입 · 기본2×</small><b id="incomingDps">0</b><span>HP/s</span></div><div><small>누적 적 체력</small><b id="backlogHp">0</b><span>HP</span></div><button id="stageIntelBtn" title="스테이지 수치 확인">전황표 ↗</button></div>
-
-
-
-
-<div id="armyHome"></div><div id="armyControls"><div class="unit-inspector"><div class="inspect-left"><div class="unit-symbol" id="inspectSymbol">◎</div><div><div class="inspect-title" id="inspectTitle">전력을 구축하세요</div><div class="inspect-sub" id="inspectSub">노말 2기부터 시작합니다.</div></div></div><div class="inspect-stat" id="inspectDps">88<small>전체 기준 DPS</small></div></div><div class="member-bar"><div class="member-choice"><label for="memberSelect">편대원</label><select aria-label="판매할 개별 유닛 선택" id="memberSelect"><option value="">전장에서 편대 선택</option></select></div><span id="memberPower">—</span><button class="sell-btn" disabled="" id="sellBtn">1기 판매</button></div><div class="target-row"><span>공격 우선</span><button class="target-btn active" data-target="boss">보스</button><button class="target-btn" data-target="oldest">오래된 적</button><button class="target-btn" data-target="nearest">가까운 적</button><span class="army-size" id="armySize">2기 · 1편대</span></div><div class="upgrades" id="upgrades"></div><div class="research-note">레벨당 기본 DPS +16% · 풀하우스 이상은 <b>5종 연구를 모두 합산</b></div></div></section>
+<div id="armyHome"></div><div id="armyControls"><div class="unit-inspector"><div class="inspect-left"><div class="unit-symbol" id="inspectSymbol">◎</div><div><div class="inspect-title" id="inspectTitle">편대 선택</div><div class="inspect-sub" id="inspectSub">노말 2기 보유</div></div></div><div class="inspect-stat" id="inspectDps">88<small>전체 기준 DPS</small></div></div><div class="member-bar"><div class="member-choice"><label for="memberSelect">편대원</label><select aria-label="판매할 개별 유닛 선택" id="memberSelect"><option value="">전장에서 편대 선택</option></select></div><span id="memberPower">—</span><button class="sell-btn" disabled="" id="sellBtn">1기 판매</button></div><div class="target-row"><span>공격 우선</span><button class="target-btn active" data-target="boss">보스</button><button class="target-btn" data-target="oldest">오래된 적</button><button class="target-btn" data-target="nearest">가까운 적</button><span class="army-size" id="armySize">2기 · 1편대</span></div><div class="upgrades" id="upgrades"></div><div class="research-note">레벨당 기본 DPS +16% · 풀하우스 이상은 <b>5종 연구를 모두 합산</b></div></div></section>
 <aside class="panel poker">
 <div class="panel-head"><div><span class="eyebrow">02 / THE TABLE</span><span class="panel-name" id="sideTitle">유닛 계약</span></div><span class="eyebrow" id="dealCount">HAND 001</span></div>
 <div class="side-tabs"><button class="active" data-tab="contract">♠ 유닛 계약</button><button data-tab="shop">◇ 상점 <span id="shopBadge"></span></button><button data-tab="archive">✧ 도감</button></div>
-<div class="poker-scroll" id="contractPanel"><div class="contract-body" id="contractBody">
+<button class="night-notice hidden" id="marketNotice">히든 상점 열림 →</button><div class="poker-scroll" id="contractPanel"><div class="contract-body" id="contractBody">
 <div class="streets"><span class="street active" data-street="0">PRE-FLOP</span><span class="street" data-street="3">FLOP</span><span class="street" data-street="4">TURN</span><span class="street" data-street="5">RIVER</span></div>
 <div class="section-label"><span>HOLE CARDS / 내 핸드 <b id="holeCount"></b></span><span class="lock-tag" id="lockTag">교체 가능</span></div>
 <div class="hole-row" id="holeCards"></div>
-<div class="pocket-chance" id="pocketChance">3장 핸드 확률 0% · 상점에서 확장 가능</div>
+<div class="pocket-chance" id="pocketChance">3장 확률 0%</div>
 <div class="section-label"><span>COMMUNITY / 공용 카드</span><span id="boardCount">0 / 5</span></div>
 <div class="board-row" id="boardCards"></div>
-<div class="hand-caption" id="handCaption">플랍을 공개하면 핸드가 고정됩니다.</div>
-<div class="preview" id="unitPreview"><div class="preview-icon" id="previewIcon">◇</div><div class="preview-copy"><div class="preview-name" id="previewName">플랍을 기다리는 중</div><div class="preview-small" id="previewSub">5장부터 유닛을 소환할 수 있습니다.</div></div><div class="preview-power" id="previewPower">—<small>소환 DPS</small></div></div>
+<div class="hand-caption" id="handCaption">플랍부터 소환 가능</div>
+<div class="preview" id="unitPreview"><div class="preview-icon" id="previewIcon">◇</div><div class="preview-copy"><div class="preview-name" id="previewName">플랍 미공개</div><div class="preview-small" id="previewSub">공개 비용: 4칩</div></div><div class="preview-power" id="previewPower">—<small>소환 DPS</small></div></div>
 <div class="quality-row"><span id="qualityLabel">현재 족보 내 세부 강도</span><div class="quality-track"><i id="qualityFill"></i></div><b id="qualityValue">—</b></div>
-
 <div class="joker-panel hidden" id="jokerPanel"><strong id="jokerPrompt">교체할 공개 카드 한 장을 클릭하세요.</strong><p id="jokerForecast">핸드와 공용 카드 모두 선택 가능 · 한 계약당 1회</p><div><button disabled="" id="jokerConfirm">선택한 한 장 교체 · ✦ 1</button><button id="jokerCancel">취소</button></div></div>
 <div class="odds-box"><div class="odds-head"><strong>족보 상승 확률</strong><span class="odds-badge">EXACT · 5–8 CARDS</span><button aria-expanded="false" class="odds-expand" id="oddsExpandBtn">상세</button></div><div id="oddsContent"></div></div>
 </div><div class="actions" id="contractActions"><button class="action take" id="claimBtn"><kbd>E</kbd><strong>지금 소환</strong><small id="claimSub">현재 족보 확정</small></button><button class="action next" id="advanceBtn"><kbd>D</kbd><strong id="advanceLabel">플랍 공개</strong><small id="advanceCost">◉ 4 CHIP</small></button><button class="action reroll" id="rerollBtn"><kbd>R</kbd><strong id="rerollLabel">핸드 교체 · 12 G</strong></button><button class="action joker" id="jokerBtn"><kbd>J</kbd><strong id="jokerLabel">특수 교체 · ✦ 1</strong></button></div><div class="invested"><span id="invested">이번 계약 투자 0 CHIP</span><span id="actionHint">플랍부터 소환 가능</span></div></div>
-<div class="poker-scroll hidden shop-panel" id="shopPanel"><div class="store-intro"><span class="eyebrow">THE DEALER'S WORKSHOP</span><h3>이번 작전의 규칙을 바꾸다.</h3><p>상점은 전투를 멈추지 않습니다. 연구와 같은 골드를 사용하며, 구매 효과는 이번 작전 동안 유지됩니다.</p></div><div id="shopItems"></div><div class="store-summary" id="storeSummary"></div></div>
-<div class="poker-scroll hidden archive-panel" id="archivePanel"><div class="store-intro"><span class="eyebrow">UNIT ARCHIVE</span><h3>족보가 높아지면, 전력이 달라진다.</h3><p>표시 DPS는 연구·광역·지속 피해 적용 전 기준입니다. 같은 족보 안에서는 전체 포커 서열에 따라 선형 증가합니다.</p></div><div id="archiveItems"></div></div>
-<div class="poker-scroll hidden" id="armyPanel"><div class="army-intro"><b>전력 · 연구 · 판매</b><small>편대를 눌러 선택하세요. 업그레이드는 전투 중 적용됩니다.</small></div><div class="formation-roster" id="formationRoster"></div><div id="armyMobileHome"></div><button class="ctrl move-button" disabled="" id="moveSelectedBtn">선택한 편대 배치 이동</button><p class="mobile-army-note">배치 이동을 누른 뒤 전장의 원하는 칸을 터치하세요. 목적지가 차 있으면 서로 자리를 바꿉니다.</p></div></aside>
+<div class="poker-scroll hidden shop-panel" id="shopPanel">
+<div class="store-heading"><h3>상점</h3><button class="guide-link" data-guide="guide-shop">가이드 ↗</button></div>
+<div aria-label="상점 구분" class="market-tabs" role="tablist"><button class="active" data-market-tab="supply" role="tab">보급</button><button data-market-tab="hidden" role="tab">히든 상점</button><button data-market-tab="facility" role="tab">시설</button></div>
+<div id="marketSupply"><div class="market-meta" id="marketRestock"></div>
+<article class="trade-card"><div class="trade-top"><span class="trade-mark">◉</span><div><h4>칩 4개</h4></div><b id="packStock">3 / 3</b></div><p>구간당 3회 구매</p><button class="trade-buy" data-market-buy="pack" id="packBuy"></button></article>
+<article class="trade-card rare-ticket"><div class="trade-top"><span class="trade-mark">✧</span><div><h4>희귀 소환권</h4></div><b id="ticketStock">1 / 1</b></div><div class="ticket-odds"><span>스트레이트 <b>50%</b></span><span>플러시 <b>50%</b></span></div><p>유닛 1기 · 현재 계약 유지</p><button class="trade-buy" data-market-buy="ticket" id="ticketBuy"></button></article>
+</div>
+<div class="hidden" id="marketHidden"><div class="night-header"><h4 id="hiddenTitle">아직 상인이 오지 않았습니다.</h4><p id="hiddenStatus"></p></div><div id="hiddenOffers"></div><div class="reservation-box" id="reservationInfo"></div></div>
+<div class="hidden" id="marketFacility"><div id="shopItems"></div><div class="store-summary" id="storeSummary"></div></div>
+<div aria-live="polite" class="market-feedback" id="marketFeedback" role="status"></div>
+</div>
+<div class="poker-scroll hidden archive-panel" id="archivePanel"><div class="store-heading"><h3>유닛 도감</h3><button class="guide-link" data-guide="guide-combat">가이드 ↗</button></div><p class="compact-note">연구 전 직접 DPS</p><div id="archiveItems"></div></div>
+<div class="poker-scroll hidden" id="armyPanel"><div class="army-intro"><b>전력 · 연구 · 판매</b><small>편대 선택 → 연구·판매·이동</small></div><div class="formation-roster" id="formationRoster"></div><div id="armyMobileHome"></div><button class="ctrl move-button" disabled="" id="moveSelectedBtn">선택한 편대 배치 이동</button><p class="mobile-army-note">배치 이동 후 목적지 터치</p></div></aside>
 </main>
-<nav aria-label="게임 패널" class="mobile-dock" id="mobileDock"><button class="active" data-tab="contract"><b>♠</b><span>계약</span></button><button data-tab="army"><b>◎</b><span>전력</span></button><button data-tab="shop"><b>◇</b><span>상점</span></button><button data-tab="archive"><b>✧</b><span>도감</span></button><button id="mobileMenuBtn"><b>☰</b><span>설정</span></button></nav><footer class="log-footer"><span class="log-message" id="logMessage">기본 유닛 2기로 시작합니다. 칩을 아끼되 초반 방어를 늦추지 마세요.</span><span class="state" id="saveStatus">LOCAL · OFFLINE</span></footer>
+<nav aria-label="게임 패널" class="mobile-dock" id="mobileDock"><button class="active" data-tab="contract"><b>♠</b><span>계약</span></button><button data-tab="army"><b>◎</b><span>전력</span></button><button data-tab="shop"><b>◇</b><span>상점</span></button><button data-tab="archive"><b>✧</b><span>도감</span></button><button id="mobileMenuBtn"><b>☰</b><span>설정</span></button></nav><footer class="log-footer"><span class="log-message" id="logMessage">D 공개 · E 소환 · R 교체 · J 조커</span><span class="state" id="saveStatus">LOCAL · OFFLINE</span></footer>
 </div>
 <div class="modal-backdrop show" id="introModal"><section aria-label="게임 시작" aria-modal="true" class="modal intro" role="dialog">
-<div class="intro-top"><span class="intro-kicker">DISTINCT ARSENAL / 120 STAGES</span><span class="intro-symbols">♠ ♥ ♦ ♣</span></div>
-<h2>RIVERBOUND <span style="color:#eabe70">VI</span></h2><h3>지금 소환할 것인가. 한 장 더 볼 것인가.</h3>
-<p class="intro-description">120스테이지 · 매 10스테이지 보스 · 기존 2배속 템포로 약 40분.<br/>희소한 칩으로 병력을 만들고, 연구와 상점 사이에 골드를 투자하세요.</p>
-<div class="intro-steps"><div class="intro-step"><b>01 / HOLD'EM</b><strong>2%의 세 번째 카드</strong><p>2%씩 확률을 높이는 이벤트 핸드. 조커로는 공개된 카드 중 한 장을 바꿀 수 있습니다.</p></div><div class="intro-step"><b>02 / PRECISION</b><strong>세부 족보와 전용 능력</strong><p>같은 페어라도 A가 더 강합니다. 스트레이트부터 특수 능력이 열립니다.</p></div><div class="intro-step"><b>03 / INVEST</b><strong>판매 · 연구 · 상점</strong><p>기존 유닛을 골드로 판매할 수 있습니다. 지금의 화력과 장기 성장을 비교하세요.</p></div></div>
-<div class="intro-note">시작: <b>100 G · 4 CHIP · 조커 1개 · 노말 2기</b><br/>플랍 4칩 → 턴 3칩 → 리버 4칩. 리버에서도 J로 교체하고 E로 직접 소환합니다.<br/>잔여 적 200기 도달 시 패배. 보스 시간 초과는 광폭화·증원.<br/>최종 스테이지는 기본 템포에서 80초 안에 모든 적을 소탕해야 합니다.</div>
+<div class="intro-top"><span class="intro-kicker">홀덤 랜덤 디펜스</span><span class="intro-symbols">♠ ♥ ♦ ♣</span></div>
+<h2>RIVERBOUND <span style="color:#eabe70">VIII</span></h2><h3>120스테이지 · 기본 2× · 약 40분</h3>
+
+<div class="intro-steps"><div class="intro-step"><b>1. 카드</b><strong>플랍 4 · 턴 3 · 리버 4칩</strong><p>플랍부터 현재 족보로 소환 가능</p></div><div class="intro-step"><b>2. 전력</b><strong>족보별 유닛·연구</strong><p>골드로 핸드 교체·연구·상점 이용</p></div><div class="intro-step"><b>3. 방어</b><strong>10스테이지마다 보스</strong><p>잔여 적 200기 도달 시 패배</p></div></div>
+<div class="intro-note">시작: 100 G · 4칩 · 조커 1개 · 노말 2기<br/>리버도 직접 소환 · 최종 소탕 제한 80초 (2×)</div>
 <div class="seed-row"><label for="seedInput">시드</label><input autocomplete="off" id="seedInput" maxlength="40" spellcheck="false"/><span>같은 시드와 같은 조작으로 재현</span></div>
 <div class="intro-buttons"><button class="big-btn hidden" id="continueBtn">이어서 하기</button><button class="big-btn" id="startBtn">작전 시작 →</button><button class="big-btn secondary" id="startDemoBtn">자동 시연</button><button class="big-btn secondary" id="startEditorBtn">에디터</button></div>
-<div class="intro-foot">D 다음 카드 · E 소환 · R 교체 · J 특수 교체 · 1–5 연구 · Space 일시정지<br/>단일 HTML · 오프라인 실행 · 자동 저장 · 기본 2× · PC / 모바일 · 120스테이지</div>
+<div class="intro-foot"><button class="guide-link" data-guide="guide-basics">규칙·조작 가이드 ↗</button></div>
 </section></div>
-<div class="modal-backdrop" id="helpModal"><section aria-label="게임 가이드" aria-modal="true" class="modal" role="dialog"><button class="close" id="closeHelpBtn">닫기 ×</button><div class="intro-kicker">FIELD MANUAL / VERSION 0.6</div><h2 style="font-size:25px;margin-top:10px">작전 가이드</h2><div id="helpContent"></div><div class="backup-controls"><button class="ctrl" id="exportSaveBtn">저장 파일 내보내기</button><button class="ctrl" id="importSaveBtn">저장 파일 불러오기</button><input accept=".json,application/json" hidden="" id="importSaveInput" type="file"/></div><button class="ctrl" id="newGameBtn" style="margin-top:20px">현재 작전을 끝내고 새 게임</button></section></div>
+<div class="modal-backdrop" id="helpModal"><section aria-label="게임 가이드" aria-modal="true" class="modal" role="dialog"><button class="close" id="closeHelpBtn">닫기 ×</button><div class="intro-kicker">FIELD MANUAL / VERSION 0.8</div><h2 style="font-size:25px;margin-top:10px">작전 가이드</h2><div id="helpContent"></div><div class="backup-controls"><button class="ctrl" id="exportSaveBtn">저장 파일 내보내기</button><button class="ctrl" id="importSaveBtn">저장 파일 불러오기</button><input accept=".json,application/json" hidden="" id="importSaveInput" type="file"/></div><button class="ctrl" id="newGameBtn" style="margin-top:20px">현재 작전을 끝내고 새 게임</button></section></div>
 <div class="modal-backdrop" id="resultModal"><section aria-label="게임 결과" aria-modal="true" class="modal" role="dialog"><div class="intro-kicker" id="resultKicker">OPERATION REPORT</div><h2 class="result-title" id="resultTitle">작전 종료</h2><p id="resultReason" style="color:#93acbc;font-size:12px"></p><div class="result-grid" id="resultGrid"></div><div class="best-result" id="resultBest"></div><div class="intro-buttons"><button class="big-btn" id="retryBtn">같은 시드로 재도전</button><button class="big-btn secondary" id="freshBtn">새 작전</button></div><p class="intro-foot" id="resultTip"></p></section></div>
 <div class="modal-backdrop" id="editorModal"><section aria-label="샌드박스 에디터" aria-modal="true" class="modal editor-modal" role="dialog">
-<button class="close" id="closeEditorBtn">닫기 ×</button><div class="intro-kicker">SANDBOX / NORMAL SAVE IS PRESERVED</div><h2>전장 에디터</h2><p class="editor-warning">이 작전은 에디터 기록으로 표시됩니다. 일반 작전 저장을 덮어쓰지 않습니다. 카드를 지정해 능력·사거리·확률을 시험하세요.</p>
+<button class="close" id="closeEditorBtn">닫기 ×</button><div class="intro-kicker">SANDBOX / NORMAL SAVE IS PRESERVED</div><h2>전장 에디터</h2><p class="editor-warning">에디터 기록 · 일반 작전 저장과 분리</p>
 <div class="editor-grid"><section><h3>01 / 원하는 족보의 유닛</h3><div class="editor-row"><select aria-label="족보" id="edGrade"></select><select aria-label="주요 랭크" id="edRank"></select><select aria-label="무늬" id="edSuit"><option value="0">♠</option><option value="1">♥</option><option value="2">♦</option><option value="3">♣</option></select><button id="edPreset">카드 만들기</button></div><label for="edCards">정확한 카드 5–8장 (s ♠ / h ♥ / d ♦ / c ♣)</label><input id="edCards" spellcheck="false" value="As Ah Ac Ks Kh"/><p class="editor-preview" id="edPreview"></p><div class="editor-row"><label>수량 <input id="edCount" max="10" min="1" type="number" value="1"/></label><button class="ed-primary" id="edSpawn">유닛 직접 소환</button></div><p>소환한 유닛은 실제 전투 수치와 투사체를 사용합니다.</p></section>
 <section><h3>02 / 계약 카드 지정</h3><label for="edHole">핸드 2장 또는 3장</label><input id="edHole" spellcheck="false" value="As Ks"/><label for="edBoard">공용 카드 0장·3장·4장·5장</label><input id="edBoard" spellcheck="false" value="Qs Js 2h"/><button class="ed-primary" id="edSetDeal">현재 계약에 적용</button><p>중복 카드는 허용하지 않습니다. 이후 카드는 남은 덱에서 무작위 공개됩니다.</p></section>
 <section><h3>03 / 스테이지와 연구</h3><div class="editor-row"><input aria-label="스테이지" id="edStage" max="120" min="1" type="number" value="20"/><button id="edJump">해당 스테이지 시작</button></div><p>기존 적·투사체를 정리하고 스테이지 시간을 맞춥니다. 유닛과 연구는 유지합니다.</p><div class="editor-row"><input aria-label="연구 레벨" id="edResearch" max="30" min="0" type="number" value="5"/><button id="edSetResearch">5계열 연구 레벨 설정</button></div></section>
 <section><h3>04 / 테스트 재화와 정리</h3><div class="editor-row"><button id="edGold">+5,000 G</button><button id="edChips">+50 CHIP</button><button id="edTokens">+5 JOKER</button></div><div class="editor-row"><button id="edClearEnemies">잔여 적 정리</button><button id="edClearUnits">모든 유닛 제거</button></div><p>에디터에서 연 작전은 일반 클리어로 취급하지 않습니다. 일반 작전은 새 게임으로 시작하세요.</p></section></div><div class="editor-message" id="edMessage" role="status">수치를 바꾼 뒤 창을 닫으면 전투가 이어집니다.</div>
-</section></div><div class="modal-backdrop" id="settingsModal"><section aria-label="설정" aria-modal="true" class="modal settings-modal" role="dialog"><button class="close" id="closeSettingsBtn">닫기 ×</button><div class="intro-kicker">TACTICAL CONSOLE / 0.6</div><h2>설정 · 저장</h2><p>기본 2×는 이전 버전의 2배속입니다.<br/>이 템포로 120스테이지를 약 40분 동안 플레이합니다.</p><div class="setting-row"><span>플레이 속도</span><div id="speedOptions"><button data-speed="1">1× 느림</button><button class="on" data-speed="2">2× 기본</button><button data-speed="2.5">2.5×</button><button data-speed="3">3×</button></div></div><div class="setting-row"><label for="qualitySelect">그래픽</label><select id="qualitySelect"><option value="auto">자동</option><option value="high">고품질 · 60fps 목표</option><option value="low">절전 · 30fps 목표</option></select></div><p class="settings-note" id="qualityNote">절전은 잔상 장식·빛 효과만 줄입니다. 탄막과 피해 계산은 동일합니다.</p><div class="settings-actions"><button id="settingsSoundBtn">소리 OFF</button><button id="settingsAutoBtn">자동 시연 OFF</button><button id="settingsHelpBtn">가이드 / 스테이지</button><button id="settingsEditorBtn">에디터</button><button id="settingsExportBtn">저장 파일 내보내기</button><button id="settingsImportBtn">저장 파일 불러오기</button></div><p class="settings-note">화면 잠금·앱 전환 시 저장하고 일시정지합니다. 복귀 후 직접 재개하며, 자원이나 적을 몰아서 진행하지 않습니다. 설정 창을 닫아야 전투가 이어집니다.</p><p class="settings-note">0.5·0.6 저장을 PC·모바일 간 파일로 옮길 수 있습니다. 0.5 저장은 다음 웨이브부터 강화 난도를 적용합니다.</p></section></div>
+</section></div><div class="modal-backdrop" id="settingsModal"><section aria-label="설정" aria-modal="true" class="modal settings-modal" role="dialog"><button class="close" id="closeSettingsBtn">닫기 ×</button><div class="intro-kicker">TACTICAL CONSOLE / 0.8</div><h2>설정 · 저장</h2><p>2× 기준 약 40분 · 120스테이지</p><div class="setting-row"><span>플레이 속도</span><div id="speedOptions"><button data-speed="1">1× 느림</button><button class="on" data-speed="2">2× 기본</button><button data-speed="2.5">2.5×</button><button data-speed="3">3×</button></div></div><div class="setting-row"><label for="qualitySelect">그래픽</label><select id="qualitySelect"><option value="auto">자동</option><option value="high">고품질 · 60fps 목표</option><option value="low">절전 · 30fps 목표</option></select></div><p class="settings-note" id="qualityNote">절전은 잔상 장식·빛 효과만 줄입니다. 탄막과 피해 계산은 동일합니다.</p><div class="settings-actions"><button id="settingsSoundBtn">소리 OFF</button><button id="settingsAutoBtn">자동 시연 OFF</button><button id="settingsHelpBtn">가이드 / 스테이지</button><button id="settingsEditorBtn">에디터</button><button id="settingsExportBtn">저장 파일 내보내기</button><button id="settingsImportBtn">저장 파일 불러오기</button></div><p class="settings-note">앱 전환·화면 잠금 시 자동 저장 및 일시정지</p><p class="settings-note">0.5–0.8 저장 지원 · PC·모바일 간 파일 이동 가능</p></section></div>
 <script>/* RIVERBOUND core — deterministic, shared by the browser and balance tests. */
 (function (root) {
   'use strict';
@@ -213,7 +291,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     {symbol:'♦',name:'다이아',type:'프리즘',role:'보스 피해 ×1.7',color:'#e8be73',rate:.7,range:455},
     {symbol:'♣',name:'클로버',type:'바이퍼',role:'취약 15% · 감속 18%',color:'#77dfb2',rate:1.45,range:425}
   ];
-  const CONFIG = {version:6,step:1/30,tempo:2,waves:120,waveSeconds:40,prepSeconds:12,limit:200,overloadSeconds:0,chipInterval:22,flopCost:4,turnCost:3,riverCost:4,startGold:100,startChips:4,upgradeStep:.16,finalClearSeconds:160};
+  const CONFIG = {version:8,step:1/30,tempo:2,waves:120,waveSeconds:40,prepSeconds:12,limit:200,overloadSeconds:0,chipInterval:22,flopCost:4,turnCost:3,riverCost:4,startGold:100,startChips:4,upgradeStep:.16,finalClearSeconds:160};
   const COUNTS = {
     5:[1302540,1098240,123552,54912,10200,5108,3744,624,36,4],
     6:[6612900,9730740,2532816,732160,361620,205792,165984,14664,1656,188],
@@ -325,11 +403,90 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   }
   function refreshCost(n,expansion=0,broker=0){return Math.max(8,12+Math.ceil(expansion/2)-broker)+4*n+Math.floor(n*n/3);}
   function upgradeCost(level){return Math.round(65+35*level+9*level*level);}
+  // Supply investment is staged; its payoff is in future chips, not instant power.
+  const REFINERY={costs:[420,600,820,1080,1380,1720],unlock:[1,12,24,36,48,60],bonus:[0,.08,.17,.29,.44,.64,.90]};
+  const refineryBonus=level=>REFINERY.bonus[Math.max(0,Math.min(6,Math.floor(level)))];
+  // Passive income uses a fractional ledger, not retroactive payouts on upgrade.
+  // Amounts below are per 20 combat seconds (10 real seconds at the default 2x).
+  const DEALER={costs:[280,440,640,900],unlock:[1,20,40,60],period:20,income:[0,2,5,10,18]};
+  const dealerIncome=level=>DEALER.income[Math.max(0,Math.min(4,Math.floor(level)))];
+  // 40 G/chip is the cheapest bulk-chip quote. Rounding up prevents buying a
+  // bulk box merely to convert gold into the very same unit at a lower price.
+  function hiddenChipPrice(item){return item?.kind==='unit'?Math.ceil(item.price/160)*4:null;}
+  const MARKET={chipPack:4,chipPrices:[200,240,280],ticketPrice:3600,blockWaves:20,ticketsPerBlock:1,visits:[20,40,60,80,100],openWaves:20,purchaseLimit:2};
+  // Exclusive wave boundary. The final catalogue survives the entire final clear phase.
+  // Save schema stays at v7; only legacy five-stage expiries are migrated on restore.
+  function hiddenVisitEnd(wave){
+    const i=MARKET.visits.indexOf(wave);
+    if(i<0)throw Error('알 수 없는 밀거래 방문입니다.');
+    return MARKET.visits[i+1]??(CONFIG.waves+1);
+  }
+  function migrateMarketWindows(g){
+    for(const [key,v]of Object.entries(g.market?.history||{})){
+      const w=+key;
+      if(MARKET.visits.includes(w)&&v.wave===w&&v.expires===w+5)v.expires=hiddenVisitEnd(w);
+    }
+  }
+  function marketBlock(w){return Math.floor(Math.max(0,w-1)/MARKET.blockWaves);}
+  function marketState(){return {block:0,chipBuys:0,ticketBuys:0,history:{},reserved:null,spent:{chips:0,tickets:0,hidden:0,hiddenChips:0},bought:{packs:0,tickets:0,hidden:0,units:0,hands:0},chipsReceived:0};}
+  function exactHand(cat,rng){
+    const values=RANK_TABLES[cat],v=values[rng.int(values.length)],rs=scoreRanks(v),chosenSuit=rng.int(4);let cards=[];
+    const at=(r,s)=>s*13+r-2;
+    if(cat===4||cat===8||cat===9){const ranks=rs[0]===5?[5,4,3,2,14]:Array.from({length:5},(_,i)=>rs[0]-i);
+      cards=ranks.map((r,i)=>at(r,cat===4?(chosenSuit+i)%4:chosenSuit));
+    }else if(cat===5)cards=rs.map(r=>at(r,chosenSuit));
+    else if(cat===6){const suits=rng.shuffle([0,1,2,3]);cards=[at(rs[0],suits[0]),at(rs[0],suits[1]),at(rs[0],suits[2]),at(rs[1],suits[2]),at(rs[1],suits[3])];}
+    else if(cat===7)cards=[0,1,2,3].map(x=>at(rs[0],x)).concat(at(rs[1],chosenSuit));
+    else throw Error('Market grades are straight or higher');
+    if(score(cards)!==v)throw Error('Market hand generation mismatch');return cards;
+  }
+  function weightedPick(rng,items){let x=rng.next()*items.reduce((n,i)=>n+i[1],0);for(const [value,weight]of items){x-=weight;if(x<0)return value;}return items.at(-1)[0];}
+  // The catalogue RNG is visit-specific: rerolls, purchases and rendering cannot change it.
+  function hiddenVisit(seed,wave){
+    const rng=new RNG(hashSeed(seed+':night-market:'+wave)),pool=[['hand',32],['chips',32],['unit',27],['joker',9]],offers=[];
+    for(let i=0;i<3;i++){
+      const kind=weightedPick(rng,pool),item={id:`${wave}-${i}`,kind,sold:false};pool.splice(pool.findIndex(x=>x[0]===kind),1);
+      if(kind==='chips'){item.amount=weightedPick(rng,wave>=60?[[16,40],[24,40],[32,20]]:[[16,65],[24,35]]);item.price=({16:680,24:960,32:1280})[item.amount];item.name=`칩 보급 상자 · ${item.amount}개`;}
+      else if(kind==='joker'){item.amount=wave>=60?2:1;item.price=item.amount===1?460:840;item.name=`조커 보급 · ${item.amount}개`;}
+      else if(kind==='hand'){
+        const choices=[['AA',14,14,520],['KK',13,13,480],['QQ',12,12,440],['JJ',11,11,400],['AKs',14,13,680],['AQs',14,12,620],['KQs',13,12,580],['QJs',12,11,540],['JTs',11,10,500],['T9s',10,9,440]];
+        const [label,r1,r2,price]=choices[rng.int(choices.length)],suit1=rng.int(4),suit2=r1===r2?(suit1+1+rng.int(3))%4:suit1;
+        item.cards=[suit1*13+r1-2,suit2*13+r2-2];item.price=price;item.name=`예약 핸드 · ${label}`;
+      }else{
+        const weights=wave===20?[[4,60],[5,40]]:wave===40?[[4,45],[5,45],[6,10]]:wave===60?[[4,35],[5,40],[6,25]]:wave===80?[[4,25],[5,40],[6,32],[7,3]]:[[4,20],[5,35],[6,39],[7,6]];
+        item.cards=exactHand(weightedPick(rng,weights),rng);const ev=evaluate(item.cards);item.cat=ev.cat;item.name=NAMES[ev.cat]+' · '+ev.label;
+        item.price=Math.ceil((ev.power/108.97276603*200*1.35+({4:150,5:250,6:900,7:2500})[ev.cat])/10)*10;
+      }offers.push(item);
+    }return {wave,expires:hiddenVisitEnd(wave),purchases:0,offers};
+  }
+  function validateMarketSave(g){
+    if(!g.market)return true;const m=g.market,isInt=(x,a,b)=>Number.isInteger(x)&&x>=a&&x<=b;
+    if(!isInt(m.block,0,5)||!isInt(m.chipBuys,0,3)||!isInt(m.ticketBuys,0,1)||!m.history||typeof m.history!=='object')throw Error('거래소 재고 정보가 올바르지 않습니다.');
+    for(const group of ['spent','bought']){if(!m[group]||Object.values(m[group]).some(n=>!Number.isFinite(n)||n<0))throw Error('거래 통계가 올바르지 않습니다.');}
+    if(!Number.isFinite(m.chipsReceived)||m.chipsReceived<0)throw Error('구매 칩 정보가 올바르지 않습니다.');
+    if(m.spent.hiddenChips!==undefined&&(!Number.isInteger(m.spent.hiddenChips)||m.spent.hiddenChips<0))throw Error('칩 결제 내역이 올바르지 않습니다.');
+    if(g.goldAcc!==undefined&&(!Number.isFinite(g.goldAcc)||g.goldAcc<0||g.goldAcc>=1))throw Error('골드 생산 진행량이 올바르지 않습니다.');
+    if(g.earned?.passiveGold!==undefined&&(!Number.isInteger(g.earned.passiveGold)||g.earned.passiveGold<0))throw Error('자동 생산 골드 내역이 올바르지 않습니다.');
+    for(const [key,v]of Object.entries(m.history)){
+      const w=+key;if(!MARKET.visits.includes(w)||v.wave!==w||![hiddenVisitEnd(w),w+5].includes(v.expires)||!isInt(v.purchases,0,2)||v.offers?.length!==3)throw Error('밀거래 방문 정보가 올바르지 않습니다.');
+      const expected=hiddenVisit(g.seed,w);for(let i=0;i<3;i++){
+        const o=v.offers[i],ref=expected.offers[i];for(const k of Object.keys(ref))if(k!=='sold'&&JSON.stringify(o[k])!==JSON.stringify(ref[k]))throw Error('밀거래 상품이 원본 목록과 다릅니다.');
+        if(typeof o.sold!=='boolean')throw Error('밀거래 재고가 올바르지 않습니다.');
+        if(o.payment){const p=o.payment;
+          if(!o.sold||!['gold','chips'].includes(p.currency)||!Number.isInteger(p.amount)||p.amount<=0||(p.currency==='chips'&&o.kind!=='unit')||p.amount!==(p.currency==='gold'?o.price:hiddenChipPrice(o)))throw Error('밀거래 결제 정보가 올바르지 않습니다.');
+        }
+      }
+      if(v.purchases!==v.offers.filter(o=>o.sold).length)throw Error('밀거래 구매 수량이 올바르지 않습니다.');
+    }
+    if(m.reserved){const r=m.reserved;const match=Object.values(m.history).some(v=>v.offers.some(o=>o.kind==='hand'&&o.sold&&o.name===r.name&&JSON.stringify(o.cards)===JSON.stringify(r.cards)));
+      if(!match)throw Error('예약 핸드가 구매 기록과 일치하지 않습니다.');}
+    if(!isInt(g.shop.refinery,0,6)||!isInt(g.shop.pocket,0,10)||!isInt(g.shop.broker,0,4)||!isInt(g.shop.jokerforge,0,3))throw Error('시설 레벨이 올바르지 않습니다.');return true;
+  }
   const SHOP=[
-    {id:'pocket',name:'확장 핸드',tag:'THIRD CARD',symbol:'▱',max:10,color:'#e9c879',description:'새 계약·일반 교체마다 3장 이벤트 +2%p / 레벨 (최대 20%). 기본 교체비는 2레벨마다 +1 G. 장수는 매번 재추첨.',cost:l=>Math.round(140+80*l+18*l*l)},
-    {id:'refinery',name:'칩 정제소',tag:'CHIP SUPPLY',symbol:'◉',max:4,color:'#88dfb7',description:'시간당 칩 생산 +8% / 레벨. 시작·웨이브 칩 보상은 바뀌지 않습니다.',cost:l=>Math.round(260+200*l+85*l*l)},
-    {id:'broker',name:'딜러 계약',tag:'BETTER TERMS',symbol:'◇',max:4,color:'#89cbf2',description:'기본 새로고침 가격 −1 G / 레벨. 유닛 판매가 +8% / 레벨.',cost:l=>Math.round(170+140*l+55*l*l)},
-    {id:'jokerforge',name:'조커 공방',tag:'WILD RESOURCE',symbol:'✦',max:3,color:'#c5abfa',description:'구매 즉시 조커 1개. 이후 보스 처치 시 추가 조커 확률 +25%p / 레벨.',cost:l=>Math.round(340+300*l+120*l*l)}
+    {id:'pocket',name:'확장 핸드',tag:'핸드',symbol:'▱',max:10,color:'#e9c879',description:'3장 확률 증가 · 기본 교체비 소폭 증가',cost:l=>Math.round(140+80*l+18*l*l)},
+    {id:'refinery',name:'칩 정제소',tag:'칩',symbol:'◉',max:6,color:'#88dfb7',description:'칩 자동 생산량 증가',cost:l=>REFINERY.costs[l]??Infinity},
+    {id:'broker',name:'딜러 계약',tag:'골드',symbol:'◇',max:4,color:'#89cbf2',description:'골드 자동 생산 · 기본 교체비 감소',cost:l=>DEALER.costs[l]??Infinity},
+    {id:'jokerforge',name:'조커 공방',tag:'조커',symbol:'✦',max:3,color:'#c5abfa',description:'구매 시 조커 1개 · 보스 추가 보상 확률 증가',cost:l=>Math.round(340+300*l+120*l*l)}
   ];
   // Continuous log interpolation avoids the v2 endgame HP cliff.
   const HP_ANCHORS=[[1,1600],[10,7210],[20,22260],[30,38880],[40,66000],[60,128800],[80,239400],[100,406000],[120,672600]];
@@ -420,12 +577,12 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   const SLOT_ORDER=[0,7,32,39,3,35,16,23,1,6,33,38,8,15,24,31,2,5,34,37,4,36,9,14,25,30,10,13,26,29,17,22,18,21,11,12,27,28,19,20];
   class Game {
     constructor(seed=12345,events=null){
-      this.rng=new RNG(seed);this.seed=seed>>>0;this.events=events;
+      this.rng=new RNG(seed);this.seed=seed>>>0;this.events=events;this.marketRng=new RNG(hashSeed(this.seed+':market-tickets'));this.market=marketState();
       this.t=0;this.wave=0;this.nextWaveAt=CONFIG.prepSeconds;this.spawned=0;this.spawnClock=0;
-      this.gold=CONFIG.startGold;this.chips=CONFIG.startChips;this.tokens=1;this.chipClock=0;
+      this.gold=CONFIG.startGold;this.chips=CONFIG.startChips;this.tokens=1;this.chipClock=0;this.goldAcc=0;this.economyVersion=8;
       this.upgrades=[0,0,0,0,0];this.shop={pocket:0,refinery:0,broker:0,jokerforge:0};
       this.units=[];this.enemies=[];this.zones=[];this.projectiles=[];this.editor=false;this.projectileCount=0;this.peakEnemies=0;this.damageWindow=0;this.effectiveDPS=0;this.meterClock=0;this.nextId=1;this.overload=0;this.status='playing';
-      this.kills=0;this.summons=0;this.spent={gold:0,chips:0,tokens:0};this.earned={gold:0,chips:0,sale:0};
+      this.kills=0;this.summons=0;this.spent={gold:0,chips:0,tokens:0};this.earned={gold:0,chips:0,sale:0,passiveGold:0};
       this.gradeCounts=Array(10).fill(0);this.damage=0;this.bossKills=0;this.target='boss';this.bestGrade=0;
       this.lastSummon=null;this.actionAt=0;this.finalDeadline=0;this.sold=0;this.threeDeals=0;this.deals=0;
       // Two ordinary guards; no special types and no free collection rewards.
@@ -437,12 +594,16 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     newDeal(rolls=0){
       const deck=this.rng.shuffle(Array.from({length:52},(_,i)=>i));
       const n=this.rng.next()<expansionChance(this.shop.pocket)?3:2;
-      this.deal={hole:Array.from({length:n},()=>deck.pop()),board:[],deck,discard:[],rolls,jokerUsed:false,invested:0,autoAt:0};
+      let hole,reservation=null;
+      if(rolls===0&&this.market.reserved){reservation=this.market.reserved;this.market.reserved=null;hole=reservation.cards.slice();for(const card of hole)deck.splice(deck.indexOf(card),1);if(n===3)hole.push(deck.pop());}
+      else hole=Array.from({length:n},()=>deck.pop());
+      this.deal={hole,board:[],deck,discard:[],rolls,jokerUsed:false,invested:0,autoAt:0,reservation:reservation?reservation.name:null};
+      if(reservation)this.emit('reservation',{name:reservation.name});
       this.deals++;if(n===3)this.threeDeals++;
     }
     canAct(){return this.status==='playing'&&this.t>=this.actionAt;}
     rerollCost(){return refreshCost(this.deal.rolls,this.shop.pocket,this.shop.broker);}
-    chipInterval(){return CONFIG.chipInterval/(1+.08*this.shop.refinery);}
+    chipInterval(){return CONFIG.chipInterval/(1+refineryBonus(this.shop.refinery));}
     reroll(){
       const cost=this.rerollCost(),d=this.deal;
       if(!this.canAct()||d.board.length||this.gold<cost)return false;
@@ -480,14 +641,15 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
         u={id:this.nextId++,cat,type,members:[],base:0,count:0,main,slot,cooldown:this.rng.next()*.3,angle:-Math.PI/2,flash:.7,damage:0};
         this.units.push(u);
       }
-      const member={id:this.nextId++,base:p,score:detail.score||RANK_TABLES[cat][0],invested:detail.invested||0,starter:!!detail.starter,cooldown:this.rng.next()/rateFor(u),damage:0};
+      const member={id:this.nextId++,base:p,score:detail.score||RANK_TABLES[cat][0],invested:detail.invested||0,starter:!!detail.starter,source:detail.source||'poker',purchasePrice:detail.purchasePrice||0,purchaseCurrency:detail.purchaseCurrency||'gold',purchaseAmount:detail.purchaseAmount??detail.purchasePrice??0,cooldown:this.rng.next()/rateFor(u),damage:0};
       u.members.push(member);u.members.sort((a,b)=>a.score-b.score||a.id-b.id);u.base+=p;u.count=u.members.length;u.flash=.7;
       return u;
     }
     saleValue(u,member){
       if(member.starter)return 5;
       const categoryValue=[6,10,19,30,65,95,175,420,1200,2500][u.cat];
-      return Math.floor((member.invested*3+categoryValue*(1+.35*quality(member.score)))*(1+.08*this.shop.broker));
+      const value=Math.floor(member.invested*3+categoryValue*(1+.35*quality(member.score)));
+      return member.source==='market'?Math.min(value,Math.floor(member.purchasePrice*.25)):value;
     }
     sellUnit(id,memberId=null){
       if(this.status!=='playing')return false;const u=this.units.find(x=>x.id===id);if(!u)return false;
@@ -507,16 +669,70 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     }
     buyShop(id){
       const item=SHOP.find(x=>x.id===id);if(!item||this.status!=='playing'||this.shop[id]>=item.max)return false;
-      const cost=item.cost(this.shop[id]);if(this.gold<cost)return false;
-      this.gold-=cost;this.spent.gold+=cost;this.shop[id]++;
+      const cost=item.cost(this.shop[id]),unlock=id==='refinery'?REFINERY.unlock[this.shop[id]]:id==='broker'?DEALER.unlock[this.shop[id]]:0;if(this.gold<cost||this.wave<unlock)return false;
+      const oldInterval=this.chipInterval();this.gold-=cost;this.spent.gold+=cost;this.shop[id]++;if(id==='refinery')this.chipClock*=this.chipInterval()/oldInterval;
       if(id==='jokerforge')this.tokens++;
       this.emit('shop',{id,cost});return true;
+    }
+    syncMarket(){
+      const block=marketBlock(this.wave);if(block>this.market.block){this.market.block=block;this.market.chipBuys=0;this.market.ticketBuys=0;}
+      const w=MARKET.visits.find(w=>this.wave>=w&&this.wave<hiddenVisitEnd(w));
+      if(w&&!this.market.history[w]){this.market.history[w]=hiddenVisit(this.seed,w);this.emit('marketOpen',{wave:w,expires:hiddenVisitEnd(w)});}
+    }
+    activeVisit(){const w=MARKET.visits.find(w=>this.wave>=w&&this.wave<hiddenVisitEnd(w));return w?this.market.history[w]||null:null;}
+    refineryProjection(){
+      const lv=this.shop.refinery,delta=lv>=6?0:refineryBonus(lv+1)-refineryBonus(lv);
+      // Planning horizon: 40 real minutes at the default tempo, no bonus for final overtime.
+      const remaining=Math.max(0,CONFIG.waves*CONFIG.waveSeconds-this.t),chips=delta*remaining/CONFIG.chipInterval;
+      return {level:lv,unlock:REFINERY.unlock[lv]??null,delta,chips,price:REFINERY.costs[lv]??null,goldPerChip:chips>0?REFINERY.costs[lv]/chips:Infinity};
+    }
+    goldRate(){return dealerIncome(this.shop.broker)/DEALER.period;}
+    dealerProjection(){
+      const lv=this.shop.broker,delta=lv>=4?0:(dealerIncome(lv+1)-dealerIncome(lv))/DEALER.period;
+      const remaining=Math.max(0,CONFIG.waves*CONFIG.waveSeconds-this.t),gold=delta*remaining;
+      return {level:lv,unlock:DEALER.unlock[lv]??null,delta,gold,price:DEALER.costs[lv]??null,payback:delta>0?DEALER.costs[lv]/delta:Infinity};
+    }
+    produceGold(dt){
+      if(this.shop.broker<=0)return;
+      this.goldAcc+=dt*this.goldRate();const income=Math.floor(this.goldAcc+1e-9);
+      if(income>0){this.goldAcc=Math.max(0,this.goldAcc-income);this.addIncome(income);this.earned.passiveGold+=income;}
+    }
+    buyChips(){
+      const i=this.market.chipBuys,cost=MARKET.chipPrices[i];if(this.status!=='playing'||cost===undefined||this.gold<cost)return false;
+      this.gold-=cost;this.spent.gold+=cost;this.chips+=MARKET.chipPack;this.market.chipBuys++;this.market.spent.chips+=cost;this.market.bought.packs++;this.market.chipsReceived+=MARKET.chipPack;
+      this.emit('marketBuy',{name:'칩 4개',cost});return true;
+    }
+    grantMarketUnit(cards,price,label,currency='gold',amount=price){
+      const e=evaluate(cards),type=typeForScore(cards,e.score),u=this.addUnit(e.cat,type,e.power,e.main,{score:e.score,source:'market',purchasePrice:price,purchaseCurrency:currency,purchaseAmount:amount,invested:0});
+      this.summons++;this.gradeCounts[e.cat]++;this.bestGrade=Math.max(this.bestGrade,e.cat);this.market.bought.units++;
+      this.lastSummon={cat:e.cat,type,power:e.power,stage:0,cards:cards.slice(),best:e.best,id:u.id,t:this.t,label:e.label,score:e.score,source:'market',marketLabel:label};
+      this.emit('summon',this.lastSummon);return u;
+    }
+    buyTicket(){
+      const cost=MARKET.ticketPrice;if(this.status!=='playing'||this.market.ticketBuys>=MARKET.ticketsPerBlock||this.gold<cost)return false;
+      this.gold-=cost;this.spent.gold+=cost;this.market.ticketBuys++;this.market.spent.tickets+=cost;this.market.bought.tickets++;
+      const cat=this.marketRng.next()<.5?4:5,cards=exactHand(cat,this.marketRng);this.grantMarketUnit(cards,cost,'희귀 소환권');return true;
+    }
+    buyHidden(id,currency='gold'){
+      const visit=this.activeVisit(),item=visit?.offers.find(o=>o.id===id);
+      if(this.status!=='playing'||!visit||visit.purchases>=MARKET.purchaseLimit||!item||item.sold||!['gold','chips'].includes(currency)||(currency==='chips'&&item.kind!=='unit')||(item.kind==='hand'&&this.market.reserved))return false;
+      const cost=currency==='gold'?item.price:hiddenChipPrice(item);
+      if(!Number.isInteger(cost)||cost<=0||this[currency]<cost)return false;
+      // One item, one payment, one purchase slot, whichever currency is chosen.
+      this[currency]-=cost;this.spent[currency]+=cost;item.sold=true;item.payment={currency,amount:cost};visit.purchases++;
+      if(currency==='gold')this.market.spent.hidden+=cost;else this.market.spent.hiddenChips+=cost;
+      this.market.bought.hidden++;
+      if(item.kind==='chips'){this.chips+=item.amount;this.market.chipsReceived+=item.amount;}
+      else if(item.kind==='joker')this.tokens+=item.amount;
+      else if(item.kind==='hand'){this.market.reserved={cards:item.cards.slice(),name:item.name};this.market.bought.hands++;}
+      else this.grantMarketUnit(item.cards,item.price,'히든 상점',currency,cost);
+      this.emit('marketBuy',{name:item.name,cost,currency});return true;
     }
     moveUnit(id,slot){const u=this.units.find(x=>x.id===id);if(!u||!SLOTS[slot])return false;const other=this.units.find(x=>x.slot===slot);if(other)other.slot=u.slot;u.slot=slot;return true;}
     unitDPS(u){return u.base*researchFactor(u.cat,u.type,this.upgrades);}
     totalDPS(){return this.units.reduce((a,u)=>a+this.unitDPS(u),0);}
     startWave(){
-      this.wave++;this.info=waveInfo(this.wave);this.spawned=0;this.spawnClock=0;this.waveAt=this.t;
+      this.wave++;this.syncMarket();this.info=waveInfo(this.wave);this.spawned=0;this.spawnClock=0;this.waveAt=this.t;
       this.nextWaveAt=CONFIG.prepSeconds+this.wave*CONFIG.waveSeconds;this.addIncome(this.info.gold,this.info.chips);
       if(this.wave%10===0)this.tokens++;
       if(this.wave===CONFIG.waves)this.finalDeadline=this.t+CONFIG.finalClearSeconds;
@@ -599,7 +815,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
       this.emit('impact',{...at,type:u.type,cat:u.cat,kind:p.kind,volleyCount:p.volleyCount||1,volleyIndex:p.volleyIndex||0,radius:spl?.radius||0});
     }
     tick(dt){
-      if(this.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;this.t+=dt;
+      if(this.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;this.t+=dt;this.produceGold(dt);
       this.chipClock+=dt;const ci=this.chipInterval();while(this.chipClock>=ci){this.chipClock-=ci;this.addIncome(0,1);}
       if(this.t>=this.nextWaveAt&&this.wave<CONFIG.waves)this.startWave();
       if(this.wave>0){const interval=34/this.info.count;this.spawnClock+=dt;while(this.spawned<this.info.count&&this.spawnClock>=interval){this.spawnClock-=interval;this.spawned++;this.spawnEnemy();}}
@@ -653,8 +869,15 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
       this.deal={hole:hole.slice(),board:board.slice(),deck:this.rng.shuffle(Array.from({length:52},(_,i)=>i).filter(c=>!all.includes(c))),discard:[],rolls:0,jokerUsed:false,invested:0,autoAt:0};this.actionAt=0;return true;
     }
     end(status,reason){this.status=status;this.reason=reason;this.emit('end',{status,reason});}
-    toJSON(){const o={};for(const k of Object.keys(this))if(!['events','rng','rngState','_botCache'].includes(k))o[k]=this[k];o.rngState=this.rng.state;return o;}
-    static restore(data,events=null){const g=Object.create(Game.prototype);Object.assign(g,data);g.rng=new RNG(data.rngState);g.events=events;if(g.deal)g.deal.autoAt=0;g.projectiles=g.projectiles||[];return g;}
+    toJSON(){const o={};for(const k of Object.keys(this))if(!['events','rng','marketRng','rngState','marketRngState','_botCache','_premiumCache'].includes(k))o[k]=this[k];o.rngState=this.rng.state;o.marketRngState=this.marketRng.state;return o;}
+    static restore(data,events=null){
+      const g=Object.create(Game.prototype);Object.assign(g,JSON.parse(JSON.stringify(data)));
+      g.rng=new RNG(data.rngState);g.marketRng=new RNG(data.marketRngState||hashSeed(g.seed+':market-tickets'));
+      g.market=g.market||marketState();g.market.spent.hiddenChips=g.market.spent.hiddenChips||0;
+      if(g.economyVersion!==8){g.goldAcc=0;g.earned.passiveGold=0;g.economyVersion=8;}
+      g.goldAcc=g.goldAcc||0;g.earned.passiveGold=g.earned.passiveGold||0;
+      migrateMarketWindows(g);g.events=events;g.syncMarket();if(g.deal)g.deal.autoAt=0;g.projectiles=g.projectiles||[];return g;
+    }
   }
   // All pilots are non-clairvoyant. Forecasts use the remaining set, not order.
   function effectivePower(v,type,up){return power(v)*researchFactor(category(v),type,up)*(type===1?1.22:category(v)===6?1.16:category(v)>=7?1.2:1);}
@@ -666,14 +889,14 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
       out.push({now,next:next/(remaining.length-1)});work.pop();
     }return out;
   }
-  function botAct(g,policy='selective'){
+  function botAct(g,policy='selective',manageEconomy=true){
     if(g.status!=='playing'||policy==='idle')return;
     const naive=['flop','river','flop-roi','river-roi','event-seeker'].includes(policy),noShop=policy==='no-shop',blind=policy==='flop'||policy==='river';
     const progress=g.wave/2;
     const desiredPocket=naive?Math.min(8,Math.floor(progress/7)):Math.min(3,Math.floor(Math.max(0,progress-16)/12));
     const desiredRefinery=Math.min(4,Math.floor(Math.max(0,progress-5)/10));
     let bought=false;
-    if(!noShop&&g.enemies.length<90){
+    if(manageEconomy&&!noShop&&g.enemies.length<90){
       if(g.shop.refinery<desiredRefinery&&g.gold>=SHOP[1].cost(g.shop.refinery))bought=g.buyShop('refinery');
       else if(g.shop.pocket<desiredPocket&&g.gold>=SHOP[0].cost(g.shop.pocket)&&progress>10)bought=g.buyShop('pocket');
     }
@@ -683,7 +906,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
       const cost=upgradeCost(g.upgrades[type]),gain=base*CONFIG.upgradeStep;
       if(g.gold>=cost&&gain/cost>bestValue){best=type;bestValue=gain/cost;}
     }
-    if(blind){const t=RESEARCH[g.upgrades.reduce((a,b)=>a+b,0)%5];if(!bought&&g.gold>=upgradeCost(g.upgrades[t]))g.upgrade(t);}else if(policy!=='no-research'&&best>=0&&!bought)g.upgrade(best);
+    if(manageEconomy){if(blind){const t=RESEARCH[g.upgrades.reduce((a,b)=>a+b,0)%5];if(!bought&&g.gold>=upgradeCost(g.upgrades[t]))g.upgrade(t);}else if(policy!=='no-research'&&best>=0&&!bought)g.upgrade(best);}
     if(!g.canAct())return;const d=g.deal,n=d.board.length;
     if(n===0){
       if(policy==='event-seeker'&&g.shop.pocket>0&&d.hole.length===2&&d.rolls<3&&g.gold>g.rerollCost()+40){g.reroll();return;}
@@ -726,25 +949,142 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     if(g.summons<2||g.enemies.length>165||gain<shadow*cost){g.claim();return;}
     if(g.chips>=cost)g.advance();else if(g.enemies.length>100||(g.wave<=6&&g.chips===0))g.claim();
   }
-  const api={BARRAGES,barrageFor,splashFor,projectilePosition,HP_ANCHORS,RANGES,SHOT_SPEED,unitRange,rateFor,projectileKind,expansionChance,jokerForecast,stoppingTree,botAct,BASE,CONFIG,NAMES,EN,TITLES,DPS,MAX_DPS,COLORS,SUITS,TYPES,RESEARCH,SHOP,COUNTS,RANK_TABLES,RNG,hashSeed,rank,suit,rankLabel,cardName,parseCard,score,category,mainRank,scoreRanks,quality,handLabel,power,evaluate,forecast,typeForScore,unitType,researchFactor,refreshCost,upgradeCost,waveInfo,PATH,pathLength,pathPoint,SLOTS,Game};
+  // Bounded, non-clairvoyant comparison policies. No policy reads future catalogues
+  // or a hidden card ordering. Valuation is heuristic, not an optimal strategy claim.
+  function meanFlopPower(upgrades){
+    let ev=0;for(let c=0;c<10;c++){
+      const probability=COUNTS[5][c]/2598960,mean=(DPS[c]+MAX_DPS[c])/2;
+      const f=c<=3?researchFactor(c,4,upgrades):c<=5?[0,1,2,3].reduce((a,t)=>a+researchFactor(c,t,upgrades),0)/4:researchFactor(c,c-1,upgrades);
+      ev+=probability*mean*f*(c===6?1.16:c>=7?1.2:1);
+    }return ev;
+  }
+  function researchChoice(g){let best={type:4,ratio:0,gain:0,cost:upgradeCost(g.upgrades[4])};
+    for(let type=0;type<5;type++){
+      const base=g.units.filter(u=>u.type===type||u.cat>=6).reduce((a,u)=>a+u.base*(u.type===1?1.22:u.cat===6?1.16:1),0),cost=upgradeCost(g.upgrades[type]),gain=base*CONFIG.upgradeStep;
+      if(gain/cost>best.ratio)best={type,cost,gain,ratio:gain/cost};
+    }return best;
+  }
+  function marketBotAct(g,policy='mixed'){
+    if(g.status!=='playing')return;
+    if(policy==='research-only'){botAct(g,'no-shop');return;}
+    if(policy==='legacy'){botAct(g,'selective');return;}
+    const r=researchChoice(g),normal=g.upgrades[4],critical=g.enemies.length>120,m=g.market,n=g.deal.board.length;
+    const chipValue=meanFlopPower(g.upgrades)/4,options=[],visit=g.activeVisit();
+    if(policy==='dealer-rush'){
+      const lv=g.shop.broker,unlocked=lv<4&&g.wave>=DEALER.unlock[lv];
+      if(normal<2||critical){if(g.gold>=r.cost)g.upgrade(r.type);}
+      else if(unlocked){if(g.gold>=DEALER.costs[lv])g.buyShop('broker');}
+      else if(g.gold>=r.cost)g.upgrade(r.type);
+      botAct(g,'selective',false);return;
+    }
+    if(policy==='chip-unit-first'){
+      const item=visit&&visit.purchases<2?visit.offers.find(o=>o.kind==='unit'&&!o.sold):null;
+      if(item&&g.chips>=hiddenChipPrice(item)+4)g.buyHidden(item.id,'chips');
+      if(g.gold>=r.cost)g.upgrade(r.type);
+      // Reserve chips only for a currently visible item; never future catalogues.
+      if(item&&!item.sold&&g.summons>=6&&g.enemies.length<120){if(n>=3&&g.canAct())g.claim();return;}
+      botAct(g,'selective',false);return;
+    }
+    if(policy==='mixed'&&visit&&visit.purchases<2){
+      for(const item of visit.offers){if(item.kind!=='unit'||item.sold)continue;const cost=hiddenChipPrice(item);
+        if(g.chips<cost+4)continue;const e=evaluate(item.cards),value=effectivePower(e.score,unitType(item.cards),g.upgrades);
+        if(value>cost*chipValue*1.10){g.buyHidden(item.id,'chips');break;}
+      }
+    }
+    const add=(kind,cost,gain,run)=>options.push({kind,cost,gain,ratio:gain/cost,run});
+    if(policy==='refinery-rush'){
+      const lv=g.shop.refinery,unlocked=lv<6&&g.wave>=REFINERY.unlock[lv];
+      if(normal<1&&g.gold>=upgradeCost(normal))g.upgrade(4);
+      else if(unlocked&&g.gold>=REFINERY.costs[lv])g.buyShop('refinery');
+      else if((!unlocked||critical)&&g.gold>=r.cost)g.upgrade(r.type);
+      botAct(g,'selective',false);return;
+    }
+    if(policy==='blind-shopping'){
+      const lv=g.shop.refinery,type=RESEARCH[g.upgrades.reduce((a,b)=>a+b,0)%5];
+      if(g.gold>=MARKET.chipPrices[m.chipBuys])g.buyChips();
+      else if(lv<6&&g.wave>=REFINERY.unlock[lv]&&g.gold>=REFINERY.costs[lv])g.buyShop('refinery');
+      else if(g.gold>=upgradeCost(g.upgrades[type]))g.upgrade(type);
+      botAct(g,'flop',false);return;
+    }
+    if(policy==='chips-first'){
+      if(g.gold>=MARKET.chipPrices[m.chipBuys])g.buyChips();else if(g.gold>=r.cost)g.upgrade(r.type);
+      botAct(g,'selective',false);return;
+    }
+    if(policy==='ticket-first'){
+      if(g.wave>=16&&m.ticketBuys<1){if(g.gold>=MARKET.ticketPrice)g.buyTicket();else if((normal<2||critical)&&g.gold>=r.cost)g.upgrade(r.type);}
+      else if(g.gold>=r.cost)g.upgrade(r.type);
+      botAct(g,'river',false);return;
+    }
+    add('research',r.cost,r.gain,()=>g.upgrade(r.type));
+    if(policy==='mixed'&&g.shop.broker<4&&g.wave>=DEALER.unlock[g.shop.broker]&&!critical){
+      const dp=g.dealerProjection(),discount=.72*Math.max(.1,1-g.enemies.length/180);
+      add('dealer',dp.price,dp.gold*r.ratio*discount,()=>g.buyShop('broker'));
+    }
+    if(m.chipBuys<3&&g.chips<7){
+      // Forecast only the next revealed card when the contract is chip-starved.
+      let value=chipValue*4;
+      if(n===3||n===4){const current=g.preview(),f=forecast([...g.deal.hole,...g.deal.board],g.deal.deck,1,g.upgrades);value=Math.max(value,f.expected-current.dps);}
+      add('chips',MARKET.chipPrices[m.chipBuys],value*.85,()=>g.buyChips());
+    }
+    if(m.ticketBuys<1&&g.wave>=16){let value=0;for(const c of [4,5])for(let t=0;t<4;t++)value+=(DPS[c]+MAX_DPS[c])/2*researchFactor(c,t,g.upgrades)/8;
+      add('ticket',MARKET.ticketPrice,value*.92,()=>g.buyTicket());}
+    const lv=g.shop.refinery,projection=g.refineryProjection();
+    if(lv<6&&g.wave>=REFINERY.unlock[lv]&&!critical){
+      // Discount distant production; backlog increases the probability of dying
+      // before the estimated full-campaign yield arrives.
+      const discount=.45*Math.max(.15,1-g.enemies.length/160);
+      add('refinery',REFINERY.costs[lv],projection.chips*chipValue*discount,()=>g.buyShop('refinery'));
+    }
+    if(visit&&visit.purchases<2)for(const item of visit.offers){
+      if(item.sold||(item.kind==='hand'&&m.reserved))continue;
+      let value=0;
+      if(item.kind==='chips')value=item.amount*chipValue*.88;
+      if(item.kind==='unit'){const e=evaluate(item.cards);value=effectivePower(e.score,unitType(item.cards),g.upgrades);}
+      if(item.kind==='joker')value=item.amount*chipValue*9;
+      if(item.kind==='hand'){
+        // A conservative premium estimate; simulate from a fixed independent RNG,
+        // never the real deck. Includes conditional board knowledge only after reveal.
+        const cacheKey=item.id+':'+g.upgrades.join(',');g._premiumCache=g._premiumCache||{};
+        if(g._premiumCache[cacheKey]===undefined){
+          const rng=new RNG(hashSeed(cacheKey+':valuation')),deck=Array.from({length:52},(_,i)=>i).filter(c=>!item.cards.includes(c));let sum=0;
+          for(let j=0;j<128;j++){const pool=deck.slice(),cards=item.cards.slice();for(let k=0;k<3;k++){const index=rng.int(pool.length);cards.push(pool.splice(index,1)[0]);}const v=score(cards);sum+=effectivePower(v,typeForScore(cards,v),g.upgrades);}
+          g._premiumCache[cacheKey]=Math.max(0,sum/128-meanFlopPower(g.upgrades));
+        }value=g._premiumCache[cacheKey]*1.5;
+      }
+      add('hidden',item.price,value,()=>g.buyHidden(item.id));
+    }
+    if(policy==='hidden-save'){
+      const next=MARKET.visits.find(w=>w>=g.wave&&w-g.wave<=7),saving=!!next&&normal>=2&&!critical;
+      const hidden=options.filter(o=>o.kind==='hidden').sort((a,b)=>b.ratio-a.ratio);
+      if(hidden.length){const candidate=hidden.find(o=>o.cost<=g.gold);if(candidate)candidate.run();else if(critical&&g.gold>=r.cost)g.upgrade(r.type);}
+      else if(!saving&&g.gold>=r.cost)g.upgrade(r.type);
+    }else{
+      options.sort((a,b)=>b.ratio-a.ratio);const best=options[0];
+      if(best&&best.cost<=g.gold)best.run();
+      else if(critical||normal<2){if(g.gold>=r.cost)g.upgrade(r.type);}
+      else if(best&&best.cost>g.gold+700){const feasible=options.find(o=>o.cost<=g.gold&&o.ratio>=best.ratio*.78);if(feasible)feasible.run();}
+    }
+    botAct(g,'selective',false);
+  }
+  const api={DEALER,dealerIncome,hiddenChipPrice,validateMarketSave,meanFlopPower,researchChoice,marketBotAct,REFINERY,refineryBonus,MARKET,marketBlock,marketState,exactHand,hiddenVisit,hiddenVisitEnd,BARRAGES,barrageFor,splashFor,projectilePosition,HP_ANCHORS,RANGES,SHOT_SPEED,unitRange,rateFor,projectileKind,expansionChance,jokerForecast,stoppingTree,botAct,BASE,CONFIG,NAMES,EN,TITLES,DPS,MAX_DPS,COLORS,SUITS,TYPES,RESEARCH,SHOP,COUNTS,RANK_TABLES,RNG,hashSeed,rank,suit,rankLabel,cardName,parseCard,score,category,mainRank,scoreRanks,quality,handLabel,power,evaluate,forecast,typeForScore,unitType,researchFactor,refreshCost,upgradeCost,waveInfo,PATH,pathLength,pathPoint,SLOTS,Game};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.RB=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 </script>
-<script>/* RIVERBOUND VI browser shell. Standalone: no CDN, fonts, assets, or services. */
+<script>/* RIVERBOUND VIII browser shell. Standalone: no CDN, fonts, assets, or services. */
 (() => {
   'use strict';
   const E=window.RB,$=id=>document.getElementById(id),TAU=Math.PI*2;
   const ctx=$('arena').getContext('2d',{alpha:false});
-  const ui={started:false,paused:false,auto:false,speed:2,elapsed:0,quality:"auto",mobile:false,lowGraphics:false,drawClock:0,placement:false,oddsKey:"",sound:false,selected:null,member:null,modal:'intro',tab:'contract',horizon:1,cache:'',preview:null,forecasts:null,fx:[],particles:[],rings:[],toastUntil:0,saveClock:0,hudClock:0,botClock:0,accumulator:0,realTime:0,view:{width:900,height:580,scale:1,x:0,y:0,dpr:1},pointer:null,memberKey:'',jokerMode:false,jokerTarget:null};
+  const ui={started:false,paused:false,auto:false,speed:2,elapsed:0,quality:"auto",mobile:false,lowGraphics:false,drawClock:0,placement:false,oddsKey:"",sound:false,selected:null,member:null,modal:'intro',tab:'contract',marketTab:'supply',marketConfirm:null,marketConfirmUntil:0,marketKey:'',horizon:1,cache:'',preview:null,forecasts:null,fx:[],particles:[],rings:[],toastUntil:0,saveClock:0,hudClock:0,botClock:0,accumulator:0,realTime:0,view:{width:900,height:580,scale:1,x:0,y:0,dpr:1},pointer:null,memberKey:'',jokerMode:false,jokerTarget:null};
   let game=new E.Game(E.hashSeed('preview')),saved=null,audio=null;
-  const SAVE_KEY='riverbound_save_v6';
+  const SAVE_KEY='riverbound_save_v8';
   const fmt=n=>Math.round(n).toLocaleString('en-US');
   const short=n=>n>=1000000?(n/1e6).toFixed(2)+'m':n>=10000?(n/1000).toFixed(1)+'k':n>=1000?(n/1000).toFixed(2)+'k':Math.round(n).toString();
   const pct=n=>n===0?'0%':n<.001?(n*100).toFixed(3)+'%':n<.01?(n*100).toFixed(2)+'%':(n*100).toFixed(1)+'%';
   const time=n=>Math.floor(n/60).toString().padStart(2,'0')+':'+Math.floor(n%60).toString().padStart(2,'0');
-  const newSeed=()=>{try{return 'RB6-'+crypto.getRandomValues(new Uint32Array(1))[0].toString(36).toUpperCase();}catch{return 'RB6-'+Date.now().toString(36).toUpperCase();}};
+  const newSeed=()=>{try{return 'RB8-'+crypto.getRandomValues(new Uint32Array(1))[0].toString(36).toUpperCase();}catch{return 'RB8-'+Date.now().toString(36).toUpperCase();}};
   let seedLabel=newSeed();$('seedInput').value=seedLabel;
-  try{const parsed=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(parsed&&parsed.version===E.CONFIG.version&&parsed.game.status==='playing'&&Array.isArray(parsed.game.deal.deck)){saved=parsed;$('continueBtn').classList.remove('hidden');$('continueBtn').textContent=`이어서 하기 · S${parsed.game.wave}`;}}catch{}
+  try{const parsed=JSON.parse(localStorage.getItem(SAVE_KEY)||localStorage.getItem('riverbound_save_v7')||'null');if(parsed&&[7,8].includes(parsed.version)&&parsed.game.status==='playing'&&Array.isArray(parsed.game.deal.deck)){saved=parsed;$('continueBtn').classList.remove('hidden');$('continueBtn').textContent=`이어서 하기 · S${parsed.game.wave}`;}}catch{}
   document.body.classList.add('modal-open');
   for(let i=10;i<=E.CONFIG.waves;i+=10){const marker=document.createElement('span');marker.style.left=(i/E.CONFIG.waves*100)+'%';marker.title='S'+i+' 보스';marker.dataset.boss=i;$('campaignTrack').append(marker);}
   function log(message){$('logMessage').textContent=message;}
@@ -776,7 +1116,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     }else if(type==='summon'){
       ui.selected=data.id;ui.member=null;const u=game.units.find(x=>x.id===data.id),p=E.SLOTS[u.slot];
       for(let i=0;i<(data.cat>=6?3:1);i++)ui.rings.push({x:p.x,y:p.y,r:48+30*i,life:.75+i*.2,max:.75+i*.2,color:E.COLORS[data.cat]});
-      log(`${E.NAMES[data.cat]} / ${data.label} · ${E.TYPES[data.type].type} 소환. ${data.stage===3?'플랍':data.stage===4?'턴':'리버'}에서 확정했습니다.`);
+      log(`${E.NAMES[data.cat]} / ${data.label} · ${E.TYPES[data.type].type} 소환. ${data.source==='market'?'상점에서 즉시 확보했습니다.':(data.stage===3?'플랍':data.stage===4?'턴':'리버')+'에서 확정했습니다.'}`);
       toast(data.cat>=6?'MYTHIC CONTRACT / 상위 계약':data.cat>=4?'RARE CONTRACT / 희귀 계약':'CONTRACT COMPLETE / 소환 완료',E.NAMES[data.cat],`${E.TYPES[data.type].symbol} ${E.TYPES[data.type].type} · 기본 DPS ${data.power.toFixed(1)}`,E.COLORS[data.cat],data.cat>=4?3:1.5,data.cat>=6);sound(data.cat>=4?'rare':'summon');
     }else if(type==='wave'){
       if(!data.boss)toast('INCOMING / 적 접근',`STAGE ${String(data.wave).padStart(2,'0')}`,`${data.label} · ${data.count}기 · 체력 ${fmt(data.hp)}`,'#b5d1c2',1.6);
@@ -790,15 +1130,18 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     else if(type==='reveal')sound('card');
     else if(type==='upgrade'){log(`${E.TYPES[data.type].type} 연구 Lv.${game.upgrades[data.type]} · 해당 타입과 풀하우스 이상에 적용.`);sound('upgrade');}
     else if(type==='shop'){log(`${E.SHOP.find(i=>i.id===data.id).name} Lv.${game.shop[data.id]} 구매. 이번 작전 동안 유지됩니다.`);sound('upgrade');}
+    else if(type==='marketBuy'){const currency=data.currency==='chips'?'칩':'G';log(`${data.name} 구매 · −${data.cost} ${currency}`);$('marketFeedback').textContent=`구매 완료 · −${fmt(data.cost)} ${currency}`;sound('upgrade');}
+    else if(type==='marketOpen'){log(`S${data.wave} 밀거래 개장 · ${data.expires>E.CONFIG.waves?'마지막 방문: 게임 종료까지 유지':`S${data.expires} 진입 시 새 상품으로 교체`}. 방문당 최대 2개 구매.`);}
+    else if(type==='reservation'){log(`${data.name}을 새 계약에 적용했습니다. 일반 교체하면 예약 효과는 소모됩니다.`);}
     else if(type==='sale'){log(`${data.label} 유닛 1기 판매 · +${data.value} G. 칩은 환급하지 않습니다.`);ui.member=null;sound('card');}
     else if(type==='end'){showResult();sound('end');}
   }
   function openModal(name){ui.modal=name;document.querySelectorAll('.modal-backdrop').forEach(e=>e.classList.remove('show'));if(name)$(name+'Modal').classList.add('show');document.body.classList.toggle('modal-open',!!name);ui.accumulator=0;}
-  function setTab(tab){ui.tab=tab;for(const name of ['contract','shop','archive','army'])$(name+'Panel').classList.toggle('hidden',name!==tab);document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('sideTitle').textContent=tab==='shop'?'딜러의 상점':tab==='archive'?'유닛 도감':tab==='army'?'전력 · 연구':'유닛 계약';}
+  function setTab(tab){ui.tab=tab;for(const name of ['contract','shop','archive','army'])$(name+'Panel').classList.toggle('hidden',name!==tab);document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('sideTitle').textContent=tab==='shop'?'상점':tab==='archive'?'유닛 도감':tab==='army'?'전력 · 연구':'유닛 계약';}
   function startGame(seed=seedLabel,auto=false,restore=null){
     seedLabel=String(seed);game=restore?E.Game.restore(restore,event):new E.Game(/^\d+$/.test(seedLabel)?Number(seedLabel)>>>0:E.hashSeed(seedLabel),event);
-    Object.assign(ui,{started:true,paused:false,auto,speed:2,elapsed:restore?Number(restore.activeSeconds||restore.t/2):0,oddsKey:"",cache:'',horizon:1,selected:null,member:null,memberKey:'',jokerMode:false,jokerTarget:null,fx:[],particles:[],rings:[],botClock:0,accumulator:0,saveClock:0,toastUntil:0});
-    $('arenaToast').classList.remove('visible');openModal(null);setTab('contract');ui.placement=false;updateMobileLayout();document.querySelectorAll('[data-target]').forEach(b=>b.classList.toggle('active',b.dataset.target===game.target));updateControls();renderCards();renderHUD();draw();log(restore?'이전 작전을 불러왔습니다.':'노말 2기 지급. D로 플랍, E로 소환. 초반 보강을 늦추지 마세요.');save();
+    Object.assign(ui,{started:true,paused:false,auto,speed:2,elapsed:restore?Number(restore.activeSeconds||restore.t/2):0,oddsKey:"",cache:'',marketKey:'',marketConfirm:null,marketConfirmUntil:0,horizon:1,selected:null,member:null,memberKey:'',jokerMode:false,jokerTarget:null,fx:[],particles:[],rings:[],botClock:0,accumulator:0,saveClock:0,toastUntil:0});
+    $('arenaToast').classList.remove('visible');openModal(null);setTab('contract');ui.placement=false;updateMobileLayout();document.querySelectorAll('[data-target]').forEach(b=>b.classList.toggle('active',b.dataset.target===game.target));updateControls();renderCards();renderHUD();draw();log(restore?'이전 작전을 불러왔습니다.':'D 공개 · E 소환 · R 교체 · J 조커');save();
   }
   function save(){
     if(!ui.started||game.status!=='playing')return;
@@ -818,12 +1161,17 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   }
   $('startBtn').onclick=()=>startGame($('seedInput').value.trim()||newSeed(),false);
   $('startDemoBtn').onclick=()=>startGame($('seedInput').value.trim()||newSeed(),true);
-  $('continueBtn').onclick=()=>{if(saved)startGame(saved.seedLabel,!!saved.auto,saved.game);};
+  $('continueBtn').onclick=()=>{if(saved){try{importSaved(saved);}catch(err){alert('불러오기 실패: '+err.message);}}};
   $('pauseBtn').onclick=togglePause;
   $('speedBtn').onclick=()=>{const speeds=[2,2.5,3,1];ui.speed=speeds[(speeds.indexOf(ui.speed)+1)%speeds.length];updateControls();renderHUD();};
   $('soundBtn').onclick=()=>{ui.sound=!ui.sound;$('soundBtn').textContent=ui.sound?'소리 ON':'소리 OFF';$('soundBtn').classList.toggle('on',ui.sound);if(ui.sound)sound('card');};
   $('demoBtn').onclick=()=>{if(!ui.started)return;ui.auto=!ui.auto;updateControls();log(ui.auto?'자동 시연 시작. 같은 재화로 상점·연구·조건부 확률을 사용하는 봇입니다.':'자동 시연 종료. 직접 조작합니다.');};
-  $('helpBtn').onclick=()=>{openModal('help');updateControls();};
+  function openGuide(section='guide-basics'){
+    $('helpContent').innerHTML=helpHTML();openModal('help');updateControls();
+    const target=$(section);if(target){const group=target.closest('details');if(group)group.open=true;requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));}
+  }
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-guide]');if(b)openGuide(b.dataset.guide);});
+  $('helpBtn').onclick=()=>openGuide();
   $('closeHelpBtn').onclick=()=>{openModal(ui.started?null:'intro');updateControls();};
   $('claimBtn').onclick=()=>act('claim');$('advanceBtn').onclick=()=>act('advance');$('rerollBtn').onclick=()=>act('reroll');$('jokerBtn').onclick=toggleJoker;
   $('sellBtn').onclick=sellSelected;$('memberSelect').onchange=e=>{ui.member=Number(e.target.value)||null;renderHUD();};
@@ -831,17 +1179,28 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     if(!ui.started||game.status!=='playing'){alert('진행 중인 작전이 없습니다.');return;}
     const data={version:E.CONFIG.version,seedLabel,auto:ui.auto,game:{...game.toJSON(),activeSeconds:ui.elapsed}};
     const blob=new Blob([JSON.stringify(data)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
-    link.href=url;link.download=`Riverbound_v6_S${game.wave}_save.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),10000);
+    link.href=url;link.download=`Riverbound_v8_S${game.wave}_save.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),10000);
   }
   function importSaved(data){
-    if(!data||![5,6].includes(data.version)||!data.game||data.game.status!=='playing')throw Error('120스테이지 캠페인의 0.5 또는 0.6 저장만 지원합니다.');
+    if(!data||![5,6,7,8].includes(data.version)||!data.game||data.game.status!=='playing')throw Error('120스테이지 캠페인의 0.5–0.8 저장만 지원합니다.');
     const g=data.game,d=g.deal;
     if(!Number.isFinite(g.t)||g.t<0||!Number.isInteger(g.wave)||g.wave<0||g.wave>E.CONFIG.waves||!d||![2,3].includes(d.hole?.length)||![0,3,4,5].includes(d.board?.length)||!Array.isArray(d.deck)||!Array.isArray(d.discard)||!Array.isArray(g.units)||!Array.isArray(g.enemies)||!Array.isArray(g.zones)||g.upgrades?.length!==5||!g.shop)throw Error('저장 파일의 형식이 올바르지 않습니다.');
     const all=[...d.hole,...d.board,...d.deck,...d.discard];
     if(all.length!==52||new Set(all).size!==52||all.some(c=>!Number.isInteger(c)||c<0||c>51))throw Error('저장 파일의 덱 정보가 올바르지 않습니다.');
     for(const key of ['gold','chips','tokens'])if(!Number.isFinite(g[key])||g[key]<0)throw Error('재화 정보가 올바르지 않습니다.');
     for(const u of g.units)if(!E.TYPES[u.type]||!E.SLOTS[u.slot]||!u.members?.length||u.members.some(m=>!Number.isFinite(m.base)||m.base<0))throw Error('유닛 정보가 올바르지 않습니다.');
-    if(data.version===5)g.importedFromVersion=5; startGame(String(data.seedLabel||g.seed),false,g);log(data.version===5?'0.5 저장 복원: 현재 적과 웨이브는 유지하고 다음 웨이브부터 강화 난도를 적용합니다.':'0.6 저장 복원: 기본 2×, 자동 시연 OFF.');return true;
+    let adjustment='';
+    if(data.version<7){
+      const oldLevel=g.shop.refinery;if(!Number.isInteger(oldLevel)||oldLevel<0||oldLevel>4)throw Error('구버전 정제소 정보가 올바르지 않습니다.');
+      const oldInterval=22/(1+.08*oldLevel),oldCost=Array.from({length:oldLevel},(_,l)=>260+200*l+85*l*l).reduce((x,y)=>x+y,0);
+      let level=0,paid=0;while(level<E.REFINERY.costs.length&&g.wave>=E.REFINERY.unlock[level]&&paid+E.REFINERY.costs[level]<=oldCost){paid+=E.REFINERY.costs[level++];}
+      const refund=oldCost-paid;g.shop.refinery=level;g.chipClock*=((22/(1+E.refineryBonus(level)))/oldInterval);g.gold+=refund;g.spent.gold=Math.max(0,g.spent.gold-refund);g.importedFromVersion=data.version;
+      adjustment=` 정제소 Lv.${oldLevel}→${level}, 차액 ${refund} G 환급. 이미 얻은 칩은 유지합니다.`;
+    }
+    if(data.version>=7&&!g.market)throw Error('거래소 저장 정보가 없습니다.');
+    if(data.version===8&&g.economyVersion!==8)throw Error('골드 생산 저장 정보가 없습니다.');
+    E.validateMarketSave(g);
+    startGame(String(data.seedLabel||g.seed),false,g);log(`0.${data.version} 저장 복원 · 자동 시연 OFF.`+adjustment+(data.version<8?' 딜러 레벨 유지 · 골드 자동 생산은 복원 후부터 적용.':''));return true;
   }
   $('exportSaveBtn').onclick=exportSave;
   $('importSaveBtn').onclick=()=>$('importSaveInput').click();
@@ -863,17 +1222,79 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   $('oddsContent').addEventListener('click',e=>{const b=e.target.closest('[data-horizon]');if(b){ui.horizon=Number(b.dataset.horizon);renderOdds();}});
   $('upgrades').innerHTML=E.RESEARCH.map((t,i)=>{const s=E.TYPES[t];return `<button class="upgrade" data-upgrade="${t}" style="--suit:${s.color}" title="${s.type}: 레벨마다 기본 DPS 16% 추가. 풀하우스 이상에도 적용. 단축키 ${i+1}"><div class="upgrade-head"><i>${s.symbol}</i><span>${s.type}</span><small id="upLevel${t}">LV.0</small></div><div class="upgrade-bottom"><span id="upCost${t}">65 G</span><small id="upBonus${t}">+0%</small></div></button>`;}).join('');
   document.querySelectorAll('[data-upgrade]').forEach(b=>b.onclick=()=>{if(isPlaying()){game.upgrade(Number(b.dataset.upgrade));renderCards();renderHUD();}});
-  $('shopItems').innerHTML=E.SHOP.map(s=>`<article class="shop-item" style="--shop:${s.color}"><div class="shop-item-head"><div class="shop-item-symbol">${s.symbol}</div><div><small>${s.tag}</small><h4>${s.name}</h4></div><span class="shop-level" id="shopLevel_${s.id}">0 / ${s.max}</span></div><p>${s.description}</p><div class="shop-value" id="shopValue_${s.id}"></div><button class="shop-buy" data-buy="${s.id}" id="shopBuy_${s.id}"></button></article>`).join('');
+  $('shopItems').innerHTML=E.SHOP.map(s=>`<article class="shop-item" style="--shop:${s.color}"><div class="shop-item-head"><div class="shop-item-symbol">${s.symbol}</div><div><h4>${s.name}</h4></div><span class="shop-level" id="shopLevel_${s.id}">0 / ${s.max}</span></div><p>${s.description}</p><div class="shop-value" id="shopValue_${s.id}"></div><div class="facility-actions"><button class="shop-buy" data-buy="${s.id}" id="shopBuy_${s.id}"></button><button class="guide-inline" data-guide="${s.id==='broker'?'guide-dealer':'guide-facility'}">상세 ↗</button></div></article>`).join('');
   document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{if(isPlaying()){game.buyShop(b.dataset.buy);renderHUD();}});
   const gradeAbility=c=>c<=3?'노말 · 단일 사격만 사용':c<=5?'최고 카드 무늬 → 펄스 / 노바 / 프리즘 / 바이퍼':E.TYPES[c-1].role;
   $('archiveItems').innerHTML=E.NAMES.map((name,c)=>`<div class="archive-card ${c>=6?'elite':''}" style="--grade:${E.COLORS[c]}"><div class="archive-glyph">${c<=3?['·','Ⅱ','Ⅳ','▲'][c]:c===4?'↗':c===5?'♠':E.TYPES[c-1].symbol}</div><div><span class="archive-count" id="archiveCount${c}">0 획득</span><div class="archive-name">${name}</div><div class="archive-range">${fmt(E.DPS[c])}${E.DPS[c]===E.MAX_DPS[c]?'':' – '+fmt(E.MAX_DPS[c])} DPS</div><div class="archive-ability">${gradeAbility(c)}</div></div></div>`).join('');
+  function setMarketTab(tab){
+    if(!['supply','hidden','facility'].includes(tab))return;
+    ui.marketTab=tab;ui.marketConfirm=null;$('shopPanel').dataset.active=tab;
+    for(const t of ['supply','hidden','facility'])$('market'+t[0].toUpperCase()+t.slice(1)).classList.toggle('hidden',t!==tab);
+    document.querySelectorAll('[data-market-tab]').forEach(b=>{b.classList.toggle('active',b.dataset.marketTab===tab);b.setAttribute('aria-selected',String(b.dataset.marketTab===tab));});
+    renderShop();$('shopPanel').scrollTop=0;
+  }
+  document.querySelectorAll('[data-market-tab]').forEach(b=>b.onclick=()=>setMarketTab(b.dataset.marketTab));
+  $('marketNotice').onclick=()=>{setTab('shop');setMarketTab('hidden');};
+  $('shopPanel').addEventListener('click',e=>{
+    const b=e.target.closest('[data-market-buy]');if(!b||b.disabled||!isPlaying())return;
+    const key=b.dataset.marketBuy;
+    if(key!=='pack'&&(ui.marketConfirm!==key||ui.realTime>ui.marketConfirmUntil)){
+      ui.marketConfirm=key;ui.marketConfirmUntil=ui.realTime+6;$('marketFeedback').textContent='같은 결제 버튼을 다시 누르면 구매합니다.';renderShop();return;
+    }
+    const parts=key.split(':'),ok=key==='pack'?game.buyChips():key==='ticket'?game.buyTicket():parts[0]==='hidden'&&game.buyHidden(parts[1],parts[2]||'gold');
+    ui.marketConfirm=null;ui.marketKey='';if(!ok)$('marketFeedback').textContent='거래할 수 없습니다. 잔액·재고·영업 시간을 확인하세요.';
+    else if(key==='ticket')$('marketFeedback').textContent=`${E.NAMES[game.lastSummon.cat]} · ${game.lastSummon.label} 소환 완료`;
+    renderHUD();save();
+  });
+  function dealButton(button,key,text,disabled){
+    button.disabled=disabled;const confirm=ui.marketConfirm===key&&ui.realTime<=ui.marketConfirmUntil;
+    button.textContent=confirm?'확정 · '+text:text;button.classList.toggle('confirm',confirm);
+  }
+  function ticketExpectation(){let val=0;for(const cat of [4,5])for(let type=0;type<4;type++)val+=(E.DPS[cat]+E.MAX_DPS[cat])/2*E.researchFactor(cat,type,game.upgrades)/8;return val;}
+  function renderMarket(){
+    const m=game.market,visit=game.activeVisit(),next=E.MARKET.visits.find(w=>w>game.wave),at=(m.block+1)*20+1,p=E.MARKET.chipPrices[m.chipBuys];
+    $('marketRestock').textContent=at>120?'최종 구간 · 재입고 없음':`S${m.block*20+1}–${(m.block+1)*20} · S${at} 재입고`;
+    $('packStock').textContent=`${3-m.chipBuys} / 3`;$('ticketStock').textContent=`${1-m.ticketBuys} / 1`;
+    dealButton($('packBuy'),'pack',p===undefined?'품절':`${fmt(p)} G`,!isPlaying()||p===undefined||game.gold<p);
+    dealButton($('ticketBuy'),'ticket',m.ticketBuys?'품절':`${fmt(E.MARKET.ticketPrice)} G`,!isPlaying()||m.ticketBuys>=1||game.gold<E.MARKET.ticketPrice);
+    $('hiddenTitle').textContent=visit?`S${visit.wave} 히든 상점`:next?`S${next} 개장`:'영업 종료';
+    $('hiddenStatus').textContent=visit?`${visit.expires>E.CONFIG.waves?'게임 종료까지 유지':`S${visit.expires} 상품 교체`} · 구매 ${visit.purchases} / 2`:'상품은 개장 시 공개';
+    $('marketNotice').classList.toggle('hidden',!visit);$('marketNotice').textContent=visit?`히든 상점 · ${visit.expires>E.CONFIG.waves?'종료까지':`S${visit.expires} 교체`} · ${visit.purchases>=2?'구매 완료':`${2-visit.purchases}개 구매 가능`} →`:'';
+    const reserve=m.reserved;
+    $('reservationInfo').classList.toggle('hidden',!reserve&&!game.deal.reservation);
+    $('reservationInfo').textContent=reserve?`다음 핸드: ${reserve.cards.map(E.cardName).join(' ')}`:game.deal.reservation?'예약 핸드 사용 중 · 교체 시 소모':'';
+    const key=visit?visit.wave+'/'+visit.offers.map(i=>i.id+':'+i.sold).join('|'):'closed';
+    if(key!==ui.marketKey){ui.marketKey=key;
+      $('hiddenOffers').innerHTML=!visit?'<div class="night-closed"><span>◇</span><p>진열 대기</p></div>':visit.offers.map(item=>{
+        const ev=item.kind==='unit'?E.evaluate(item.cards):null;
+        const color=ev?E.COLORS[ev.cat]:item.kind==='hand'?'#eabe70':item.kind==='chips'?'#82d5b5':'#c5abfa';
+        const cs=item.cards?'<div class="market-cards">'+item.cards.map(c=>`<span class="${[1,2].includes(E.suit(c))?'red':''}">${E.cardName(c)}</span>`).join('')+'</div>':'';
+        const title=ev?E.NAMES[ev.cat]:item.name;
+        const buttons=`<button class="trade-buy pay-gold" data-market-buy="hidden:${item.id}:gold" id="offerBuy_${item.id}"></button>`+(ev?`<button class="trade-buy pay-chips" data-market-buy="hidden:${item.id}:chips" id="offerChips_${item.id}"></button>`:'');
+        return `<article class="trade-card hidden-offer ${item.sold?'sold':''}" style="--offer:${color}"><div class="trade-top"><span class="trade-mark">${ev?E.TYPES[E.unitType(item.cards)].symbol:item.kind==='hand'?'▱':item.kind==='chips'?'◉':'✦'}</span><div><h4>${title}</h4>${ev?`<small>${ev.label}</small>`:''}</div></div>${cs}<div class="trade-math" id="offerInfo_${item.id}"></div><div class="payment-options ${ev?'dual-payment':''}" ${ev?'role="group" aria-label="골드 또는 칩으로 결제"':''}>${buttons}</div></article>`;
+      }).join('');
+    }
+    if(visit)for(const item of visit.offers){
+      const blockedHand=item.kind==='hand'&&!!reserve;
+      const blocked=!isPlaying()||item.sold||visit.purchases>=2||blockedHand;
+      const reason=item.sold?'판매 완료':visit.purchases>=2?'구매 한도':blockedHand?'예약 보유 중':null;
+      const btn=$('offerBuy_'+item.id);
+      dealButton(btn,'hidden:'+item.id+':gold',reason||`${fmt(item.price)} G`,blocked||game.gold<item.price);
+      btn.setAttribute('aria-label',`${item.name} 골드 구매 ${fmt(item.price)} G`);
+      const ev=item.kind==='unit'?E.evaluate(item.cards):null;
+      if(ev){const chips=E.hiddenChipPrice(item),b=$('offerChips_'+item.id);dealButton(b,'hidden:'+item.id+':chips',reason||`${chips} 칩`,blocked||game.chips<chips);b.setAttribute('aria-label',`${item.name} 칩 구매 ${chips}개`);}
+      $('offerInfo_'+item.id).textContent=ev?`${E.TYPES[E.unitType(item.cards)].type} · ${fmt(ev.power*E.researchFactor(ev.cat,E.unitType(item.cards),game.upgrades))} DPS`:item.kind==='hand'?'다음 계약에 적용':item.kind==='chips'?`즉시 ${item.amount}칩`:`즉시 조커 ${item.amount}개`;
+    }
+  }
   function renderShop(){
     let affordable=0;
-    for(const item of E.SHOP){const lv=game.shop[item.id],max=lv===item.max,button=$('shopBuy_'+item.id);$('shopLevel_'+item.id).textContent=`LV.${lv} / ${item.max}`;button.textContent=max?'최대 레벨':`업그레이드 · ${fmt(item.cost(lv))} G`;button.disabled=!isPlaying()||max||game.gold<item.cost(lv);if(!max&&game.gold>=item.cost(lv))affordable++;
-      $('shopValue_'+item.id).textContent=item.id==='pocket'?`현재 3장 핸드 확률 ${lv*2}% → ${Math.min(20,(lv+1)*2)}%`:item.id==='refinery'?`1 CHIP / ${(game.chipInterval()/ui.speed).toFixed(1)}초 (현재 속도) · 생산량 +${lv*8}%`:item.id==='broker'?`기본 교체 −${lv} G · 판매 보너스 +${lv*8}%`:`보스 추가 조커 ${lv*25}% · 구매 시 조커 +1`;
+    for(const item of E.SHOP){const lv=game.shop[item.id],max=lv>=item.max,button=$('shopBuy_'+item.id),unlock=item.id==='refinery'?E.REFINERY.unlock[lv]:item.id==='broker'?E.DEALER.unlock[lv]:0,locked=!max&&game.wave<unlock;
+      $('shopLevel_'+item.id).textContent=`${lv} / ${item.max}`;button.textContent=max?'최대 레벨':locked?`S${unlock} 해금 · ${fmt(item.cost(lv))} G`:`${fmt(item.cost(lv))} G`;button.disabled=!isPlaying()||max||locked||game.gold<item.cost(lv);if(!max&&!locked&&game.gold>=item.cost(lv))affordable++;
+      const arrow=(a,b,suffix='')=>max?`${a}${suffix}`:`${a} → ${b}${suffix}`;
+      $('shopValue_'+item.id).textContent=item.id==='pocket'?`3장 확률 ${arrow(lv*2,Math.min(20,(lv+1)*2),'%')}`:item.id==='refinery'?`생산 보너스 ${arrow(Math.round(E.refineryBonus(lv)*100),Math.round(E.refineryBonus(Math.min(6,lv+1))*100),'%')}`:item.id==='broker'?`${(E.DEALER.period/ui.speed).toFixed(0)}초당 ${arrow(E.dealerIncome(lv),E.dealerIncome(Math.min(4,lv+1)),' G')} · 교체 −${lv} G`:`보스 추가 조커 ${arrow(lv*25,Math.min(75,(lv+1)*25),'%')}`;
     }
-    $('shopBadge').textContent=affordable?'· '+affordable:'';
-    $('storeSummary').innerHTML=`현재 기본 교체 <b>${E.refreshCost(0,game.shop.pocket,game.shop.broker)} G</b> · 다음 교체 ${game.rerollCost()} G<br>확장 카드는 다음 새 계약·일반 교체부터 적용.<br>특수 교체는 현재 핸드 장수를 유지합니다.<br>상점은 이번 판에만 적용되며 새 작전에서 초기화됩니다.`;
+    renderMarket();$('shopBadge').textContent=game.activeVisit()?'· 열림':affordable?'· '+affordable:'';
+    $('storeSummary').textContent=`기본 교체 ${E.refreshCost(0,game.shop.pocket,game.shop.broker)} G · 다음 교체 ${game.rerollCost()} G`;
     E.NAMES.forEach((_,c)=>$('archiveCount'+c).textContent=game.gradeCounts[c]+' 획득');
   }
   function cardHTML(card,index,best=null,third=false,zone='board'){
@@ -909,14 +1330,15 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     $('sellBtn').title='선택한 편대원 1기만 판매합니다. 칩·조커·연구비는 환급하지 않습니다.';
   }
   function renderHUD(){
+    document.body.classList.toggle('editor-active',!!game.editor);
     const d=game.deal,n=d.board.length,playing=isPlaying(),ready=playing&&game.canAct(),next=Math.max(0,Math.ceil((game.nextWaveAt-game.t)/ui.speed)),phase=game.wave?E.waveInfo(game.wave).label:'출격 준비';
     $('waveValue').innerHTML=String(game.wave).padStart(2,'0')+' <small>/ '+E.CONFIG.waves+'</small>';$('wavePhase').textContent=phase;$('nextTime').textContent=game.wave===E.CONFIG.waves?'최종 방어':next+'초 후 진입';
     $('runTime').textContent=time(ui.elapsed)+' / ~'+time(ui.elapsed+Math.max(0,E.CONFIG.waves*E.CONFIG.waveSeconds-game.t)/ui.speed);$('runTime').title='기준 진행 시간 · 실제 플레이 '+time(ui.elapsed);$('campaignFill').style.width=Math.min(100,game.t/(E.CONFIG.waves*E.CONFIG.waveSeconds)*100)+'%';$('bossNext').textContent=game.wave===E.CONFIG.waves?'최종 보스':`보스 S${Math.floor(game.wave/10)*10+10}`;
     document.querySelectorAll('[data-boss]').forEach(b=>b.classList.toggle('cleared',Number(b.dataset.boss)<=game.bossKills*10));
     $('enemyValue').innerHTML=game.enemies.length+' <small style="font-size:10px;color:#7790a0">/ 200</small>';
     $('overflowFill').style.width=Math.min(100,game.enemies.length/200*100)+'%';$('overflowFill').style.background=game.enemies.length>=160?'#fa8195':game.enemies.length>=100?'#eabe70':'#7de2ba';$('overflowMetric').classList.toggle('danger',game.enemies.length>=160);
-    $('overflowText').textContent=game.enemies.length>=160?'붕괴 위험 · 200기 전에 밀린 적을 줄이세요':game.enemies.length>=100?'적 누적 중 · 보스와 일반 적의 화력을 배분하세요':'200기 도달 시 패배 · 보스 초과 시 증원';
-    $('goldValue').textContent=fmt(game.gold);$('chipValue').textContent=fmt(game.chips);$('jokerValue').textContent=fmt(game.tokens);$('chipTickMini').textContent=Math.max(0,Math.ceil((game.chipInterval()-game.chipClock)/ui.speed))+'s';$('chipTimer').textContent=`+1 / ${Math.max(0,Math.ceil((game.chipInterval()-game.chipClock)/ui.speed))}초`;
+    $('overflowText').textContent=game.enemies.length>=160?'위험 · 200기 도달 시 패배':game.enemies.length>=100?'적 누적 중':'200기 도달 시 패배 · 보스 초과 시 증원';
+    $('goldValue').textContent=fmt(game.gold);$('goldProduction').textContent=game.shop.broker?` +${(game.goldRate()*ui.speed).toFixed(1)}/s`:'';$('chipValue').textContent=fmt(game.chips);$('jokerValue').textContent=fmt(game.tokens);$('chipTickMini').textContent=Math.max(0,Math.ceil((game.chipInterval()-game.chipClock)/ui.speed))+'s';$('chipTimer').textContent=`+1 / ${Math.max(0,Math.ceil((game.chipInterval()-game.chipClock)/ui.speed))}초`;
     const boss=game.enemies.find(e=>e.boss);$('phasePill').textContent=boss?'BOSS ALERT':game.wave===0?'DEPLOYMENT':game.wave>=101?'FINAL SIEGE':`STAGE ${String(game.wave).padStart(2,'0')}`;$('phasePill').style.color=boss?'#ff9cab':game.wave>=101?'#eabe70':'#b3d1c1';
     $('arenaTimer').textContent=boss?`보스 HP ${short(boss.hp)} · ${boss.enraged?'광폭화 / 증원':Math.max(0,(boss.deadline-game.t)/ui.speed).toFixed(0)+'초 후 광폭화'}`:game.wave===0?`첫 공세까지 ${next}초`:game.wave===E.CONFIG.waves?`최종 소탕 · ${Math.max(0,((game.finalDeadline||game.t)-game.t)/ui.speed).toFixed(0)}초`:`${phase} · 다음 ${next}초`;
     const total=game.units.reduce((a,u)=>a+u.count,0);$('combatStat').textContent=`${total} UNITS · ${short(game.totalDPS())} DPS`;$('armySize').textContent=`${total}기 · ${game.units.length}편대`;$('dealCount').textContent='HAND '+String(game.summons+1).padStart(3,'0');
@@ -925,20 +1347,20 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     $('rerollBtn').disabled=!ready||n>0||game.gold<game.rerollCost();$('jokerBtn').disabled=!ready||![3,4,5].includes(n)||d.jokerUsed||game.tokens<1;
     $('advanceLabel').textContent=n===0?'플랍 공개':n===3?'턴 공개':n===4?'리버 공개':'리버 공개 완료';$('advanceCost').textContent=n===5?'E로 소환 확정':'◉ '+cost+' CHIP';$('rerollLabel').textContent=n?'일반 교체 잠김':`핸드 교체 · ${fmt(game.rerollCost())} G`;$('jokerLabel').textContent=d.jokerUsed?'특수 교체 사용 완료':ui.jokerMode?'교체할 카드 선택 중':'한 장 교체 · ✦ 1';
     $('invested').textContent=`이번 계약 투자 ${d.invested} CHIP`;$('actionHint').textContent=n===5?'리버 확인 중 · J 교체 / E 소환':n===0?`일반 교체 ${d.rolls}회`:'조커: 원하는 공개 카드 한 장만 교체';
-    $('pocketChance').textContent=`3장 핸드 확률 ${game.shop.pocket*2}%${d.hole.length===3?' · 확장 핸드 적용 중':' · 상점에서 확장 가능'}`;$('pocketChance').classList.toggle('active',d.hole.length===3);
+    $('pocketChance').textContent=`3장 핸드 확률 ${game.shop.pocket*2}%${d.hole.length===3?' · 확장 핸드 적용 중':''}`;$('pocketChance').classList.toggle('active',d.hole.length===3);
     const ev=ui.preview;
     if(n&&ev){const role=E.TYPES[ev.type];$('previewIcon').textContent=role.symbol;$('previewIcon').style.color=E.COLORS[ev.cat];$('unitPreview').style.borderColor=E.COLORS[ev.cat]+'66';$('previewName').textContent=E.NAMES[ev.cat]+' · '+role.type;$('previewName').style.color=E.COLORS[ev.cat];$('previewSub').textContent=ev.label;$('previewPower').innerHTML=short(ev.dps)+'<small>소환 기준 DPS</small>';$('claimSub').textContent=E.NAMES[ev.cat]+' 유닛 획득';$('qualityFill').style.width=(ev.quality*100)+'%';$('qualityValue').textContent=Math.round(ev.quality*100)+'%';$('qualityLabel').textContent='같은 족보 내 서열';}
-    else{$('previewIcon').textContent='◇';$('previewIcon').style.color='#7da996';$('unitPreview').style.borderColor='#354b46';$('previewName').textContent='플랍을 기다리는 중';$('previewName').style.color='#bfccd4';$('previewSub').textContent='트리플 이하 노말 · 스트레이트부터 특수';$('previewPower').innerHTML='—<small>소환 기준 DPS</small>';$('claimSub').textContent='현재 족보 확정';$('qualityFill').style.width='0%';$('qualityValue').textContent='—';}
+    else{$('previewIcon').textContent='◇';$('previewIcon').style.color='#7da996';$('unitPreview').style.borderColor='#354b46';$('previewName').textContent='플랍 미공개';$('previewName').style.color='#bfccd4';$('previewSub').textContent='공개 비용: 4칩';$('previewPower').innerHTML='—<small>소환 기준 DPS</small>';$('claimSub').textContent='현재 족보 확정';$('qualityFill').style.width='0%';$('qualityValue').textContent='—';}
     for(const t of E.RESEARCH){$('upLevel'+t).textContent='LV.'+game.upgrades[t];$('upCost'+t).textContent=fmt(E.upgradeCost(game.upgrades[t]))+' G';const base=game.units.filter(u=>u.type===t||u.cat>=6).reduce((sum,u)=>sum+u.base,0);$('upBonus'+t).textContent=ui.mobile?'+'+short(base*E.CONFIG.upgradeStep)+' DPS':'+'+(game.upgrades[t]*16)+'%';document.querySelector(`[data-upgrade="${t}"]`).disabled=!playing||game.gold<E.upgradeCost(game.upgrades[t]);}
     const u=game.units.find(x=>x.id===ui.selected);
     if(u){const role=E.TYPES[u.type],bonus=Math.round((E.researchFactor(u.cat,u.type,game.upgrades)-1)*100);$('inspectSymbol').textContent=role.symbol;$('inspectSymbol').style.color=role.color;$('inspectSymbol').style.borderColor=E.COLORS[u.cat]+'88';$('inspectTitle').textContent=`${E.NAMES[u.cat]} · ${role.type} ×${u.count}`;$('inspectTitle').style.color=E.COLORS[u.cat];$('inspectSub').textContent=role.role+` · 사거리 ${E.unitRange(u)} · ${E.barrageFor(u).count}발 × ${E.rateFor(u).toFixed(2)}회/s/기 · 연구 +${bonus}%${u.cat>=6?' (전체)':''}`;$('inspectDps').innerHTML=short(game.unitDPS(u))+'<small>편대 기준 DPS</small>';}
-    else{$('inspectSymbol').textContent='◇';$('inspectSymbol').style.color='#81a898';$('inspectTitle').textContent='유닛을 선택해 개별 성능과 판매가를 확인하세요';$('inspectTitle').style.color='#c9dbde';$('inspectSub').textContent='같은 족보·타입은 편대화 · 각 유닛의 세부 DPS는 별도 보존';$('inspectDps').innerHTML=short(game.totalDPS())+'<small>전체 기준 DPS</small>';}
+    else{$('inspectSymbol').textContent='◇';$('inspectSymbol').style.color='#81a898';$('inspectTitle').textContent='편대 선택';$('inspectTitle').style.color='#c9dbde';$('inspectSub').textContent='개별 유닛 성능·판매 확인';$('inspectDps').innerHTML=short(game.totalDPS())+'<small>전체 기준 DPS</small>';}
     renderMembers(u);renderRoster();renderShop();renderJoker();$('moveSelectedBtn').disabled=!u||!ui.started;$('realDps').textContent=short(game.effectiveDPS*E.CONFIG.tempo);const wi=E.waveInfo(Math.max(1,game.wave));$('incomingDps').textContent=short(wi.hp*wi.count/E.CONFIG.waveSeconds*E.CONFIG.tempo);$('backlogHp').textContent=short(game.enemies.reduce((a,e)=>a+e.hp,0));
   }
   function showResult(){
     const won=game.status==='won';$('resultTitle').textContent=won?'SIEGE COMPLETE':'LINE BREACHED';$('resultTitle').style.color=won?'#7de2ba':'#fa8195';$('resultReason').textContent=game.reason;
     $('resultGrid').innerHTML=[['도달 스테이지',game.wave+' / '+E.CONFIG.waves],['실제 플레이',time(ui.elapsed)],['처치 수',fmt(game.kills)],['소환 / 판매',game.summons+' / '+game.sold],['보스 처치',game.bossKills+' / 12'],['최종 DPS',short(game.totalDPS())]].map(([a,b])=>`<div><small>${a}</small><strong>${b}</strong></div>`).join('');
-    $('resultKicker').textContent=game.editor?'EDITOR / 테스트 결과 (일반 기록 아님)':'OPERATION REPORT';$('resultBest').textContent=`최고 족보: ${E.NAMES[game.bestGrade]} · ${game.gradeCounts[game.bestGrade]}회 · 확장 핸드 Lv.${game.shop.pocket}`;$('resultBest').style.color=E.COLORS[game.bestGrade];$('resultTip').textContent=won?'120스테이지를 방어했습니다. 남은 골드와 칩, 판매·상점 투자 결과를 비교해 보세요.':'초반 노말 연구와 소환을 확보하세요. 확장 핸드는 장기 투자이며, 상점에만 투자하면 방어가 무너질 수 있습니다.';
+    $('resultKicker').textContent=game.editor?'EDITOR / 테스트 결과 (일반 기록 아님)':'OPERATION REPORT';$('resultBest').textContent=`최고 족보: ${E.NAMES[game.bestGrade]} · ${game.gradeCounts[game.bestGrade]}회 · 확장 핸드 Lv.${game.shop.pocket}`;$('resultBest').style.color=E.COLORS[game.bestGrade];$('resultTip').textContent=won?`골드 자동 생산: ${fmt(game.earned.passiveGold)} G`:`골드 자동 생산: ${fmt(game.earned.passiveGold)} G`;
     try{localStorage.removeItem(game.editor?SAVE_KEY+'_editor':SAVE_KEY);}catch{}if(!game.editor){saved=null;$('continueBtn').classList.add('hidden');}openModal('result');
   }
   function resize(){
@@ -1181,15 +1603,25 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     ctx.restore();
   }
   function helpHTML(){
-    const powers=E.NAMES.map((n,c)=>`<tr><td style="color:${E.COLORS[c]}">${n}</td><td>${E.DPS[c]}–${E.MAX_DPS[c]}</td><td>${E.RANGES[c]}</td></tr>`).join('');
-    const stages=[1,10,20,30,40,50,60,70,80,90,100,110,120].map(w=>{const i=E.waveInfo(w);return `<tr><td>${w}${i.boss?' · 보스':''}</td><td>${fmt(i.hp)}</td><td>${i.count}</td><td>${fmt(i.hp*i.count/(E.CONFIG.waveSeconds/E.CONFIG.tempo))}</td><td>${i.boss?fmt(i.bossHP):'—'}</td></tr>`;}).join('');
-    return `<div class="help-section"><h3>0.6 / DISTINCT ARSENAL</h3><p>120스테이지 · 기본 2×에서 20초 간격 · 약 40–41분. 매 10스테이지, 총 12회 보스가 등장합니다. 기존 2배속을 기본으로 삼되 캠페인을 2배 길게 설계했습니다. 2.5×를 고르면 약 32–33분입니다. 잔여 적이 <b>200기에 도달하면 패배</b>합니다. 보스는 기본 템포에서 57.5초 안에 처치하지 못하면 광폭화하여 기본 템포에서 6초마다 증원 2기를 보냅니다. 보스 자체 시간 초과는 즉사가 아닙니다. 최종 스테이지 소탕 제한은 기본 템포에서 80초입니다.</p><p><b>0.6 난도 조정:</b> 시작 체력·자원·생산 속도는 유지합니다. 0.5 대비 기본 적 및 보스 체력을 S10 +3%, S40 +10%, S80 +14%, S120 +18%로 점진 강화했습니다. 적 수와 200기 패배 기준은 그대로입니다.</p></div>
-    <div class="help-section"><h3>핸드와 조커</h3><p>플랍 전 골드 교체는 2장/3장 장수까지 매번 재추첨합니다. 확장 핸드는 레벨당 2%p, 최대 20%의 이벤트입니다. 기본 교체비는 2레벨마다 1 G 증가합니다. 플랍 4칩 · 턴 추가 3칩 · 리버 추가 4칩. 플랍·턴·리버 모두 직접 소환합니다. 리버 공개 후에도 조커를 쓸 수 있으며, E 또는 지금 소환을 누를 때까지 최종 족보를 유지합니다. 전투는 계속됩니다.</p><p><b>J → 원하는 공개 카드 클릭 → 교체 확정</b>. 내 핸드와 공용 카드 어느 쪽이든 한 장을 선택합니다. 대체 카드는 남은 덱에서 무작위이며, 조커 1개·계약당 한 번입니다. 플랍이나 턴에서 이미 썼으면 리버에서 다시 쓸 수 없습니다. 나머지 카드는 그대로이고 버린 카드는 다시 나오지 않습니다. 교체로 족보가 나빠질 수도 있습니다. 확률 패널의 기대 DPS는 직접 공격 기준이며 승률이 아닙니다.</p></div>
-    <div class="help-section"><h3>연구·재화·판매</h3><p>시작 100 G · 4칩 · 조커 1개 · 노말 2기. 기본 2×에서 11초마다 1칩, 스테이지마다 2칩, 보스 처치 시 2칩을 받습니다. 일반 적은 4 G, 광폭화 증원은 0 G입니다. 연구는 레벨당 기본 DPS +16%; 노말·펄스·노바·프리즘·바이퍼 5계열이고 풀하우스 이상에는 다섯 레벨의 합이 적용됩니다. 각 배율을 곱하지 않습니다.</p><p>편대원은 개별로 사격하며, 합쳐서 한 발을 쏘지 않습니다. 유닛을 선택하면 사거리·연사·개별 DPS가 표시됩니다. 투사체가 도착해야 피해가 들어갑니다. 판매는 선택한 한 기만 제거하며 그 기의 잔상과 날아가는 투사체도 제거됩니다. 연구 가격과 판매가는 서로 독립적입니다.</p></div>
-    <div class="help-section"><h3>기본 성능 / 사거리</h3><table class="help-table"><thead><tr><th>족보</th><th>기본 DPS</th><th>사거리</th></tr></thead><tbody>${powers}</tbody></table><p>전체 포커 세부 서열에 따라 족보 안에서 선형 증가합니다. 스트레이트·플러시만 최고 카드 무늬 능력을 받습니다. A2345는 5의 무늬입니다. 풀하우스 이상은 고유 능력·모든 연구 적용입니다. 하이 카드부터 투사체와 사거리가 달라지지만 트리플 이하는 상태이상·광역 효과가 없습니다.</p></div>
-    <div class="help-section"><h3>다발 투사체 · 피해 예산</h3><p>풀하우스는 궤도를 돌며 모이는 5중 회전 인장, 포카드는 양쪽 포드에서 교대 발사하는 8발 로켓, 스트레이트 플러시는 양익에 펼친 10개 결정 칼날, 로열은 상공 문양에서 수직 낙하하는 12자루 심판검입니다. 색뿐 아니라 실루엣·궤적·발사 이펙트·피격 이펙트가 다릅니다. 피해량·탄수·명중 시점은 0.5와 동일합니다. 총 직접 피해는 <b>기본 DPS × 연구 배율 ÷ 공격 주기 수</b>이며 이를 탄수로 나눕니다. 탄수가 늘어도 단일 대상의 기준 DPS는 늘지 않습니다.</p><p>포카드는 반경 28 이내 14%, 반경 68 이내 6%로 주변 최대 2기에 폭발 피해. 스티플은 반경 44/98에서 40%/18%, 주변 최대 3기. 로열은 반경 48/108에서 48%/22%, 주변 최대 5기입니다. 비율은 <b>각 작은 탄의 피해 기준</b>이고 직접 피격 대상은 스플래시를 중복 적용받지 않습니다. 풀하우스·포카드·로열의 잔상은 탄막당 마지막 탄에서 한 개만 생깁니다. 미사일마다 완전한 잔상을 만들지 않습니다.</p></div>
-    <div class="help-section" id="stageIntel"><h3>스테이지 전황표</h3><table class="help-table"><thead><tr><th>S</th><th>기본 HP</th><th>적 수</th><th>유입 HP/s</th><th>보스 HP</th></tr></thead><tbody>${stages}</tbody></table><p>유입 HP/s = 기본 HP × 기본 적 수 ÷ 20초 (기본 2×의 실제 초 기준). 장갑·정예·보스·광폭화 증원은 제외한 참고 하한입니다. 실측 DPS는 최근 전투시간 4초(기본 템포의 실제 2초) 동안 깎은 체력이라 오버킬을 세지 않으며, 적이 없으면 낮아집니다. HUD의 실측 DPS와 유입 HP/s는 기본 2×의 실제 초 기준입니다. 카드·도감의 기준 DPS는 이전 버전과 같은 전투시간 1초 기준이므로 2×에서 실제 직접 피해량은 2배입니다. 장갑 적의 피해 감소는 16%입니다.</p></div>
-    <div class="help-section"><h3>조작·에디터·저장</h3><p>D 다음 카드 · E 소환 · R 일반 교체 · J 한 장 교체 · 1–5 연구 · B 상점 · Space 정지. 전장 드래그로 위치 변경. 상점은 시간이 흐르며 가이드·에디터 창·비활성 브라우저 탭에서는 멈춥니다.</p><p>상단 <b>에디터</b>에서 지정 카드로 유닛 소환, 현재 핸드 지정, 스테이지 이동, 재화·연구 설정을 할 수 있습니다. 에디터를 켠 작전은 계속 테스트 기록이며 일반 저장을 덮어쓰지 않습니다. 일반 모드로 돌아가려면 새 작전을 시작하세요. 자동 시연도 최적 전략은 아니며 승리를 보장하지 않습니다. 0.5·0.6 저장을 가져올 수 있습니다. 0.5에서 가져오면 현재 적과 웨이브의 체력은 그대로 두고 다음 웨이브부터 강화 난도를 적용합니다. 자동 시연은 꺼진 상태로 복원합니다. 새 난도를 처음부터 검증하려면 새 작전을 시작하세요. 0.1–0.4 저장은 지원하지 않습니다. 모바일은 하단 계약·전력·상점·도감 탭을 사용하세요. 전력에서 편대를 선택해 연구·개별 판매·탭 배치가 가능합니다. 화면을 잠그거나 다른 앱으로 이동하면 자동 저장·일시정지하며 복귀 후 직접 재개합니다. 그래픽 절전 옵션은 렌더링만 줄이고 전투 판정은 바꾸지 않습니다.</p></div>`;
+    const table=(heads,rows)=>`<div class="guide-table-wrap"><table class="help-table"><thead><tr>${heads.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>'<tr>'+row.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')}</tbody></table></div>`;
+    const section=(id,title,content,open=false)=>`<details class="guide-section" id="${id}" ${open?'open':''}><summary>${title}</summary><div class="help-section">${content}</div></details>`;
+    const rp=game.refineryProjection(),dp=game.dealerProjection();
+    const powers=E.NAMES.map((name,c)=>[name,`${fmt(E.DPS[c])}${E.DPS[c]===E.MAX_DPS[c]?'':'–'+fmt(E.MAX_DPS[c])}`,E.RANGES[c]]);
+    const stages=[1,10,20,30,40,60,80,100,120].map(w=>{const i=E.waveInfo(w);return [w,fmt(i.hp),i.count,fmt(i.hp*i.count/20),i.boss?fmt(i.bossHP):'—'];});
+    const dealerRows=E.DEALER.costs.map((cost,l)=>[l+1,'S'+E.DEALER.unlock[l],fmt(cost)+' G',E.DEALER.income[l+1]+' G / 10초','−'+(l+1)+' G']);
+    const refineryRows=E.REFINERY.costs.map((cost,l)=>[l+1,'S'+E.REFINERY.unlock[l],fmt(cost)+' G','+'+Math.round(E.refineryBonus(l+1)*100)+'%']);
+    return `<nav class="guide-nav" aria-label="가이드 항목"><button data-guide="guide-basics">기본</button><button data-guide="guide-shop">상점</button><button data-guide="guide-facility">시설</button><button data-guide="guide-combat">전투</button><button data-guide="guide-save">저장</button></nav>`+
+    section('guide-basics','진행·조작',`<p><b>기본 2× · 120스테이지 · 약 40분.</b> 스테이지 간격은 기본 템포에서 20초, 매 10스테이지에 보스가 등장합니다. 2.5×에서는 같은 캠페인이 약 32분입니다. 최종 소탕 시간과 일시정지는 별도입니다.</p><p>시작 자원은 100 G·4칩·조커 1개, 전력은 노말 2기입니다. 잔여 적 200기 도달 시 패배합니다. 보스는 기본 2×에서 57.5초 후 광폭화하며 6초마다 증원 2기를 보냅니다. 즉사 조건은 아니지만 증원이 계속 쌓입니다. S120의 최종 소탕 제한은 기본 2×에서 80초입니다.</p><p>D 다음 카드 · E 소환 · R 핸드 교체 · J 조커 · 1–5 연구 · B 상점 · Space 정지. 모바일은 하단 탭과 버튼을 사용합니다. 편대 선택 후 배치 이동을 누르고 목적지를 터치하면 이동합니다. 빈자리가 아니면 두 편대가 자리를 바꿉니다.</p><p>상점에서는 전투가 계속됩니다. 가이드·설정·에디터 창과 일시정지 중에는 전투 및 자원 생산이 모두 멈춥니다.</p>`,true)+
+    section('guide-cards','카드·조커·확률',`<p>핸드는 기본 2장입니다. 플랍 전 골드 새로고침은 카드 내용과 2장/3장 여부를 함께 추첨합니다. 플랍 공개 후에는 일반 교체가 잠깁니다. 플랍 4칩 → 턴 추가 3칩 → 리버 추가 4칩. 플랍·턴·리버 모두 <b>직접 소환</b>하며, 소환 전에는 카드가 유지됩니다.</p><p>공개된 5–8장 중 최상의 5장으로 판정합니다. 홀 카드 사용 장수 제한은 없습니다. 조커는 내 핸드나 공용 카드 중 한 장을 선택해 남은 덱의 무작위 카드로 바꿉니다. 비용은 1개, 계약당 1회. 버린 카드는 다시 나오지 않습니다. 리버에서도 가능하지만 앞 단계에서 사용했다면 다시 쓸 수 없습니다. 교체로 족보가 낮아질 수 있습니다.</p><p>확률 패널은 남은 카드 전체를 계산합니다. 일반 2장 핸드 플랍에서 리버까지는 1,081가지, 턴에서 리버까지는 46가지이며, 3장 핸드·조커의 버린 카드도 반영합니다. 기대 DPS는 <b>현재 연구를 반영한 직접 공격</b>의 평균이며 광역·잔상·사거리·적 방어와 승률은 포함하지 않습니다.</p>`)+
+    section('guide-shop','보급 상점',`<p>칩 4개는 200 / 240 / 280 G에 구간당 세 번 구매합니다. 소환권은 구간당 한 개, 3,600 G입니다. S21·41·61·81·101에 재입고되며 남은 재고는 이월하지 않습니다. 칩 가격은 이번 업데이트에서 바꾸지 않았습니다.</p><p><b>희귀 소환권:</b> 스트레이트 50%·플러시 50%. 해당 족보의 세부 서열과 네 무늬를 균등 추첨합니다. 유닛 1기를 즉시 받으며 현재 계약은 유지합니다. 기본 직접 DPS 평균은 1,380, 현재 연구를 반영한 평균은 <b>${fmt(ticketExpectation())}</b>입니다. 광역·지속 피해는 제외합니다.</p><p>칩 묶음 외의 보급·히든 상품은 같은 결제 버튼을 6초 안에 한 번 더 눌러 확정합니다. 다른 상품이나 결제 수단을 선택하면 다시 확인해야 합니다. 부족한 재화로는 구매하지 않으며 구매 취소는 없습니다.</p>`)+
+    section('guide-market','히든 상점·칩 결제',`<p>S20·40·60·80·100에 상품 3종을 공개합니다. <b>다음 히든 상점이 열릴 때까지 유지</b>하고 마지막 S100 상점은 최종 소탕까지 열립니다. 상품당 1개, 방문당 최대 2개를 구매할 수 있습니다. 다음 방문에서만 목록과 구매 한도가 바뀝니다. 미판매 재고는 이월하지 않습니다. 핸드 교체나 저장·복원으로 목록을 바꿀 수 없습니다.</p><p><b>완성 유닛:</b> 표시된 카드를 그대로 소환합니다. 골드 또는 칩 중 하나로 전액 결제하며 혼합 결제는 없습니다. 두 버튼은 같은 재고를 공유합니다. 어느 수단으로 사도 구매 1회를 소모하고 현재 계약과 예약은 유지됩니다. 카드 아래 DPS는 현재 연구를 반영한 직접 공격 기준입니다.</p><p><b>칩 가격:</b> 골드 표시가를 40 G/칩으로 환산한 뒤 4칩 단위로 올림합니다. 예를 들어 3,200 G 유닛은 80칩입니다. 이는 가장 저렴한 대량 칩 구매를 거쳐 동일 유닛을 더 싸게 사는 환전 우회를 막기 위한 가격 기준입니다. 보유 칩으로 확정 유닛을 사는 것과 포커를 진행하는 것은 여전히 서로 다른 선택입니다. 연구로 상점 가격이 변하지는 않습니다.</p><p>예약 핸드·대량 칩·조커는 골드로만 삽니다. 완성 유닛은 첫 방문에 스트레이트/플러시, S40부터 풀하우스, S80부터 드물게 포카드가 나올 수 있습니다. 스트레이트 플러시와 로열은 판매하지 않습니다.</p><p><b>예약 핸드:</b> 1개만 보관하며 다음 계약 시작에 정확한 두 장을 적용합니다. 추가 세 번째 카드는 확장 확률에 따라 추첨합니다. 적용 후 일반 새로고침을 하면 예약 효과는 소모됩니다. 이미 공개한 보드에 구매한 패를 끼워 넣을 수 없습니다.</p>`)+
+    section('guide-facility','시설·칩 정제소',`<p>시설은 이번 작전 동안 유지합니다. 연구와는 별개입니다.</p><p><b>확장 핸드:</b> 레벨당 3장 확률 +2%p, 최대 10레벨·20%. 기본 교체비는 2레벨마다 +1 G. 새 계약과 일반 교체마다 장수를 다시 추첨합니다. 일반 교체 비용은 반복 횟수에 따라 증가하고 다음 소환 뒤 초기화됩니다.</p><p><b>칩 정제소:</b> 자연 생산만 강화합니다. 스테이지·보스 보상이나 구매 칩에는 적용되지 않습니다. 기본 자연 생산은 2×에서 11초당 1칩이고, 레벨별 누적 보너스가 생산 속도에 적용됩니다. 설치 즉시 칩은 지급하지 않습니다.</p>${table(['레벨','해금','가격','누적 생산'],refineryRows)}<p class="guide-live">${rp.level>=6?'정제소 최대 레벨입니다.':`현재 시점에 다음 단계를 설치하면 약 40분까지 추가 ${rp.chips.toFixed(1)}칩 · 1칩당 약 ${Number.isFinite(rp.goldPerChip)?fmt(rp.goldPerChip):'—'} G. ${game.wave<(rp.unlock||0)?'아직 단계가 잠겨 있으며 실제 구매 시점에는 수익이 줄어듭니다.':''}`}</p><p><b>조커 공방:</b> 구매 시 조커 1개. 이후 보스 처치 시 추가 조커 확률이 레벨당 25%p 증가하며 최대 3레벨·75%입니다.</p><p>생산 예상량은 남은 캠페인 시간을 기준으로 하며 최종 초과 소탕은 제외합니다. 중간에 패배하면 그만큼 생산하지 못합니다.</p>`)+
+    section('guide-dealer','딜러 계약·골드 자동 생산',`<p>기존 판매가 보너스를 제거하고 <b>골드 자동 생산</b>으로 바꿨습니다. 기본 핸드 교체비 −1 G/레벨은 유지합니다. 생산은 설치 이후에만 적용하며 적 처치와 무관합니다. 아래 생산량은 기본 2× 기준입니다.</p>${table(['레벨','해금','가격','골드 생산','교체비'],dealerRows)}<p>총 구매비는 2,260 G. 보너스는 각 단계의 누적 생산량이며 서로 더하지 않습니다. 생산을 연속 적립해 1 G가 모일 때마다 잔액에 반영합니다. 연구·정제소는 골드 생산을 증가시키지 않습니다. 레벨을 올리기 전 시간에 높은 생산율을 소급 적용하지 않습니다.</p><p class="guide-live">현재 누적 자동 생산: ${fmt(game.earned.passiveGold||0)} G.<br>${dp.level>=4?'딜러 계약 최대 레벨입니다.':`지금 다음 단계 설치 시 캠페인 종료까지 추가 약 ${fmt(dp.gold)} G. 구매비 ${fmt(dp.price)} G, 생산만으로 회수하는 시간 약 ${(dp.payback/E.CONFIG.tempo/60).toFixed(1)}분(기본 2×). ${game.wave<(dp.unlock||0)?'아직 잠긴 단계이므로 실제 구매 시점에는 추가 생산량이 줄어듭니다.':''}`}</p><p>일시정지·가이드·설정·앱 전환 중에는 생산하지 않습니다. 앱을 닫아 둔 시간에 대한 오프라인 보상은 없습니다. 자동 생산 내역과 소수점 진행량은 저장됩니다.</p>`)+
+    section('guide-research','연구·판매·재화',`<p>연구는 노말·펄스·노바·프리즘·바이퍼 5계열이며 레벨당 기본 DPS +16%입니다. 풀하우스 이상에는 <b>다섯 연구 레벨의 합</b>을 적용하고 배율끼리 곱하지 않습니다. 스테이지마다 2칩, 보스 처치 시 2칩, 일반 적 처치 시 4 G를 받습니다. 광폭화 증원은 0 G입니다.</p><p>판매는 선택한 편대원 한 기만 제거합니다. 해당 유닛의 날아가는 투사체와 잔상도 함께 제거합니다. 판매는 골드만 지급하며 칩은 환급하지 않습니다. 판매가에는 연구나 딜러 레벨이 적용되지 않습니다.</p><p>일반 판매가는 계약에 쓴 칩과 족보·세부 서열로 정합니다. 상점 유닛은 이 계산값과 <b>골드 표시가의 25%</b> 중 작은 값을 받습니다. 칩으로 구매한 유닛도 같은 기준이며 칩으로 되팔 수 없습니다. 시작 유닛은 5 G입니다.</p>`)+
+    section('guide-combat','유닛 성능·사거리',`${table(['족보','기본 직접 DPS','사거리'],powers)}<p>같은 족보 안에서는 포커의 전체 세부 서열에 따라 선형 증가하며 족보 사이에는 별도 성능 차이가 있습니다. 트리플 이하는 노말 단일 공격입니다. 스트레이트와 플러시만 최고 카드의 무늬를 따라 타입이 결정됩니다. A2345는 5의 무늬이며, 같은 최고 숫자가 여럿이면 고정 순서 ♠♥♦♣로 선택합니다.</p><p>펄스는 연사, 노바는 주변 최대 2기 확산 피해, 프리즘은 보스 피해 ×1.7, 바이퍼는 취약 15%·감속 18%입니다. 풀하우스 이상은 고유 능력과 모든 연구를 적용받습니다. 같은 족보·타입은 편대로 표시하지만 각 편대원은 독립적으로 공격합니다. 투사체 도착 시 피해를 줍니다.</p><p>카드·도감의 DPS는 전투시간 1초 기준입니다. 기본 2×의 실제 초당 피해는 그 두 배이며, 전장 아래 실측 DPS와 유입 HP/s는 2× 실제 시간으로 표시합니다. 실측은 최근 전투시간 4초 동안 깎은 체력만 합산해 오버킬을 제외합니다.</p>`)+
+    section('guide-projectiles','탄막·스플래시·잔상',`<p>풀하우스: 회전 인장 5개와 성소 잔상. 포카드: 좌우 로켓 8발과 지속 균열, 보스 ×1.35. 스트레이트 플러시: 결정 칼날 10개와 확산, 보스 ×1.5. 로열: 상공 심판검 12자루와 광역 잔상, 보스 ×1.8.</p><p>한 공격의 직접 피해는 기본 DPS × 연구 배율 ÷ 초당 공격 횟수이며 탄수로 나눕니다. 투사체 수가 늘어도 단일 대상의 직접 DPS가 늘지는 않습니다. 직접 피격 대상은 스플래시를 중복 적용받지 않습니다.</p>${table(['족보','내부 피해','외곽 피해','추가 대상'],[['포카드','반경 28 · 14%','반경 68 · 6%','2기'],['스티플','반경 44 · 40%','반경 98 · 18%','3기'],['로열','반경 48 · 48%','반경 108 · 22%','5기']])}<p>비율은 작은 탄 한 발의 피해 기준입니다. 풀하우스·포카드·로열의 마지막 탄만 잔상을 하나 만들고, 유닛 한 기당 활성 잔상은 최대 2개입니다. 장갑 적은 관통하지 않는 공격의 피해를 16% 줄입니다.</p>`)+
+    section('stageIntel','스테이지 전황표',`${table(['S','기본 HP','적 수','유입 HP/s','보스 HP'],stages)}<p>유입 HP/s는 기본 적 체력 × 기본 개체수 ÷ 20초입니다. 장갑·정예·보스·증원은 제외한 참고값입니다. 체력·스폰 수·공격 수치는 0.7.1에서 변경하지 않았습니다.</p>`)+
+    section('guide-save','저장·모바일·에디터',`<p>0.5–0.8 저장을 지원합니다. 0.7.1 이전 저장의 상점 목록·구매 이력·예약·재화·유닛은 유지합니다. 기존 딜러 계약 레벨도 유지하며 새 골드 생산은 <b>불러온 뒤부터</b> 시작합니다. 지나간 시간에 대한 골드는 지급하지 않습니다. 제거된 판매 보너스를 소급 회수하지 않습니다. 0.5·0.6의 구 정제소는 기존 지불액 안에서 새 단계로 재정산하고 차액을 환급합니다.</p><p>저장 파일을 내보낸 뒤 다른 기기에서 불러올 수 있습니다. 불러올 때 자동 시연은 꺼집니다. 앱 전환·화면 잠금은 저장을 시도하고 일시정지합니다. 복귀 후 직접 재개합니다. 모바일 절전 모드는 그리기만 줄이며 확률·투사체·피해 계산은 동일합니다.</p><p>에디터는 카드 지정 소환·계약 변경·스테이지 이동·연구·재화 조절을 지원합니다. 에디터를 켠 작전은 계속 테스트 기록으로 표시하고 일반 작전 저장과 분리합니다. 일반 게임으로 돌아가려면 새 작전을 시작하세요. 자동 시연은 최적 전략이 아니며 승리를 보장하지 않습니다.</p>`);
   }
   function cancelJoker(){ui.jokerMode=false;ui.jokerTarget=null;ui.cache='';renderCards();renderHUD();}
   function toggleJoker(){if(!isPlaying()||![3,4,5].includes(game.deal.board.length)||game.deal.jokerUsed||game.tokens<1)return false;if(ui.jokerMode){cancelJoker();return true;}ui.jokerMode=true;ui.jokerTarget=null;ui.cache='';renderCards();renderHUD();return true;}
@@ -1206,7 +1638,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   for(const id of ['holeCards','boardCards']){$(id).addEventListener('click',chooseCard);$(id).addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();chooseCard(e);}});}
   $('jokerCancel').onclick=cancelJoker;
   $('jokerConfirm').onclick=()=>{if(!isPlaying()||!ui.jokerTarget)return;const {zone,index}=ui.jokerTarget;if(game.joker(zone,index)){ui.jokerMode=false;ui.jokerTarget=null;}ui.cache='';renderCards();renderHUD();};
-  $('stageIntelBtn').onclick=()=>{openModal('help');setTimeout(()=>$('stageIntel').scrollIntoView({block:'start',behavior:'smooth'}),30);};
+  $('stageIntelBtn').onclick=()=>openGuide('stageIntel');
   function openEditor(){
     if(!ui.started)startGame($('seedInput').value.trim()||newSeed(),false);
     if(!game.editor){if(!confirm('에디터를 활성화하면 이 작전은 테스트 기록이 됩니다. 일반 저장은 보존됩니다.'))return;save();game.editorEnable();}
@@ -1262,7 +1694,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   $('oddsExpandBtn').onclick=()=>{const open=document.querySelector('.odds-box').classList.toggle('expanded');$('oddsExpandBtn').textContent=open?'접기':'상세';$('oddsExpandBtn').setAttribute('aria-expanded',String(open));};
   $('mobileMenuBtn').onclick=()=>{openModal('settings');updateControls();};
   $('closeSettingsBtn').onclick=()=>{openModal(null);renderHUD();};
-  $('settingsHelpBtn').onclick=()=>openModal('help');
+  $('settingsHelpBtn').onclick=()=>openGuide();
   $('settingsEditorBtn').onclick=openEditor;
   $('settingsExportBtn').onclick=exportSave;
   $('settingsImportBtn').onclick=()=>$('importSaveInput').click();
@@ -1282,7 +1714,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
     const gap=(now-last)/1000;const realDt=Math.min(.25,Math.max(0,gap));last=now;ui.realTime+=realDt;if(gap>2&&ui.started&&!ui.modal&&!ui.paused&&game.status==='playing'){suspendForBackground();}
     if(isPlaying()&&!document.hidden){
       const dt=realDt*ui.speed;ui.elapsed+=realDt;ui.accumulator+=dt;
-      while(ui.accumulator>=E.CONFIG.step){game.tick(E.CONFIG.step);ui.accumulator-=E.CONFIG.step;ui.botClock=ui.auto&&!ui.jokerMode?ui.botClock+E.CONFIG.step:0;if(ui.auto&&!ui.jokerMode&&ui.botClock>=.8){ui.botClock-=.8;E.botAct(game);}if(game.status!=='playing'){ui.accumulator=0;break;}}
+      while(ui.accumulator>=E.CONFIG.step){game.tick(E.CONFIG.step);ui.accumulator-=E.CONFIG.step;ui.botClock=ui.auto&&!ui.jokerMode?ui.botClock+E.CONFIG.step:0;if(ui.auto&&!ui.jokerMode&&ui.botClock>=.8){ui.botClock-=.8;E.marketBotAct(game);}if(game.status!=='playing'){ui.accumulator=0;break;}}
       for(const f of ui.fx)f.life-=dt;ui.fx=ui.fx.filter(f=>f.life>0);
       for(const r of ui.rings)r.life-=dt;ui.rings=ui.rings.filter(r=>r.life>0);
       for(const p of ui.particles){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;}ui.particles=ui.particles.filter(p=>p.life>0);
@@ -1294,7 +1726,7 @@ button,a,input,select{touch-action:manipulation}button{ -webkit-tap-highlight-co
   }
   window.addEventListener('pagehide',suspendForBackground);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)suspendForBackground();last=performance.now();ui.accumulator=0;});
-  window.Riverbound={get game(){return game;},get state(){return ui;},start:startGame,openEditor,suspendForBackground,setTab,updateMobileLayout,draw,refresh:()=>{ui.cache='';renderCards();renderHUD();},save,exportSave,importSaved};
+  window.Riverbound={get game(){return game;},get state(){return ui;},start:startGame,openEditor,suspendForBackground,setTab,updateMobileLayout,setMarketTab,draw,refresh:()=>{ui.cache='';renderCards();renderHUD();},save,exportSave,importSaved};
   resize();renderCards();renderHUD();requestAnimationFrame(frame);
 })();
 </script>
